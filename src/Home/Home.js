@@ -1,9 +1,11 @@
 import React from 'react' 
+import Book from '../Books/Book'
+import "./Home.css"
 
 function Home() {
   return (
      <div className='home'>
-        <h1>How are you</h1>
+        <Book />
      </div>
   )
 }
