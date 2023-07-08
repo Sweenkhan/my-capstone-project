@@ -1,16 +1,24 @@
 .products{
+    margin-top: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     flex-direction: row; 
     /* height: 800px; */
-    background-color: rgb(123, 156, 161);
 }
 
 
 .product{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     height: 300px;
-    width: 250px;
+    width: 230px;
+    margin: 8px;
+    background-color: white;
+    padding: 5px;
+    box-shadow: 5px 5px 15px rgb(52, 177, 219);
 }
  

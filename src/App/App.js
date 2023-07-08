@@ -4,7 +4,8 @@ import Home from "../Home/Home";
 import Book from "../Books/Book";
 import Header from "../Header/Header";
 import Login from "../Login/Login";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Dashboard from "../Dashboard/Dashboard.js";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -13,9 +14,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}>
         </Route>
+        <Route path="/dashboard" element={<Dashboard />}>
+        </Route>
         <Route path="/about" element={<About />}>
         </Route>
-        <Route path="/books" element={<Book />}>
+        <Route path="/book" element={<Book />}>
         </Route>
         <Route path="/login" element={<Login />}>
         </Route>
