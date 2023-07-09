@@ -29,7 +29,9 @@ function Book() {
             <div key={index} className="product"> 
               <p>{book.volumeInfo.title}</p>
               <h2>{book.volumeInfo.authors[0]}</h2>
-              <img src="https://books.google.com/books/content?id=I8OBEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" alt="aaj koi hai" />
+
+              <img src={book.volumeInfo.imageLinks.thumbnail} alt="ab to aa ja" />
+              {/* <img src="https://books.google.com/books/content?id=I8OBEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" alt="aaj koi hai" /> */}
             </div>
           );
         })}
