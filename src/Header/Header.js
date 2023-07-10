@@ -1,7 +1,5 @@
 import React from 'react'
-import "./Header.css"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+import "./Header.css" 
 import {Link} from "react-router-dom"
  
 function Header() {
@@ -11,7 +9,7 @@ function Header() {
         <form>
         <label for="search">Search</label>
         <input type="search" id="search" name="gsearch" />
-        <FontAwesomeIcon icon="fa-light fa-magnifying-glass" beatFade size="2xs" />
+      
         </form>
         <ul>
            <li>

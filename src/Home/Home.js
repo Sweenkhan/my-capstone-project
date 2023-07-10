@@ -1,5 +1,5 @@
 import React from 'react' 
-import Book from '../Books/Book'
+ 
 import "./Home.css"
 
 function Home() {
@@ -8,7 +8,7 @@ function Home() {
      <div className='main-bg' >
  
      </div>
-        <Book />
+       
      </div>
   )
 }
