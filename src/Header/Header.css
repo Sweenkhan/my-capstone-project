@@ -6,43 +6,41 @@
     align-items: center;
     position: fixed;
     top: 0;
-    background-color: #3aafa9;
+    background-color: rgb(219, 163, 219);
+    /* background-color: #c8c6d2; */
     backface-visibility: hidden;
-    color: white;
+    color: black;
 }
 
-.logo{
- 
+.logo {
+
     font-size: 1.9rem;
     padding-left: 20px;
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: dotted;
     text-decoration-color: black;
-    /* border-bottom: 1px solid white;
-    border-width: 20px;
-    border-bottom-right-radius: 10px; */
-    
-    /* color: rgb(219, 186, 197); */
+
 }
 
-.logo span{
+.logo span {
     opacity: 0.7;
     font-weight: 600;
 }
 
-.ixon{
+.ixon {
     width: 50px;
     font-size: 20px;
 }
+
 .header ul {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 40%; 
+    width: 40%;
     list-style-type: none;
 }
 
-.header ul li{
+.header ul li {
     font-size: 1.3rem;
     font-weight: 500;
     text-align: center;
@@ -50,22 +48,22 @@
 }
 
 
-ul #login{ 
-   box-sizing: border-box;
-   height: 60px;
-   width: 80px;
-   border-bottom-left-radius: 30px;
-   border-top-right-radius: 30px;
-   padding-top: 16px;
-   background-color: rgb(240, 245, 245);
+ul #login {
+    box-sizing: border-box;
+    height: 40px;
+    width: 80px; 
+    border-radius: 5px;
+    padding-top: 8px;
+    background-color: white;
 }
 
-ul #login a{
+ul #login:hover {  
+    background-color: rgba(34, 33, 37, 0.1);
+}
+
+
+  
+.header ul li a {
     color: black;
-}
-
-.header ul li a{
-    color: white;
     text-decoration: none;
 }
-

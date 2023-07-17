@@ -1,0 +1,83 @@
+ 
+
+.login{
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 100vw;
+     height: 100vh;
+     padding-top: 50px;
+     text-align: center;
+     color: rgb(85, 76, 76);
+}
+
+.login .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: 60%;
+}
+
+.login .container .loginLeft{ 
+    background-image: url("../../public/images/login.avif");
+    background-position: center;
+    background-size: cover; 
+    width: 40%;
+    height: 80%;
+}
+
+.login .container .loginRight{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    width: 40%;
+    height: 90%;
+}
+
+.loginRight h2{
+   font-size: 2rem;
+}
+
+ 
+.loginRight input{ 
+    border: none;
+    border-bottom: 1px solid black;
+    height: 28px;
+    width: 80%;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    outline: none;
+}
+
+
+.loginRight input:hover{  
+    border-radius: 4px;
+    border: none;
+    color: rgb(85, 76, 76);
+    background-color: rgba(196, 41, 196, 0.5);
+}
+
+
+.loginRight button{
+    background-color: rgb(85, 76, 76);
+    color: white;
+    font-size: 1.2rem;
+    margin: 12px;
+    width: 80%;
+    height: 30px;
+    border-radius: 4px;
+    border: none;
+}
+
+
+.loginRight button:hover{
+    color: rgb(85, 76, 76);
+    font-size: 1.4rem;
+    background-color: rgba(196, 41, 196, 0.5);
+}

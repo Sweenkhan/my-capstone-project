@@ -3,8 +3,10 @@ import About from "../About/About";
 import Home from "../Home/Home";
 import Book from "../Books/Book";
 import Header from "../Header/Header";
-import Login from "../Login/Login";
+import Login from "../FORM/Login";
+import Register from "../FORM/Register";
 import Dashboard from "../Dashboard/Dashboard.js";
+import Footer from "../Footer/Footer.js";
 import "../Books/Book.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -24,7 +26,10 @@ function App() {
         </Route>
         <Route path="/login" element={<Login />}>
         </Route>
+        <Route path="/register" element={<Register />}>
+        </Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
     </div>
   );
