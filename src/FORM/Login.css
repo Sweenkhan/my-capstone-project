@@ -23,7 +23,8 @@
 }
 
 .login .container .loginLeft{ 
-    background-image: url("../../public/images/login.avif");
+    background-image: url("../images/login.avif");
+    opacity: 0.9;
     background-position: center;
     background-size: cover; 
     width: 40%;

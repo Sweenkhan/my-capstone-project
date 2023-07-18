@@ -21,7 +21,7 @@
 }
 
 .register .container .left{ 
-    background-image: url("../../public/images/register.jpg");
+    background-image: url("../images/register.jpg");
     background-position: center;
     background-size: cover;
     width: 40%;
