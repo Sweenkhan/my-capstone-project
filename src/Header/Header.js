@@ -8,7 +8,7 @@ function Header() {
     <div className='header'>
         <div className='logo'><Link to="/">BOOK<span>SHELF </span></Link></div>
         <form>
-        <input type="search" id="search" name="gsearch" />
+        <input type="search" id="search" name="gsearch" placeholder='Find books...' />
         <label for="search"><SearchIcon /></label>
       
         </form>
@@ -22,8 +22,8 @@ function Header() {
            <li>
              <Link to="/book">Books</Link>
            </li>
-           <li id='login'>
-             <Link to="/login">Login</Link>
+           <li>
+             <Link id='login' to="/login">Login</Link>
            </li>
             
         </ul>

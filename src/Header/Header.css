@@ -1,75 +1,104 @@
 .header {
-    display: flex;
-    width: 100vw;
-    height: 70px;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    background-color: rgb(245, 184, 245);
-    /* background-color: #c8c6d2; */
-    backface-visibility: hidden;
-    color: black;
+  display: flex;
+  width: 100vw;
+  height: 70px;
+  padding: 0 2rem;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  /* background-color: rgb(245, 184, 245); */
+  /* background-color: #c8c6d2; */
+  backface-visibility: hidden;
+  color: black;
+  background: #ee9ca7; 
+  background: -webkit-linear-gradient(
+    to right,
+    #ffdde1,
+    #ee9ca7
+  );
+  background: linear-gradient(
+    to right,
+    #ffdde1,
+    #ee9ca7
+  ); 
 }
 
 .logo {
-
-    font-size: 1.9rem;
-    padding-left: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    text-decoration: dotted;
-    text-decoration-color: black;
-
+  font-size: 1.9rem;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: dotted;
+  text-decoration-color: black;
 }
 
 .logo a {
-    color: #403e3e;
-    text-decoration: none;
+  color: #403e3e;
+  text-decoration: none;
 }
 
 .logo a span {
-     
-    opacity: 0.7;
-    font-weight: 600;
+  opacity: 0.7;
+  font-weight: 600;
 }
 
 .ixon {
-    width: 50px;
-    font-size: 20px;
+  width: 50px;
+  font-size: 20px;
 }
 
 .header ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 40%;
-    list-style-type: none;
-}
-
-.header ul li {
-    font-size: 1.3rem;
-    font-weight: 500;
-    text-align: center;
-    color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 35%;
+  list-style-type: none;
 }
 
 
 ul #login {
-    box-sizing: border-box;
-    height: 40px;
-    width: 80px; 
-    border-radius: 5px;
-    padding-top: 8px;
-    background-color: white;
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  transition: all 0.35s;
 }
 
-ul #login:hover {  
-    background-color: rgba(34, 33, 37, 0.1);
+ul #login:hover {
+  background-color: #000;
+  color: #fff;
 }
 
-
-  
 .header ul li a {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+  text-align: center;
+  display: inline-block;
+}
+
+
+.header form{
+    position: relative;
+}
+.header form input{
+    width: 200px;
+    padding: 0.5rem 30px 0.5rem 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+}
+.header label{
+    position: absolute;
+    width: 30px;
+    right: 0;
+    top: 0;
+    background-color: #e3e3e3;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+.header label svg{
+    font-size: 1rem;
+    cursor: pointer;
 }
