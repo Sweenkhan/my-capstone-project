@@ -29,11 +29,11 @@ import "./Book.css";
               <h2>{book.volumeInfo.authors[0].length > 20 ? book.volumeInfo.authors[0].slice(0, 18) : book.volumeInfo.authors[0]}</h2>
               <p>{(book.volumeInfo.title.length > 25) ?  book.volumeInfo.title.slice(0, 25) :  book.volumeInfo.title}</p> 
                 
-
-              <img src={book.volumeInfo.imageLinks?.thumbnail ?  book.volumeInfo.imageLinks?.thumbnail : "bookimg"} alt="ab to" />
-               <div className="footers"></div>
-
-              {/* <img src="https://books.google.com/books/content?id=I8OBEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" alt="aaj koi hai" /> */}
+              <img alt="bookImg"  src = {(book?.volumeInfo?.imageLinks?.thumbnail) ? book.volumeInfo.imageLinks.thumbnail : " "}></img>
+             
+ 
+              <div className="footers"></div>
+ 
             </div>
           );
         })}
