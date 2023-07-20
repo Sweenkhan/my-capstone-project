@@ -6,7 +6,7 @@ import SearchIcon from '@mui/icons-material/Search';
 function Header() {
   return (
     <div className='header'>
-        <div className='logo'>BOOK<span>SHELF</span></div>
+        <div className='logo'><Link to="/">BOOK<span>SHELF </span></Link></div>
         <form>
         <input type="search" id="search" name="gsearch" />
         <label for="search"><SearchIcon /></label>

@@ -6,7 +6,7 @@ import Header from "../Header/Header";
 import Login from "../FORM/Login";
 import Register from "../FORM/Register";
 import Dashboard from "../Dashboard/Dashboard.js";
-import Footer from "../Footer/Footer.js";
+// import Footer from "../Footer/Footer.js";
 import "../Books/Book.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -29,7 +29,7 @@ function App() {
         <Route path="/register" element={<Register />}>
         </Route>
       </Routes>
-      <Footer />
+       
     </BrowserRouter>
     </div>
   );
