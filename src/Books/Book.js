@@ -6,18 +6,41 @@ import "./Book.css";
  function Book() {
   const [books, setBooks] = useState([]);
  
+   
+//  https://www.googleapis.com/books/v1/volumes?q=flowers&maxResults=40&orderBy=newest&key=AIzaSyC70bmYoDKsQw-cXQfH1mYdWk3sI8X2MUA
+ 
 
   useEffect(() => {
-    axios
-      .get(
-        `https://www.googleapis.com/books/v1/volumes?q=flowers&maxResults=40&orderBy=newest&key=${api_key}`
-      )
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=poetry&maxResults=40&orderBy=newest&key=${api_key}`)
       .then((result) => {
-        console.log(result.data.items[4].volumeInfo.imageLinks.thumbnail)
-        console.log((result.data.items[5].volumeInfo.title.length > 25) ?  result.data.items[5].volumeInfo.title.slice(0, 25) :  result.data.items[5].volumeInfo.title);
-        setBooks(result.data.items);
+        console.log((result.data.items[0].volumeInfo.description.length > 300)
+         ? result.data.items[0].volumeInfo.description.slice(0, 300) : result.data.items[0].volumeInfo.description) 
+         console.log(result.data.items)
+        setBooks(result.data.items.slice(0, 8));
       });
+
+      
   }, []);
+
+
+
+  useEffect(() => {
+    axios.post("http://localhost:8080/book", { books })
+      .then((result) => {
+        if (result.data === "books available") {
+          console.log('Books are available'); // Corrected console log message
+        }
+      })
+      .catch((error) => {
+        console.error("Error while posting books:", error);
+      });
+  }, [books]);
+  
+  
+  
+  
+  
+   
 
   return (
   
@@ -29,7 +52,7 @@ import "./Book.css";
               <h2>{book.volumeInfo.authors[0].length > 20 ? book.volumeInfo.authors[0].slice(0, 18) : book.volumeInfo.authors[0]}</h2>
               <p>{(book.volumeInfo.title.length > 25) ?  book.volumeInfo.title.slice(0, 25) :  book.volumeInfo.title}</p> 
                 
-              <img alt="bookImg"  src = {(book?.volumeInfo?.imageLinks?.thumbnail) ? book.volumeInfo.imageLinks.thumbnail : " "}></img>
+              <img alt="bookImg"  src = {(book.volumeInfo.imageLinks?.thumbnail) ? book.volumeInfo.imageLinks.thumbnail : " "}></img>
              
  
               <div className="footers"></div>

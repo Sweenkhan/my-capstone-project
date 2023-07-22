@@ -2,7 +2,7 @@
 import React from "react";
 import Footer from "../Footer/Footer";
 import MainIng from "../images/home.svg";
-import SearchIcon from "@mui/icons-material/Search";
+// import SearchIcon from "@mui/icons-material/Search";
 import "./Home.css";
 
 function Home() {

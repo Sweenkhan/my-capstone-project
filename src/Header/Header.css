@@ -41,10 +41,7 @@
   font-weight: 600;
 }
 
-.ixon {
-  width: 50px;
-  font-size: 20px;
-}
+  
 
 .header ul {
   display: flex;
@@ -73,6 +70,10 @@ ul #login:hover {
   font-weight: 500;
   text-align: center;
   display: inline-block;
+}
+
+.header ul li a:hover{
+    color: white;
 }
 
 
