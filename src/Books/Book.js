@@ -11,36 +11,18 @@ import "./Book.css";
  
 
   useEffect(() => {
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=poetry&maxResults=40&orderBy=newest&key=${api_key}`)
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=mostpopular&maxResults=40&orderBy=newest&key=${api_key}`)
       .then((result) => {
         console.log((result.data.items[0].volumeInfo.description.length > 300)
          ? result.data.items[0].volumeInfo.description.slice(0, 300) : result.data.items[0].volumeInfo.description) 
          console.log(result.data.items)
-        setBooks(result.data.items.slice(0, 8));
+        setBooks(result.data.items.slice(33, 40));
       });
 
       
   }, []);
 
-
-
-  useEffect(() => {
-    axios.post("http://localhost:8080/book", { books })
-      .then((result) => {
-        if (result.data === "books available") {
-          console.log('Books are available'); // Corrected console log message
-        }
-      })
-      .catch((error) => {
-        console.error("Error while posting books:", error);
-      });
-  }, [books]);
-  
-  
-  
-  
-  
-   
+ 
 
   return (
   

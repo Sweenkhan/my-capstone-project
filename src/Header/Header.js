@@ -7,7 +7,7 @@ function Header() {
   return (
     <div className='header'>
         <div className='logo'><Link to="/">BOOK<span>SHELF </span></Link></div>
-        <form>
+        <form  method='post' action='http://localhost:8080/search'>
         <input type="search" id="search" name="gsearch" placeholder='Find books...' />
         <label for="search"><SearchIcon /></label>
       
