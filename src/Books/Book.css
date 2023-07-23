@@ -23,7 +23,7 @@
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    border-radius: 10px;
+    border-radius: 13px;
     height: 260px;
     width: 220px;
     margin: 8px;
@@ -42,15 +42,27 @@
 .product img{
     height: 150px;
     width: 120px;
-    border-radius: 8px; 
+    border-radius: 8px;
+    transition: all 0.4s linear;
 }
 
+.product img:hover{
+    transform: scale(1.1);
+}
+ 
 .product .footers{
-    height: 20px;
+    height: 23px;
     width: 100%;
     background-color: rgb(85, 76, 76);
-    margin-bottom: 0;
+    margin-bottom: -4px;
     margin-top: 5px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    transition: all 0.4s linear;
+}
+
+.product .footers:hover{
+   background-color: grey;
+  
+ 
 }

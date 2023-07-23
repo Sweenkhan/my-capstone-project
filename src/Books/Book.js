@@ -25,7 +25,7 @@ import "./Book.css";
  
 
   return (
-  
+   
     <div className="book">
       <div className="products">
         {books.map((book, index) => {
