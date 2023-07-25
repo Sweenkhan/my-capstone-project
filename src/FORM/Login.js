@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import axios from "axios"
 import "./Login.css"
 import {useNavigate} from "react-router-dom"
@@ -45,6 +46,7 @@ function Login() {
         onChange={(e) => {setPassword(e.target.value)}}
          /><br />
         <button type="submit" name='login'>Submit</button>
+        <Link to="/register">Create</Link>
     </form>
     </div> 
      
