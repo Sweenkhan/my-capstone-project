@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import api_key from "../API/Api";
+import axios from "axios"; 
 import "./Book.css";
-
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
  function Book() {
   const [books, setBooks] = useState([]);
  
@@ -11,12 +10,10 @@ import "./Book.css";
  
 
   useEffect(() => {
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=mostpopular&maxResults=40&orderBy=newest&key=${api_key}`)
+    axios.get('http://localhost:8080/book')
       .then((result) => {
-        console.log((result.data.items[0].volumeInfo.description.length > 300)
-         ? result.data.items[0].volumeInfo.description.slice(0, 300) : result.data.items[0].volumeInfo.description) 
-         console.log(result.data.items)
-        setBooks(result.data.items.slice(33, 40));
+         
+      setBooks(result.data) 
       });
 
       
@@ -31,13 +28,13 @@ import "./Book.css";
         {books.map((book, index) => {
           return (
             <div key={index} className="product"> 
-              <h2>{book.volumeInfo.authors[0].length > 20 ? book.volumeInfo.authors[0].slice(0, 18) : book.volumeInfo.authors[0]}</h2>
-              <p>{(book.volumeInfo.title.length > 25) ?  book.volumeInfo.title.slice(0, 25) :  book.volumeInfo.title}</p> 
+              <h2>{book.author}</h2>
+              <p>{book.title}</p> 
                 
-              <img alt="bookImg"  src = {(book.volumeInfo.imageLinks?.thumbnail) ? book.volumeInfo.imageLinks.thumbnail : " "}></img>
-             
- 
-              <div className="footers"></div>
+              <img alt="bookImg"  src = {book.image}></img> 
+              <div className="footers">
+                <button className="heartBtn"><ThumbUpIcon sx={{ fontSize: 28 }} className="heartIcon"/></button>
+              </div>
  
             </div>
           );

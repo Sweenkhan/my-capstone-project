@@ -7,6 +7,7 @@ import Login from "../FORM/Login";
 import Register from "../FORM/Register";
 import Dashboard from "../Dashboard/Dashboard.js";
 import Search from "../Search/Search";
+import Bookdetail from "../BookDetail/Bookdetail";
 // import Footer from "../Footer/Footer.js";
 import "../Books/Book.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -16,12 +17,14 @@ export const searchedContext = createContext({})
 
 
 function App() { 
-const [searchedBooks, setSearchedBooks] = useState([]);
+  const [searchedBooks, setSearchedBooks] = useState([]);
+  const [bookDetail, setBookDetail] = useState({})
+  const [currentRead, setCurrentRead] = useState([])
 
   return (
     <> 
     <div className="app"> 
-    <searchedContext.Provider value={{searchedBooks, setSearchedBooks}}>
+    <searchedContext.Provider value={{searchedBooks, setSearchedBooks, bookDetail, setBookDetail, currentRead, setCurrentRead}}>
     <BrowserRouter>
       <Header />
       <Routes>
@@ -38,6 +41,8 @@ const [searchedBooks, setSearchedBooks] = useState([]);
         <Route path="/register" element={<Register />}>
         </Route>
         <Route path="/search" element={<Search />}>
+        </Route>
+        <Route path="/bookdetail" element={<Bookdetail />}>
         </Route>
       </Routes>
        
