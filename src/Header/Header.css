@@ -85,6 +85,7 @@ ul #login:hover {
     padding: 0.5rem 30px 0.5rem 0.5rem;
     border-radius: 0.5rem;
     border: none;
+    outline: none;
 }
 .header label{
     position: absolute;

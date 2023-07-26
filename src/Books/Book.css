@@ -26,14 +26,23 @@
     border-radius: 13px;
     height: 260px;
     width: 220px;
-    margin: 8px;
-    border: none;
-    background-color: rgba(233, 143, 233, 0.1); 
-    box-shadow: 5px 5px 5px rgb(51, 55, 56);
+    margin: 20px;
+    border: none; 
+    box-shadow: 3px  6px  #070707; 
+    /* box-shadow: 1px  7px  #ee9ca7;  */
 }
 
-.product h2, .product p{
+.product h2{
     margin-bottom: 0; 
+    color: black;
+    font-size: bold;
+    
+}
+
+.product p{
+    margin-bottom: 10px;
+    margin-top: 0; 
+    font-size: 0.8rem;
 }
 
 .product h2{
@@ -45,6 +54,7 @@
     width: 120px;
     border-radius: 8px;
     transition: all 0.4s linear;
+    box-shadow: 3px 3px 5px  #000000; 
 }
 
 .product img:hover{
@@ -54,13 +64,13 @@
 .product .footers{
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     height: 32px;
     width: 100%;
-    background-color: rgb(85, 76, 76);
+    background: #ee9ca7;  
     margin-bottom: -4px;
     margin-top: 5px;
-    padding-right: 10px;
+    padding: 0 15px;
     padding-top: 2px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -68,14 +78,21 @@
 }
 
  
-.heartBtn{
+.heartBtn, .shareBtn{
   border: none; 
-  background-color: rgb(85, 76, 76);
-  cursor: pointer;
+  background: transparent; 
+  cursor: pointer; 
 }
 
-.heartIcon {
-    background-color: rgb(85, 76, 76);
-    color: white;  
-    
+.heartIcon, .shareIcon {
+    /* background-color: rgb(85, 76, 76); */
+    color: black;
+    transition: all 1s linear;  
 }
+
+.heartBtn .heartIcon:hover {
+    /* color:white; */
+    transform: scale(0.8);
+}
+
+
