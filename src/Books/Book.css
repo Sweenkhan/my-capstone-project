@@ -26,10 +26,15 @@
     border-radius: 13px;
     height: 260px;
     width: 220px;
-    margin: 20px;
+    margin: 20px 8px;
     border: none; 
     box-shadow: 3px  6px  #070707; 
+    transition: all 0.3s linear;
     /* box-shadow: 1px  7px  #ee9ca7;  */
+}
+
+.product:hover{
+    margin-top: 5px;
 }
 
 .product h2{
