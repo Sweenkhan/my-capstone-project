@@ -16,8 +16,9 @@ function Register() {
         <input type='number' name='phone' placeholder='Phone'/><br />
         <input type='text' name='username' placeholder='Username'/><br />
         <input type='password' name='password' placeholder='Password'/><br />
-        <button type='submit' name='register'>Register</button>
+        <div className='btns'> <button type='submit' name='register'>Register</button>
         <Link to="/login">Login</Link>
+        </div>
       </form>
       </div>
     </div>

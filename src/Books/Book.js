@@ -35,7 +35,7 @@ import ShareIcon from '@mui/icons-material/Share';
              generate += letter[Math.floor(Math.random() * letter.length)]
           } 
 
-        generate += 10; 
+        generate += 30; 
           return ( 
             <div key={index} className="product" style={{background: `linear-gradient(${generate}, rgba(0, 0, 0, 0))`}}> 
               <h2>{book.author}</h2>
