@@ -12,13 +12,16 @@ import ShareIcon from '@mui/icons-material/Share';
 
   useEffect(() => {
     axios.get('http://localhost:8080/book')
-      .then((result) => {
-         
+      .then((result) => { 
       setBooks(result.data) 
       });
-
-      
+ 
   }, []);
+
+
+  function handleFavouriteBook(){
+    
+  }
 
  
 
@@ -43,7 +46,7 @@ import ShareIcon from '@mui/icons-material/Share';
                 
               <img alt="bookImg"  src = {book.image}></img> 
               <div className="footers" style={{background: `linear-gradient(${generate}, rgba(0, 0, 0, 0))`}}>
-                <button className="heartBtn"><FavoriteBorderIcon sx={{ fontSize: 28 }} className="heartIcon"/></button>
+                <button className="heartBtn" onClick={handleFavouriteBook}><FavoriteBorderIcon sx={{ fontSize: 28 }} className="heartIcon"/></button>
                 <button className="shareBtn"><ShareIcon sx={{ fontSize: 28 }} className="shareIcon"/></button>
               </div>
  
