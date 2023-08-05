@@ -84,15 +84,13 @@
     transition: all 0.4s linear;
 }
 
- 
 .heartBtn, .shareBtn{
   border: none; 
   background: transparent; 
   cursor: pointer; 
 }
 
-.heartIcon, .shareIcon {
-    /* background-color: rgb(85, 76, 76); */
+.heartIcon, .shareIcon { 
     color: black;
     transition: all 1s linear;  
 }
