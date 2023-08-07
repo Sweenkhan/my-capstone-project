@@ -6,9 +6,15 @@ import axios from 'axios';
 import { useContext } from 'react';
 import { searchedContext } from '../App/App';
 import { useNavigate } from 'react-router-dom';
+import { userContext } from '../App/App';
+
+
 function Header() {
 
   const {setSearchedBooks} = useContext(searchedContext)
+  const {hasUserLoggedin} = useContext(userContext)
+
+
   const [searchBook, setSearchBook] = useState("");
   const navigate = useNavigate()
 
@@ -52,8 +58,10 @@ function Header() {
            <li>
              <Link to="/book">Books</Link>
            </li>
-           <li>
-             <Link id='login' to="/login">Login</Link>
+           <li>{
+            (hasUserLoggedin) ? <button>Logout</button> : <Link id='login' to="/login">Login</Link>
+           }
+              
            </li>
             
         </ul>

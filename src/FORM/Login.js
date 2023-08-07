@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import axios from "axios"
 import "./Login.css"
-import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom";
+import { userContext } from '../App/App';
+
 
 function Login() {
 
+  const {setHasUserLoggedin, hasUserLoggedin} = useContext(userContext);
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
@@ -18,12 +21,16 @@ function Login() {
          .then((result) => {
             if(result.data === "success"){
               console.log("succes ho gya") 
-               navigate("/book")  
+              setHasUserLoggedin(true)  
+               navigate("/dashboard")
+            } else {
+              alert("wrong credential")
             }
          })
   }
 
 
+console.log(hasUserLoggedin)
   return (
     <div className='login'>
     <div className='container'>

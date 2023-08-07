@@ -14,17 +14,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createContext } from "react";
 
 export const searchedContext = createContext({})
-
+export const userContext = createContext({})
 
 function App() { 
   const [searchedBooks, setSearchedBooks] = useState([]);
   const [bookDetail, setBookDetail] = useState({})
   const [currentRead, setCurrentRead] = useState([])
+  const [hasUserLoggedin, setHasUserLoggedin] = useState(false)
 
   return (
     <> 
     <div className="app"> 
     <searchedContext.Provider value={{searchedBooks, setSearchedBooks, bookDetail, setBookDetail, currentRead, setCurrentRead}}>
+    <userContext.Provider value={{hasUserLoggedin, setHasUserLoggedin}} > 
     <BrowserRouter>
       <Header />
       <Routes>
@@ -47,6 +49,7 @@ function App() {
       </Routes>
        
     </BrowserRouter>
+    </userContext.Provider>
     </searchedContext.Provider>
     </div>
     </>
