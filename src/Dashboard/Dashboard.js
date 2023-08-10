@@ -4,12 +4,15 @@ import React from 'react'
 
 function Dashboard() {
 
+  
+
     function handleClick(){
          localStorage.setItem("bookLike", "ravi")
+         console.log()
     }
 
     function takeClick(){
-    let data =   localStorage.getItem("name")
+    let data =   localStorage.getItem("session")
     console.log(data)
     }
    
