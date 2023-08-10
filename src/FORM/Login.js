@@ -29,7 +29,8 @@ function Login() {
          })
   }
  
-  
+   console.log(hasUserLoggedin);
+   
   return (
     <div className='login'>
     <div className='container'>

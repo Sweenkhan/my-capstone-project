@@ -19,7 +19,10 @@ function Register() {
     e.preventDefault()
          axios.post('http://localhost:8080/register', {name, email, phone, username, password})
          .then((result) =>{
-             if(result.data === "success"){
+          console.log(result.data)
+          console.log("session stored")
+          localStorage.setItem("session", result.data)
+             if(result.status === 200){
                 navigate('/login')
              }
          })
@@ -39,7 +42,7 @@ function Register() {
         <input type='number' name='phone' placeholder='Phone' value={phone} onChange={e => setPhone(e.target.value)} /><br />
         <input type='text' name='username' placeholder='Username' value={username} onChange={e => setUsername(e.target.value)} /><br />
         <input type='password' name='password' placeholder='Password'value={password} onChange={e => setPassword(e.target.value)} /><br />
-        <div className='btns'> <button type='submit' name='register'>Register</button>
+        <div className='btns'> <button type='submit' name='register'>Submit</button>
         <Link to="/login">Login</Link>
         </div>
       </form>

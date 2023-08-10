@@ -12,7 +12,7 @@ import { userContext } from '../App/App';
 function Header() {
 
   const {setSearchedBooks} = useContext(searchedContext)
-  const {hasUserLoggedin} = useContext(userContext)
+  const {hasUserLoggedin, setHasUserLoggedin} = useContext(userContext)
 
 
   const [searchBook, setSearchBook] = useState("");
@@ -38,6 +38,20 @@ function Header() {
   }
 
 
+  function handlLogout(e){
+         e.preventDefault()
+
+     axios.get("http://localhost:8080/logout")
+     .then((result) => {
+         if(result){
+          console.log(result)
+          console.log("user has logged out")
+           setHasUserLoggedin(false)
+         }
+     })
+  }
+
+
 
   return (
     <div className='header'>
@@ -59,7 +73,7 @@ function Header() {
              <Link to="/book">Books</Link>
            </li>
            <li>{
-            (hasUserLoggedin) ? <button>Logout</button> : <Link id='login' to="/login">Login</Link>
+            (hasUserLoggedin) ? <button onClick={handlLogout}>Logout</button> : <Link id='login' to="/login">Login</Link>
            }
               
            </li>
