@@ -30,7 +30,7 @@ function Login() {
   }
  
    console.log(hasUserLoggedin);
-   
+
   return (
     <div className='login'>
     <div className='container'>
@@ -54,7 +54,7 @@ function Login() {
          /><br />
          <div className='btns'> 
         <button type="submit" name='login'>Submit</button>
-        <Link to="/register">Create</Link>
+        <p>Don't have an account? <Link to="/register">Create</Link></p>
         </div>
     </form>
     </div> 

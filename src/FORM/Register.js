@@ -21,9 +21,11 @@ function Register() {
          .then((result) =>{
           console.log(result.data)
           console.log("session stored")
-          localStorage.setItem("session", result.data)
-             if(result.status === 200){
+          if(result.status === 200){
+               localStorage.setItem("session", result.data);
                 navigate('/login')
+             } else {
+              navigate('/register')
              }
          })
   }
@@ -43,7 +45,7 @@ function Register() {
         <input type='text' name='username' placeholder='Username' value={username} onChange={e => setUsername(e.target.value)} /><br />
         <input type='password' name='password' placeholder='Password'value={password} onChange={e => setPassword(e.target.value)} /><br />
         <div className='btns'> <button type='submit' name='register'>Submit</button>
-        <Link to="/login">Login</Link>
+        <p>Already have an account?  <Link to="/login">Login</Link></p>
         </div>
       </form>
       </div>
