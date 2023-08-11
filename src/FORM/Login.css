@@ -24,7 +24,7 @@
 
 .login .container .loginLeft{ 
     background-image: url("../images/login.avif");
-    opacity: 0.9;
+    opacity: 0.8;
     background-position: center;
     background-size: cover; 
     width: 40%;
@@ -42,45 +42,54 @@
 }
 
 .loginRight h2{
+    margin-bottom: 15px;
    font-size: 2rem;
+   color: black;
 }
 
  
 .loginRight input{ 
-    border: none;
+    border: none; 
     border-bottom: 1px solid black;
     height: 28px;
     width: 80%;
     margin-bottom: 15px;
     font-size: 1rem;
     outline: none;
+    padding-left: 5px;  
 }
 
 
 .loginRight input:hover{  
     border-radius: 4px;
     border: none;
-    color: rgb(85, 76, 76);
-    background-color: rgba(196, 41, 196, 0.5);
+    color: white;
+    background-color: black;
 }
 
 
 .loginRight button{
-    background-color: rgb(85, 76, 76);
-    color: white;
+    background-color: #526d82; 
+    color: black;
+    /* font-weight: 600; */
     font-size: 1.2rem;
     margin: 12px;
     width: 80%;
     height: 30px;
     border-radius: 4px;
-    border: none;
+    border: none; 
 }
 
 
-.loginRight button:hover{
-    color: rgb(85, 76, 76);
+.loginRight button:hover{ 
+    color: white;
     font-size: 1.4rem;
-    background-color: rgba(196, 41, 196, 0.5);
+    background-color: black;
+}
+
+.loginRight p{
+    font-size: 1rem;
+    color: black;
 }
 
  

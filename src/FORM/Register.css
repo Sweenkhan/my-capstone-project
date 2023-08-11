@@ -1,12 +1,13 @@
 *{
+    margin: 0;
+    padding: 0; 
     box-sizing: border-box;
 }
 
 .register{
-    margin: 0;
-    padding: 0; 
+    margin-top: 50px;
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,15 +36,18 @@
     align-items: center;
     justify-content: center;
     flex-direction: column; 
-    width: 42%;
-    height: 100%;
-    background-color: rgba(196, 41, 196, 0.2);
+    width: 42%; 
+    margin-left: 30px;
+    background-color: #526d82; 
     padding-bottom: 20px;
 }
+
 
 .right h2{
    font-size: 2rem;
    margin: 5px;
+   /* color:  black; */
+   color: white;
 }
 
 .right form{
@@ -56,18 +60,17 @@
 }
 .right input{
     border: none;
-    padding-left: 10px;
+    padding: 5px 10px;
     border-radius: 3px; 
-    height: 32px;
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
     font-size: 1rem;
     outline: none;
 }
-
+/* 
 .right input:hover{ 
     background-color: rgba(196, 41, 196, 0.5);
-}
+} */
 
 .right .btns{
     height: 30px;
@@ -80,9 +83,9 @@
 
 .right button{  
     border: none;
+    font-weight: bold;
     border-radius: 3px;
-    height: 30px;
-    width: 50%;
+    padding: 5px 10px;
     font-size: 1rem;
     transition: all 0.5s linear;
 }
@@ -92,7 +95,17 @@
     background-color: black;
 }
 
-.right a{
-    text-decoration: none;
+.right p{
+    font-size: 0.9rem;
+    text-align: center;
+    color: black;
+}
+.right a{ 
+    color: black;
+    font-weight: bold;
+}
+
+.right a:hover{
+    color: white;
 }
 
