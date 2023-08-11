@@ -3,13 +3,17 @@ import axios from "axios";
 import "./Book.css";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShareIcon from '@mui/icons-material/Share';
- function Book() {
-  const [books, setBooks] = useState([]);
- 
-   
-//  https://www.googleapis.com/books/v1/volumes?q=flowers&maxResults=40&orderBy=newest&key=AIzaSyC70bmYoDKsQw-cXQfH1mYdWk3sI8X2MUA
- 
+import { searchedContext } from '../App/App'
+import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 
+
+ function Book() {
+
+  const { setBookDetail } = useContext(searchedContext);
+  const [books, setBooks] = useState([]);
+  const navigate = useNavigate()
+  
   useEffect(() => {
     axios.get('http://localhost:8080/book')
       .then((result) => { 
@@ -19,8 +23,11 @@ import ShareIcon from '@mui/icons-material/Share';
   }, []);
 
 
-  function handleFavouriteBook(){
-    
+  function handleReadMore(e, book){ 
+    e.preventDefault();
+    setBookDetail(book); 
+   
+     navigate('/bookdetail')
   }
 
  
@@ -38,15 +45,15 @@ import ShareIcon from '@mui/icons-material/Share';
              generate += letter[Math.floor(Math.random() * letter.length)]
           } 
 
-        generate += 30; 
+        generate += 90; 
           return ( 
             <div key={index} className="product" style={{background: `linear-gradient(${generate}, rgba(0, 0, 0, 0))`}}> 
               <h2>{book.author}</h2>
               <p>{book.title}</p> 
                 
-              <img alt="bookImg"  src = {book.image}></img> 
+              <img alt="bookImg"  src = {book.image} onClick={(e) => {handleReadMore(e, book)}}/>
               <div className="footers" style={{background: `linear-gradient(${generate}, rgba(0, 0, 0, 0))`}}>
-                <button className="heartBtn" onClick={handleFavouriteBook}><FavoriteBorderIcon sx={{ fontSize: 28 }} className="heartIcon"/></button>
+                <button className="heartBtn" ><FavoriteBorderIcon sx={{ fontSize: 28 }} className="heartIcon"/></button>
                 <button className="shareBtn"><ShareIcon sx={{ fontSize: 28 }} className="shareIcon"/></button>
               </div>
  
