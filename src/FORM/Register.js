@@ -18,9 +18,7 @@ function Register() {
   function handleRegister(e){
     e.preventDefault()
          axios.post('http://localhost:8080/register', {name, email, phone, username, password})
-         .then((result) =>{
-          console.log(result.data)
-          console.log("session stored")
+         .then((result) =>{ 
           if(result.status === 200){ 
                 navigate('/login')
              } else {
