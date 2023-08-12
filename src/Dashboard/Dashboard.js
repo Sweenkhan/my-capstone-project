@@ -13,8 +13,7 @@ function Dashboard() {
     axios.post("http://localhost:8080/dashboard", { session })
     .then((result) =>{
            if(result.data === "success auth"){
-            console.log("Success auth")
-            // navigate("/book")
+            console.log("Success auth") 
            } else {
             navigate("/login")
            }
@@ -28,8 +27,7 @@ function Dashboard() {
        axios.post("http://localhost:8080/check", { session })
     .then((result) =>{
            if(result.status === 200){
-            console.log("Success auth")
-            // navigate("/book")
+            console.log("Success auth") 
            } else {
             navigate("/login")
            }
