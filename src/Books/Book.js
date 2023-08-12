@@ -25,9 +25,14 @@ import { useNavigate } from 'react-router-dom'
 
   function handleReadMore(e, book){ 
     e.preventDefault();
-    setBookDetail(book); 
-   
+    setBookDetail(book);  
      navigate('/bookdetail')
+  }
+
+
+  function handlelikedBook(e){
+        e.preventDefault();
+        
   }
 
  
@@ -53,7 +58,7 @@ import { useNavigate } from 'react-router-dom'
                 
               <img alt="bookImg"  src = {book.image} onClick={(e) => {handleReadMore(e, book)}}/>
               <div className="footers" style={{background: `linear-gradient(${generate}, rgba(0, 0, 0, 0))`}}>
-                <button className="heartBtn" ><FavoriteBorderIcon sx={{ fontSize: 28 }} className="heartIcon"/></button>
+                <button className="heartBtn" onClick={handlelikedBook}><FavoriteBorderIcon sx={{ fontSize: 28 }} className="heartIcon"/></button>
                 <button className="shareBtn"><ShareIcon sx={{ fontSize: 28 }} className="shareIcon"/></button>
               </div>
  
