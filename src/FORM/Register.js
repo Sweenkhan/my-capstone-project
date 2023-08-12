@@ -21,8 +21,7 @@ function Register() {
          .then((result) =>{
           console.log(result.data)
           console.log("session stored")
-          if(result.status === 200){
-               localStorage.setItem("session", result.data);
+          if(result.status === 200){ 
                 navigate('/login')
              } else {
               navigate('/register')

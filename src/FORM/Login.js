@@ -19,8 +19,9 @@ function Login() {
     e.preventDefault() 
          axios.post("http://localhost:8080/login", {username, password})
          .then((result) => {
-            if(result.data === "success"){
-              console.log("succes ho gya") 
+            if(result.status === 200){
+              console.log("succes ho gya");
+              localStorage.setItem("session", result.data);
               setHasUserLoggedin(true)  
                navigate("/dashboard")
             } else {
