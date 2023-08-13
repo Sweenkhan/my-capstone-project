@@ -9,15 +9,19 @@ function Dashboard() {
   const navigate = useNavigate()
    
 
-  useEffect(() => {
-    axios.post("http://localhost:8080/dashboard", { session })
+  useEffect(() => { 
+    axios.post("http://localhost:8080/check", { session })
     .then((result) =>{
-           if(result.data === "success auth"){
-            console.log("Success auth") 
-           } else {
-            navigate("/login")
-           }
-    })
+        if(result.status === 200){
+         console.log("Success check") 
+        } else {
+         navigate("/login")
+        }
+ }).catch((err) =>{
+    console.log(err)
+    alert("Authentication failed. Please login Again")
+    navigate("/login")
+ })
   }, []);
 
 
@@ -31,6 +35,10 @@ function Dashboard() {
            } else {
             navigate("/login")
            }
+    }).catch((err) =>{
+       console.log(err)
+       alert("Authentication failed. Please login Again")
+       navigate("/login")
     })
 
   }
