@@ -12,7 +12,17 @@ import { useNavigate } from 'react-router-dom'
 
   const { setBookDetail } = useContext(searchedContext);
   const [books, setBooks] = useState([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+
+  const session = localStorage.getItem("session");
+
+// // Set up the headers with the session ID
+//   const headers = {
+//   'Content-Type': 'application/json',
+//   'Authorization': `Bearer ${session}`, // Assuming session ID is sent as a token
+//   // Other headers if needed
+// };
   
   useEffect(() => {
     axios.get('http://localhost:8080/book')
@@ -30,9 +40,14 @@ import { useNavigate } from 'react-router-dom'
   }
 
 
-  function handlelikedBook(e){
+  function handlelikedBook(e, like){
+        let likedBook = like;
         e.preventDefault();
-        
+        console.log(likedBook);
+        axios.post('http://localhost:8080/likedBooks',{likedBook, session})
+              .then((result) => {
+                    console.log("book added")
+              })
   }
 
  
@@ -58,7 +73,7 @@ import { useNavigate } from 'react-router-dom'
                 
               <img alt="bookImg"  src = {book.image} onClick={(e) => {handleReadMore(e, book)}}/>
               <div className="footers" style={{background: `linear-gradient(${generate}, rgba(0, 0, 0, 0))`}}>
-                <button className="heartBtn" onClick={handlelikedBook}><FavoriteBorderIcon sx={{ fontSize: 28 }} className="heartIcon"/></button>
+                <button className="heartBtn" onClick={(e) => handlelikedBook(e, book._id)}><FavoriteBorderIcon sx={{ fontSize: 28 }} className="heartIcon"/></button>
                 <button className="shareBtn"><ShareIcon sx={{ fontSize: 28 }} className="shareIcon"/></button>
               </div>
  
