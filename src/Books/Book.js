@@ -16,14 +16,8 @@ import { useNavigate } from 'react-router-dom'
 
 
   const session = localStorage.getItem("session");
-
-// // Set up the headers with the session ID
-//   const headers = {
-//   'Content-Type': 'application/json',
-//   'Authorization': `Bearer ${session}`, // Assuming session ID is sent as a token
-//   // Other headers if needed
-// };
-  
+ 
+   
   useEffect(() => {
     axios.get('http://localhost:8080/book')
       .then((result) => { 
