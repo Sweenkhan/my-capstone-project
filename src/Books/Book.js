@@ -44,12 +44,13 @@ import { useNavigate } from 'react-router-dom'
         let likedBook = like;
         e.preventDefault();
         console.log(likedBook);
-        axios.post('http://localhost:8080/likedBooks',{likedBook, session})
+        axios.patch('http://localhost:8080/liked',{likedBook, session})
               .then((result) => {
-                    console.log("book added")
+                    console.log(result.data)
+              }).catch((err) =>{
+                console.log(err)
               })
   }
-
  
 
   return (
