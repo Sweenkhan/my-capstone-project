@@ -35,9 +35,8 @@ import { useNavigate } from 'react-router-dom'
 
 
   function handlelikedBook(e, like){
-        let likedBook = like;
-        e.preventDefault();
-        console.log(likedBook);
+    e.preventDefault(); 
+    let likedBook = like;
         axios.patch('http://localhost:8080/liked',{likedBook, session})
               .then((result) => {
                     console.log(result.data)

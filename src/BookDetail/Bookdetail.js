@@ -20,8 +20,7 @@ function Bookdetail() {
        } 
        return  generate += 60;
     } 
-  let generate = colorGenrate()
-
+  let generate = colorGenrate() 
 
   console.log(currentRead);
 

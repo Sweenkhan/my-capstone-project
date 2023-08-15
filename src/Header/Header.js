@@ -40,15 +40,12 @@ function Header() {
 
   function handlLogout(e){
          e.preventDefault()
-
-     axios.get("http://localhost:8080/logout")
-     .then((result) => {
-         if(result){
-          console.log(result)
+          
+          localStorage.setItem("session", "")
+          setHasUserLoggedin(false)
+          navigate("/")
           console.log("user has logged out")
-           setHasUserLoggedin(false)
-         }
-     })
+         
   }
 
 

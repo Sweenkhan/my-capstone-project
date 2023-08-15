@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./Dashboard.css"
 
 function Dashboard() {
   let session = localStorage.getItem("session");
+  const [dashboardData, setDashboardData] = useState({});
   const navigate = useNavigate();
 
   // Set up the headers with the session ID
@@ -12,63 +14,48 @@ function Dashboard() {
     authorization: session,
   };
 
-  function checkHeader(e) {
-    e.preventDefault();
-    axios
-      .get("http://localhost:8080/checkHeader", {headers})
-      .then((result) => {
-        if (result.status === 200) {
-          console.log("Success auth");
-        } else {
-          console.log("data failed");
-        }
-      });
-  }
-
-  function check(e) {
-    e.preventDefault();
-    axios
-      .get("http://localhost:8080/check", { headers })
-      .then((result) => {
-        if (result.status === 200) {
-          console.log("Success auth");
-        } else {
-          navigate("/login");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("Authentication failed. Please login Again");
-        navigate("/login");
-      });
-  }
-
   useEffect(() => {
     axios
-      .post("http://localhost:8080/dashboard", { session })
+      .get("http://localhost:8080/dashboard", { headers })
       .then((result) => {
         if (result.status === 200) {
+          setDashboardData(result.data);
           console.log("Success check");
         } else {
           navigate("/login");
         }
       })
       .catch((err) => {
-        console.log(err);
-        alert("Authentication failed. Please login Again");
         navigate("/login");
+        // alert("Authentication failed. Please login Again");
+        console.log(err);
       });
   }, [session]);
 
+
+  console.log(dashboardData);
   return (
     <div className="dashboard" style={{ marginTop: "200px" }}>
+      <div className="dashboardCont">
 
-    <div className="dashboardCont">
+        {(dashboardData.username)? 
+          <div className="left">
+          <h3>{dashboardData.username}</h3>
+          <div className="log">
+            <h4>READING LOG </h4>
+            <p>Currently Reading  <span>{(dashboardData.currentRead.length === 1) ? 0 : dashboardData.currentRead.length - 1}</span> </p>
+            <p>Liked Books    <span>{(dashboardData.likedBooks.length === 1) ? 0 : dashboardData.likedBooks.length - 1}</span></p>
+            <p>Already Read    <span>{(dashboardData.completedReadBooks.length === 1) ? 0 : dashboardData.completedReadBooks.length - 1}</span></p>
+            <p>My Reviews    <span>{(dashboardData.comentedBooks.length === 1) ? 0 : dashboardData.comentedBooks.length - 1}</span></p>
+          </div> 
+          </div>
+          : ""}
+          
+        <div className="right">
+          <h3>My Books</h3>
+        </div>
 
-     
-      <button onClick={check}>check</button>
-      <button onClick={checkHeader}>Check header</button>
-    </div>
+      </div>
     </div>
   );
 }
