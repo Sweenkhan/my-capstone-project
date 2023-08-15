@@ -8,5 +8,38 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+    width: 100vw;
+    background-color: wheat;
 }
+
+.dashboardCont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.dashboardCont .left{
+   padding: 7px;
+   width: 16%;
+   border: 1px solid black;
+}
+
+.dashboardCont .left h3{
+    width: 100%;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.dashboardCont .left h4{
+    border-bottom: 1px solid ;
+}
+
+
+.dashboardCont .left span{
+    float: right;
+}
+
+.dashboardCont .right{
+    width: 70%;
+ }
