@@ -62,8 +62,13 @@ function Dashboard() {
 
   return (
     <div className="dashboard" style={{ marginTop: "200px" }}>
+
+    <div className="dashboardCont">
+
+     
       <button onClick={check}>check</button>
       <button onClick={checkHeader}>Check header</button>
+    </div>
     </div>
   );
 }
