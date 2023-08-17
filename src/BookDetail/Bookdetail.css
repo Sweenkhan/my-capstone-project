@@ -1,5 +1,4 @@
- 
-
+  
 *{
     margin: 0;
     padding: 0;
@@ -9,13 +8,61 @@
 .bookdetail{
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: center; 
     width: 100vw;
     height: 100vh;
+    background-color: rgba(15, 14, 14, 0.192);
 }
 
-.bookdetail p {
-    margin-top: 20px;
-    width: 58%;
+.bookdetailCont{ 
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    height: 90%;
+}
+
+
+/*------left---portion----------*/
+.detail-left{
+   width: 250px;
+   height: 300px;
+   padding: 20px;
+}
+
+.detail-left img{
+    border-radius: 10px;
+   width: 100%;
+   height: 300px;
+}
+
+
+/*-----------------------------------RIGHT SIDE------------------------------*/
+
+.detail-right{ 
+
+    display: flex; 
+    align-items: center;
+    flex-direction: column;
+    margin: 20px 10px 0 20px;
+    padding: 15px 10px;
+    height: 100%;
+    width: 75%;
+}
+
+.detail-right .paragraph{   
+    text-align: justify;
+    width: 70%;
+    height: 100%;
+    /* border: 1px solid grey; */
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+
+.detail-right .paragraph p{
+    line-height: 25px;
+    padding: 0 10px;
+    font-weight: bold;
 }
