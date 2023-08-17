@@ -25,7 +25,28 @@
 
 
 /*------left---portion----------*/
-.detail-left{
+
+.rating-section {
+    margin-top: 30px;
+  }
+  
+  .stars {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .star {
+    color: gray;
+    margin: 0 3px;
+  }
+  
+  .star.active {
+    color: orange;
+  }
+
+
+
+.detail-left-img{
    width: 250px;
    height: 300px;
    padding: 20px;
