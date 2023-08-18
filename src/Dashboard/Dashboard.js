@@ -8,12 +8,28 @@ function Dashboard() {
   const [dashboardData, setDashboardData] = useState({});
   const navigate = useNavigate();
 
+
   // Set up the headers with the session ID
   const headers = {
     "Content-Type": "application/json",
     authorization: session,
   };
 
+
+//------------------------------GET ALL LIKED BOOKS----------------------//
+  function likedBooks(){
+    axios.get("http://localhost:8080/getAllLikedBooks", { headers })
+    .then((result) => {  
+        console.log("Success check");
+        console.log(result.data)
+    })
+  }
+
+
+
+
+   
+//-----------------------VERIFYING IS USER AUTHORISED OR NOT-------------------
   useEffect(() => {
     axios
       .get("http://localhost:8080/dashboard", { headers })
@@ -32,8 +48,8 @@ function Dashboard() {
       });
   }, [session]);
 
+ 
 
-  console.log(dashboardData);
   return (
     <div className="dashboard" style={{ marginTop: "200px" }}>
       <div className="dashboardCont">
@@ -44,7 +60,7 @@ function Dashboard() {
           <div className="log">
             <h4>READING LOG </h4>
             <p>Currently Reading  <span>{(dashboardData.currentRead.length === 1) ? 0 : dashboardData.currentRead.length - 1}</span> </p>
-            <p>Liked Books    <span>{(dashboardData.likedBooks.length === 1) ? 0 : dashboardData.likedBooks.length - 1}</span></p>
+            <p onClick={likedBooks}>Liked Books    <span>{(dashboardData.likedBooks.length === 1) ? 0 : dashboardData.likedBooks.length - 1}</span></p>
             <p>Already Read    <span>{(dashboardData.completedReadBooks.length === 1) ? 0 : dashboardData.completedReadBooks.length - 1}</span></p>
             <p>My Reviews    <span>{(dashboardData.comentedBooks.length === 1) ? 0 : dashboardData.comentedBooks.length - 1}</span></p>
           </div> 
