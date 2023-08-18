@@ -12,10 +12,10 @@ function Bookdetail() {
   const { paraOne, paraTwo, paraThree, paraFour, paraFive } = bookContent;
 
   const [rating, setRating] = useState(0);
-  const [clickRating, setClickRating] = useState(false)
+  const [clickRating, setClickRating] = useState(false);
+  const [read, setRead] = useState(false);
   const session = localStorage.getItem("session");
  
-  let ratingBook = bookDetail._id; 
 
 
 
@@ -25,18 +25,30 @@ function Bookdetail() {
   };
 
 
+//---------------------------CURRENT READ-------------------------//
+
+function currentRead(e){
+  e.preventDefault();
+  setRead(true);
+
+  let currentReadBook = bookDetail._id
+       axios.patch("http://localhost:8080/currentRead", {currentReadBook, session})
+          .then((result) =>{  
+              console.log(result.data)
+          }).catch((err) =>{
+            console.log(err)
+         })
+
+}
+
+
 //---------------------------COMPLETED BOOK------------------------
   function completeBook(e){
+    setRead(false)
     let completedBook = bookDetail._id
              e.preventDefault();
        axios.patch("http://localhost:8080/completed", {completedBook, session})
-          .then((result) =>{
-              // if(result.status === 200){
-              //   console.log(result.data)
-              // }else{
-              //   console.log(result.data)
-              // }
-
+          .then((result) =>{  
               console.log(result.data)
           }).catch((err) =>{
             console.log(err)
@@ -46,7 +58,7 @@ function Bookdetail() {
 
   //----------------------------------RATING TO BOOKS--------------------
   useEffect(() =>{
-       
+    let ratingBook = bookDetail._id; 
     if(clickRating){ 
     axios.patch('http://localhost:8080/rating',{ratingBook, rating, session})
     .then((result) =>{
@@ -60,6 +72,9 @@ function Bookdetail() {
 
   console.log(rating); 
   },[rating])
+
+
+
 
 
 
@@ -94,13 +109,16 @@ function Bookdetail() {
           <p>{bookDetail.author}</p>
           <div className="paragraph">
             <h4 style={{ marginLeft: "10px" }}>DESCRIPTION:</h4>
-            <p className="description"> <span>A. </span> {bookDetail.description}{" "} </p> <hr />
+            <p className="description"> <span>A. </span> {bookDetail.description}{" "}<span onClick={currentRead}>Read More...</span> </p> <hr />
+            {(read) ? <div>
             <p> <span>1. </span>  {paraOne}  </p> <hr />
             <p style={{ backgroundColor: "white" }}> <span>2. </span> {paraTwo}  </p>  <hr />
             <p> <span>3. </span> {paraThree} </p> <hr />
             <p style={{ backgroundColor: "white" }}><span>4. </span> {paraFour}</p> <hr />
             <p> <span>5. </span> {paraFive} </p> <hr />
-            <div><button onClick={(e) => {completeBook(e, )}}>COMPLETE </button></div>
+            <button onClick={(e) => {completeBook(e)}}>COMPLETE </button>
+            </div> : ""}
+            
           </div>
         </div>
 
