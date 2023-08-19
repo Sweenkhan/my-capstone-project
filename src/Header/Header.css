@@ -9,19 +9,9 @@
   z-index: 2;
   top: 0; 
   backface-visibility: hidden;
-  color: black;
-  background-color: #526d82;
-  /* background: #ee9ca7; 
-  background: -webkit-linear-gradient(
-    to right,
-    #ffdde1,
-    #ee9ca7
-  );
-  background: linear-gradient(
-    to right,
-    #ffdde1,
-    #ee9ca7
-  );  */
+  color: black; 
+  background-color: white; 
+  /* border-bottom: ; */
 }
 
 .logo {
@@ -51,30 +41,34 @@
   width: 35%;
   list-style-type: none;
 }
-
-
-ul #login {
-  background-color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  transition: all 0.35s;
-}
-
-ul #login:hover {
-  background-color: #000;
-  color: #fff;
-}
-
+ 
+ 
 .header ul li a {
   color: black;
   text-decoration: none;
   font-weight: 500;
   text-align: center;
   display: inline-block;
+  padding: 4px 7px;
+  border: 1px solid white;
+  border-radius: 3px;
 }
 
 .header ul li a:hover{
-    color: white;
+    font-weight: 700;
+    border: 1px solid black;
+}
+
+ul #login {
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  transition: all 0.35s;
+}
+
+ul #login:hover {
+  background-color: #000;
+  color: #fff;
 }
 
 
