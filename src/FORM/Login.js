@@ -1,15 +1,12 @@
-import React, { useState, useContext } from 'react'
+import React, { useState} from 'react'
 import { Link } from 'react-router-dom'
 import axios from "axios"
 import "./Login.css"
-import {useNavigate} from "react-router-dom";
-import { userContext } from '../App/App';
+import {useNavigate} from "react-router-dom"; 
 
 
 function Login() {
-
-  const {setHasUserLoggedin, hasUserLoggedin} = useContext(userContext);
-
+  
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
    const navigate = useNavigate()
@@ -20,8 +17,7 @@ function Login() {
          axios.post("http://localhost:8080/login", {username, password})
          .then((result) => {
             if(result.status === 200){ 
-              localStorage.setItem("session", result.data);
-              setHasUserLoggedin(true)  
+              localStorage.setItem("session", result.data); 
                navigate("/dashboard")
             } else {
               alert("wrong credential")
