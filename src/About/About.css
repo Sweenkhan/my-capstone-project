@@ -13,37 +13,35 @@
 }
 
 .aboutCnt {
-    width: 50%;
+    width: 100%;
     height: 60%;
     display: flex;
     align-items: flex-start;
     justify-content: space-around;
-    flex-direction: column;
-    background: #ee9ca7;
-    padding: 20px;
+    flex-direction: column; 
     border-radius: 20px; 
-    background: -webkit-linear-gradient(
-    to right,
-    #ffdde1,
-    #ee9ca7
-  );
-  background: linear-gradient(
-    to right,
-    #ffdde1,
-    #ee9ca7
-  );
-
+   
 }
 
-.aboutCnt h2, h3{
-    margin-bottom: 10px;
-    text-align: center;
-    background-color: white;
-    border-radius: 6px;
-    width: 260px;
+.firstCnt, .secondCnt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
 }
 
-.aboutCnt h3{
-    width: 100px;
+.firstCnt h2, .secondCnt h2{
+    margin-bottom: 10px; 
+    /* background-color: white; */
+    /* border-radius: 6px;  */
 }
 
+.firstCnt, 
+
+
+.firstCnt img{
+    width: 40%;
+    height: 300px;
+}
+
+ 
