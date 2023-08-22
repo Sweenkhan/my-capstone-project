@@ -99,38 +99,4 @@ ul #login:hover {
     cursor: pointer;
 }
 
-.friends{
-  position: relative;
-}
-
-.drop-down-friendlist{
-   position: absolute;
-   top: 50px;
-   right: -145px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   flex-direction: column;
-   padding: 3px 0;
-   transition: all 0.4s linear;
-   padding-bottom: 30px;
-   background-color: grey;
-}
-
-  
-
-.drop-down-friendlist li{
-  padding: 3px 5px;
-  cursor: pointer;
-  background-color: black;
-  color: white;
-  width: 90px;
-  text-align: center;
-  margin-bottom: 1px;
-  border-radius: 3px;
-}
-
-.drop-down-friendlist li:hover{
-  background-color: rgba(0, 0, 0, 0.664);
-  color: white;
-}
+ 
