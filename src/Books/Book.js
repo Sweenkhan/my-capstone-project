@@ -19,6 +19,7 @@ import { useNavigate } from 'react-router-dom'
  
    
   useEffect(() => {
+    
     axios.get('http://localhost:8080/book')
       .then((result) => { 
       setBooks(result.data) 
@@ -29,20 +30,31 @@ import { useNavigate } from 'react-router-dom'
 
   function handleReadMore(e, book){ 
     e.preventDefault();
+    if(session){ 
     setBookDetail(book);  
-     navigate('/bookdetail')
+    navigate('/bookdetail')
+    } else {
+      alert("You can't read this book, Because you are not logged in")
+    }
   }
 
 
   function handlelikedBook(e, like){
     e.preventDefault(); 
     let likedBook = like;
-        axios.patch('http://localhost:8080/liked',{likedBook, session})
-              .then((result) => {
-                    console.log(result.data)
-              }).catch((err) =>{
-                console.log(err)
-              })
+
+    if(session){
+      axios.patch('http://localhost:8080/liked',{likedBook, session})
+      .then((result) => {
+            console.log(result.data)
+      }).catch((err) =>{
+        console.log(err)
+      })
+    } else {
+      alert("You can't like this book,Firs you have to logged in")
+
+    }
+         
   }
  
 

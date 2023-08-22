@@ -9,25 +9,21 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 function Search() {
 
-    const { searchedBooks, setBookDetail, setCurrentRead, currentRead } = useContext(searchedContext);
+    const { searchedBooks, setBookDetail} = useContext(searchedContext);
     const navigate = useNavigate()
-   
+    const session = localStorage.getItem("session")
 
     function handleReadMore(e, book){ 
       e.preventDefault();
-      setBookDetail(book);
-
-      if(currentRead.includes(book.title)){
-        console.log("book is ther")
-      }else{ 
-        setCurrentRead([...currentRead, book.title])
+      if(session){ 
+      setBookDetail(book);  
+      navigate('/bookdetail')
+      } else {
+        alert("You can't read this book. You have loggedin first")
       }
-     
-       navigate('/bookdetail')
     }
 
-
-    console.log(currentRead);
+ 
   return (
     <div className='searchInside'>  
         {
