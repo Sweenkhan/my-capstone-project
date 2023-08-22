@@ -1,5 +1,5 @@
 .userProfile { 
-    width: 150px;
+    width: 250px;
     padding: 0 5px;
     position: absolute;
     right: 10px;
@@ -7,25 +7,48 @@
     display: flex; 
     border-radius: 8px; 
     border-radius: 8px;
-    background-color: rgba(15, 14, 14, 0.292);
+    /* background-color: rgba(15, 14, 14, 0.292); */
+    color: white;
+    background-color: black;
+    display: flex;
+    justify-content: center;
 }
 
 .userCnt { 
-    width: 150px;
+    width: 100%;
     display: flex;
     flex-direction: column; 
-    align-items: center
+    align-items: center;
+    padding: 0;
 }
 
+.userCnt .user-name{
+    font-weight: 700;
+    font-size: 34px;
+    background-color: white;
+    width: 100%;
+    color: black;
+    text-align: center;
+    margin: 5px 0;
+    padding: 6px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.userCnt P {
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid white;
+    padding-bottom: 12PX;
+    margin-bottom: 10px;
+}
   
-.userCnt ul {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.userCnt .drop-down-friendlist {
+    display: flex; 
     flex-direction: column;
     transition: all 0.4s linear;
     padding-bottom: 10px; 
-    /* background-color: grey; */
+    width: 100%; 
 }
 
 
@@ -33,29 +56,29 @@
 .drop-down-friendlist li {
     padding: 3px 5px;
     cursor: pointer;
-    background-color: white;
+    background-color: grey;
     color: black;
     font-weight: 600;
-    width: 130px;
+    width: 100%;
     text-align: center;
     margin-bottom: 5px; 
 }
 
 .drop-down-friendlist li:hover {
-    background-color: rgba(0, 0, 0, 0.664);
-    color: white;
+    background-color: rgb(102, 95, 95) 
 }
 
 .userProfile-btn{
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin: 10px 5px;
+    justify-content: center;
+    width: 100%; 
+    margin-bottom: 10px;
 }
 
 .userProfile-btn button {
-    padding: 2px 8px;
-    margin: 5px;
+    font-weight: 600;
+    font-size: 20PX;
+    padding: 6px 12px; 
     border: 1px solid black;
     border-radius: 2px;
     color: black;
@@ -63,7 +86,6 @@
 }
 
 .userProfile-btn button:hover {
-    cursor: pointer;
-    color: white;
-   background-color: rgba(32, 20, 20, 0.562);
+    cursor: pointer; 
+     background-color: rgba(255, 255, 255, 0.8);
 }

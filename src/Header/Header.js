@@ -67,9 +67,9 @@ function Header() {
              <Link to="/book">Books</Link>
            </li> 
            <li>{
-            (session) ?<span onClick={ e=>setShowUserProfile(true)}> <AccountCircleIcon sx={{ fontSize: 40 }}/></span> : <Link id='login' to="/login">Login</Link>
+            (session) ?<span onClick={ e=>{(showUserProfile) ? setShowUserProfile(false) : setShowUserProfile(true)}}> <AccountCircleIcon sx={{ fontSize: 40 }}/></span> : <Link id='login' to="/login">Login</Link>
            }
-           {(showUserProfile) ? <UserProfile show={e=>setShowUserProfile()} /> : "" }
+           {(showUserProfile) ? <UserProfile  show={e => {setShowUserProfile()}} /> : "" }
            </li>
               
         </ul> 

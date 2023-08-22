@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./UserProfile.css";
@@ -6,6 +6,8 @@ import "./UserProfile.css";
 function UserProfile(props) {
   const [hasfriend, setHasFriend] = useState(false);
   const [allUsers, setAllUsers] = useState([]);
+  const [userProfile, setUserProfile] = useState({})
+  
   const navigate = useNavigate();
   const session = localStorage.getItem("session");
 
@@ -14,12 +16,14 @@ function UserProfile(props) {
     authorization: session,
   };
 
+  let name;
+  if(userProfile.name){name = userProfile.name.toUpperCase()}
+
   //----------------------------HANDLE LOGOUT REQUEST------------------------------//
   function handlLogout(e) {
     e.preventDefault();
-
-    localStorage.setItem("session", "");
     props.show(false)
+    localStorage.setItem("session", "");
     navigate("/");
     console.log("user has logged out");
   }
@@ -28,30 +32,44 @@ function UserProfile(props) {
   function getUsers(e) {
     e.preventDefault();
     console.log(session);
-    axios.get("http://localhost:8080/allusers", { headers }).then((result) => {
+    axios.get("http://localhost:8080/allusers", { headers })
+    .then((result) => {
       setAllUsers(result.data);
       console.log(result.data);
       setHasFriend(true);
     });
   }
 
-  //--------------------SENDING FRIEND REQUEST------------------------------------//
 
+  //--------------------SENDING FRIEND REQUEST------------------------------------// 
   function sendRequest(e, friendUsername) {
     e.preventDefault();
     axios
-      .patch("http://localhost:8080/frienRequest", { session, friendUsername })
+      .patch("http://localhost:8080/friendRequest", { session, friendUsername })
       .then((result) => {
         console.log(result.data);
       });
   }
 
 
+  //------------------------------GET ORIGINAL USER--------------------------------//
+    useEffect(() => {
+      console.log(session)
+      axios.get("http://localhost:8080/originalUser", {headers})
+      .then((result) =>{
+           console.log(result.data)
+           setUserProfile(result.data)
+      })
+    },[session])
+
+ console.log(userProfile)
   return (
     <div className="userProfile">
       <div className="userCnt">
+        <p className="user-name">{name}</p>
+        <p>PROFILE</p>
         <p onClick={getUsers} >
-          Friends
+          FRIENDS
         </p>
 
         {hasfriend && session ? (
@@ -76,8 +94,7 @@ function UserProfile(props) {
           ""
         )}
         <div className="userProfile-btn"> 
-        <button onClick={handlLogout}>Logout</button>
-        <button onClick={e=>{props.show(false)}}>Close</button>  
+        <button onClick={handlLogout}>Logout</button>   
         </div>
       </div>
     </div>
