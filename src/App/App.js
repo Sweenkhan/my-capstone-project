@@ -18,13 +18,12 @@ export const userContext = createContext({})
 
 function App() { 
   const [searchedBooks, setSearchedBooks] = useState([]);
-  const [bookDetail, setBookDetail] = useState({})
-  const [currentRead, setCurrentRead] = useState([]) 
+  const [bookDetail, setBookDetail] = useState({}) 
 
   return (
     <> 
     <div className="app"> 
-    <searchedContext.Provider value={{searchedBooks, setSearchedBooks, bookDetail, setBookDetail, currentRead, setCurrentRead}}> 
+    <searchedContext.Provider value={{searchedBooks, setSearchedBooks, bookDetail, setBookDetail}}> 
     <BrowserRouter>
       <Header />
       <Routes>
