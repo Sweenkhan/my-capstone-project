@@ -17,21 +17,7 @@ function Home() {
         <div className="right">
           <img src={MainIng} alt="main-img" />
         </div>
-      </div>
-      {/* <div className="searching">
-        <form>
-          <input
-            type="search"
-            id="search"
-            name="gsearch"
-            placeholder="Find the book!"
-          />
-          <label for="search">
-            <SearchIcon className="searchIcon" />
-          </label>
-        </form>
-      </div> */}
-
+      </div>  
       <Footer />
     </div>
   );

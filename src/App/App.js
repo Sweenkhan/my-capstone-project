@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import About from "../About/About";
+// import About from "../About/About";
+import AboutPage from "../About/AboutPage"
 import Home from "../Home/Home";
 import Book from "../Books/Book";
 import Header from "../Header/Header";
@@ -31,7 +32,9 @@ function App() {
         </Route>
         <Route path="/dashboard" element={<Dashboard />}>
         </Route>
-        <Route path="/about" element={<About />}>
+        {/* <Route path="/about" element={<About />}>
+        </Route> */}
+        <Route path="/about" element={<AboutPage />}>
         </Route>
         <Route path="/book" element={<Book />}>
         </Route>
