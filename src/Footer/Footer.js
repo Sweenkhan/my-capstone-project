@@ -12,13 +12,13 @@ function Footer() {
     <div className='container'>
     <ul>
         <li>
-            <Link to="https://www.instagram.com/sweenkhan97/"><InstagramIcon /></Link>
+            <Link to="https://www.instagram.com/sweenkhan97/"><InstagramIcon sx={{ fontSize: 40 }} /></Link>
         </li>
         <li>
-            <Link to="https://github.com/Sweenkhan"><GitHubIcon /></Link>
+            <Link to="https://github.com/Sweenkhan"><GitHubIcon sx={{ fontSize: 40 }} /></Link>
         </li>
         <li>
-            <Link to="https://www.linkedin.com/in/sween-khan-834024182/"><LinkedInIcon /></Link>
+            <Link to="https://www.linkedin.com/in/sween-khan-834024182/"><LinkedInIcon sx={{ fontSize: 40 }} /></Link>
         </li>
     </ul>
      </div>
