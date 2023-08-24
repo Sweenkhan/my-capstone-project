@@ -17,7 +17,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60%;
+    width: 70%;
     height: 60%
 }
 
@@ -109,3 +109,15 @@
     color: white;
 }
 
+/* -------------------MADE RESPONSIVENESS----------------- */
+@media only screen and (max-width: 1000px) {
+    
+    .register .container{
+        height: 100%;
+        width: 100%;
+        /* flex-direction: column; */
+    }
+
+
+
+}
