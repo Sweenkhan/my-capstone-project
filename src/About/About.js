@@ -10,8 +10,7 @@ function About() {
           <p> <h2>Welcome to Bookshelf!</h2> At Bookshelf, we are passionate about
             books and the incredible journeys they take us on. Our website is a
             labor of love, created to bring together book enthusiasts from all
-            walks of life. Whether you're an avid reader, a curious learner, or
-            someone looking for inspiration, you've come to the right place. </p>
+            walks of life. </p>
             <img src={aboutImg} alt="first"></img>
         </div>
         <div className="secondCnt">
