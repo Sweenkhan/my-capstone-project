@@ -14,6 +14,7 @@ function Bookdetail() {
   const [rating, setRating] = useState(0);
   const [clickRating, setClickRating] = useState(false);
   const [read, setRead] = useState(false);
+  const [comment, setComment] = useState("")
   const session = localStorage.getItem("session");
  
 
@@ -25,8 +26,7 @@ function Bookdetail() {
   };
 
 
-//---------------------------CURRENT READ-------------------------//
-
+//---------------------------CURRENT READ-------------------------// 
 function currentRead(e){
   e.preventDefault();
   setRead(true);
@@ -74,8 +74,23 @@ function currentRead(e){
   },[rating])
 
 
+//------------------------------------COMMENTS ON BOOKS-------------------------- 
+function commentBook(e){
+  e.preventDefault()
+  // console.log(comment)
+  let commentedBook = bookDetail._id;
+ 
+  axios.patch('http://localhost:8080/comment',{commentedBook, comment, session})
+    .then((result) =>{
+        if(result.status === 200){
+          console.log(result.data)
+        }
+    }).catch((err) =>{
+       console.log(err)
+    })
+  }
 
-
+ 
 
 
 
@@ -87,7 +102,7 @@ function currentRead(e){
           <div className="detail-left-img">
             <img src={bookDetail.image} alt="searchBooks" />
           </div>
-
+{/* RATING SECTION */}
           <div className="rating-section">
             <p>Rate this book:</p>
             <div className="stars">
@@ -102,8 +117,19 @@ function currentRead(e){
             </div>
             <p>{rating > 0 ? `Thank you for rating ${rating} stars!` : ""}</p>
           </div>
-        </div>
 
+{/* COMMENT SECTION */}
+           <div className="comment-section">
+           <h4>Reviews</h4>
+            <form onSubmit={commentBook}>
+              <textarea placeholder="write...." value={comment} onChange={e => {setComment(e.target.value)}}></textarea>
+              <button type="submit" className="saveBtn">save</button>
+            </form>
+           </div>
+
+
+
+        </div> 
         <div className="detail-right">
           <h2>{bookDetail.title}</h2>
           <p>{bookDetail.author}</p>

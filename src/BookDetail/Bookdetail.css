@@ -26,36 +26,69 @@
 
 /*------left---portion----------*/
 
-.rating-section {
-    margin-top: 30px;
-  }
-  
-  .stars {
-    font-size: 24px;
-    cursor: pointer;
-  }
-  
-  .star {
-    color: gray;
-    margin: 0 3px;
-  }
-  
-  .star.active {
-    color: orange;
-  }
+ 
 
-
+.detail-left{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 
 .detail-left-img{
-   width: 250px;
-   height: 300px;
-   padding: 20px;
+  width: 250px;
+  height: 260px;
+  padding: 20px;
 }
 
 .detail-left img{
-    border-radius: 10px;
-   width: 100%;
-   height: 300px;
+   border-radius: 10px;
+  width: 100%;
+  height: 260px;
+  box-shadow: 4px 4px grey;
+}
+.rating-section {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.stars {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.star {
+  color: gray;
+  margin: 0 2px;
+}
+
+.star.active {
+  color: orange;
+}
+
+
+.comment-section{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.comment-section textarea{
+  height: 50px;
+  width: 100%;
+  padding:  5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.saveBtn{
+  position: absolute;
+  right: 0;
+  bottom: 4px;
 }
 
 
