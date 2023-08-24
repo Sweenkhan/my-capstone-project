@@ -1,5 +1,6 @@
 .header {
   display: flex;
+  align-items: center;
   width: 100vw;
   height: 70px;
   padding: 0 2rem;
@@ -7,10 +8,10 @@
   align-items: center;
   position: fixed;
   z-index: 2;
-  top: 0; 
+  top: 0;
   backface-visibility: hidden;
-  color: black; 
-  background-color: white;  
+  color: black;
+  background-color: #697bed;
 }
 
 .logo {
@@ -18,6 +19,11 @@
   font-family: Arial, Helvetica, sans-serif;
   text-decoration: dotted;
   text-decoration-color: black;
+  margin-bottom: 0 !important;
+}
+
+.logo h2{
+  margin-bottom: 0 !important;
 }
 
 .logo a {
@@ -31,31 +37,57 @@
   font-weight: 600;
 }
 
-  
+
 
 .header ul {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 35%;
   list-style-type: none;
+  margin-bottom: 0px !important;
 }
- 
- 
+
+.header ul li {
+  margin: 0px 20px;
+}
+
 .header ul li a {
-  color: black;
+  color: #fff;
   text-decoration: none;
   font-weight: 500;
+  font-size: 17px;
   text-align: center;
   display: inline-block;
   padding: 4px 7px;
-  border: 1px solid white;
-  border-radius: 3px;
+  position: relative;
 }
 
-.header ul li a:hover{
-    font-weight: 700;
-    border: 1px solid black;
+.header ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #fff;
+  color: #fff;
+  z-index: 999;
+  left: 0px;
+  bottom: 0px;
+}
+
+.header ul li a:hover:after {
+  width: 100%;
+  transition: 1s;
+}
+
+/* .header ul li a:hover {
+  font-weight: 700;
+  border: 1px solid black;
+} */
+
+.header li.active a {
+  color: #ff5733;
+  /* Change to the color you want for the active item */
+  font-weight: bold;
 }
 
 ul #login {
@@ -71,32 +103,33 @@ ul #login:hover {
 }
 
 
-.header form{
-    position: relative;
-}
-.header form input{
-    width: 200px;
-    padding: 0.5rem 30px 0.5rem 0.5rem;
-    border-radius: 0.5rem; 
-    border: 2px solid #e3e3e3;
-    outline: none;
-}
-.header label{
-    position: absolute;
-    width: 30px;
-    right: 0;
-    top: 0;
-    background-color: #e3e3e3;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-}
-.header label svg{
-    font-size: 1rem;
-    cursor: pointer;
+.header form {
+  position: relative;
 }
 
- 
+.header form input {
+  width: 300px;
+  padding: 0.5rem 30px 0.5rem 0.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid #e3e3e3;
+  outline: none;
+}
+
+.header label {
+  position: absolute;
+  width: 30px;
+  right: 0;
+  top: 0;
+  background-color: #e3e3e3;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.header label svg {
+  font-size: 1rem;
+  cursor: pointer;
+}

@@ -48,6 +48,7 @@ function UserProfile(props) {
       .patch("http://localhost:8080/friendRequest", { session, friendUsername })
       .then((result) => {
         console.log(result.data);
+        console.log("request send from frontEnd")
       });
   }
 
