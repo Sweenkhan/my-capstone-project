@@ -3,29 +3,32 @@ import image1 from "../images/bookself2.jpg";
 import image2 from "../images/bookself3.png";
 import image3 from "../images/bookself4.jpeg";
 import image4 from "../images/bookself5.jpg";
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import "./AboutPage.css";
 
 function Aboutpage() {
   return (
     <div className="about">
-      <div className="aboutBanner">
-        <div className="aboutBannerContent">
+      <div className="aboutBanner" id="about-banner">
+        <div className="aboutBannerContent" >
           <h1>About Us</h1>
           <p>
             {" "}
             A bookshelf is more than a mere piece of furniture; it's a gateway
             to exploration, a repository of knowledge, and a reflection of one's
             personality and interests. From the elegant symmetry of classic
-            wooden designs to the sleek minimalism of modern creations,
+            wooden designs to the sleek minimalism of modern creations,  in itself. Each
+            shelf holds the promise of new worlds  and
+            uncharted territories.
           </p>
-          <button className="ABOUT-BTTN">LEARN MORE</button>
+          <a className="ABOUT-BTTN" href="#first">LEARN MORE</a>
         </div>
       </div>
       <div className="con">
         <div className="img1">
           <img src={image1} alt=" "></img>
         </div>
-        <div className="content">
+        <div className="content" id="first">
           <h1>Good heading</h1>
           <p>
             A bookshelf is more than a mere piece of furniture; it's a gateway
@@ -64,7 +67,7 @@ function Aboutpage() {
           </p>
         </div>
       </div>
-      <div className="con">
+      <div className="con con-last">
         <div className="content">
           <h1>Good heading</h1>
           <p>
@@ -74,6 +77,7 @@ function Aboutpage() {
             ever-evolving masterpiece, a canvas that can be rearranged and
             redecorated to reflect the changes in one's life.
           </p>
+         <a href="#about-banner" className="go-top"><KeyboardDoubleArrowUpIcon sx={{ fontSize: 56 }} /></a> 
         </div>
         <div className="img1">
           <img src={image3} alt=" "></img>

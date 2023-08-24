@@ -3,7 +3,8 @@ import { useContext, useState } from "react";
 import { searchedContext } from "../App/App";
 import bookContent from "./BookContent";
 import "./Bookdetail.css";
-import axios from "axios";
+import axios from "axios"; 
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 // import book from '../../../back/models/book'
 
 function Bookdetail() {
@@ -88,9 +89,27 @@ function commentBook(e){
     }).catch((err) =>{
        console.log(err)
     })
+    setComment("")
   }
 
- 
+//----------------------------------LIKED ON BOOKS--------------------------------
+function handlelikedBook(e, like) {
+  e.preventDefault();
+  let likedBook = like;
+
+  if (session) {
+    axios
+      .patch("http://localhost:8080/liked", { likedBook, session })
+      .then((result) => {
+        console.log(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  } else {
+    alert("You can't like this book,Firs you have to logged in");
+  }
+} 
 
 
 
@@ -101,6 +120,15 @@ function commentBook(e){
 
           <div className="detail-left-img">
             <img src={bookDetail.image} alt="searchBooks" />
+            <button
+                  className="heartBtn dashboard"
+                  onClick={(e) => handlelikedBook(e, bookDetail._id)}
+                >
+                  <FavoriteBorderIcon
+                    sx={{ fontSize: 28 }}
+                    className="heartIcon"
+                  />
+                </button>
           </div>
 {/* RATING SECTION */}
           <div className="rating-section">
@@ -122,7 +150,7 @@ function commentBook(e){
            <div className="comment-section">
            <h4>Reviews</h4>
             <form onSubmit={commentBook}>
-              <textarea placeholder="write...." value={comment} onChange={e => {setComment(e.target.value)}}></textarea>
+              <textarea placeholder="write...." value={comment} onChange={e => {setComment(e.target.value)}} required minlength="10" maxlength="80"></textarea>
               <button type="submit" className="saveBtn">save</button>
             </form>
            </div>
@@ -131,18 +159,18 @@ function commentBook(e){
 
         </div> 
         <div className="detail-right">
-          <h2>{bookDetail.title}</h2>
-          <p>{bookDetail.author}</p>
+          <h4>Book Title: {bookDetail.title}</h4>
+          <p>Author Name : {bookDetail.author}</p>
           <div className="paragraph">
             <h4 style={{ marginLeft: "10px" }}>DESCRIPTION:</h4>
-            <p className="description"> <span>A. </span> {bookDetail.description}{" "}<span onClick={currentRead}>Read More...</span> </p> <hr />
+            <p className="description"> <span>A. </span> {bookDetail.description}{" "}<span onClick={currentRead} className="current-read">{(!read) ? "Read More..." : ""} </span> </p> <hr />
             {(read) ? <div>
             <p> <span>1. </span>  {paraOne}  </p> <hr />
             <p style={{ backgroundColor: "white" }}> <span>2. </span> {paraTwo}  </p>  <hr />
             <p> <span>3. </span> {paraThree} </p> <hr />
             <p style={{ backgroundColor: "white" }}><span>4. </span> {paraFour}</p> <hr />
             <p> <span>5. </span> {paraFive} </p> <hr />
-            <button onClick={(e) => {completeBook(e)}}>COMPLETE </button>
+            <button onClick={(e) => {completeBook(e)}} className="complete-book">COMPLETE </button>
             </div> : ""}
             
           </div>

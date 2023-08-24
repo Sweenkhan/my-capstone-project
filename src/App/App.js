@@ -9,7 +9,7 @@ import Register from "../FORM/Register";
 import Dashboard from "../Dashboard/Dashboard.js";
 import Search from "../Search/Search";
 import Bookdetail from "../BookDetail/Bookdetail";
-// import Footer from "../Footer/Footer.js";
+import "./App.css"
 import "../Books/Book.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createContext } from "react";

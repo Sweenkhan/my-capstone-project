@@ -22,6 +22,15 @@ function Dashboard() {
     authorization: session,
   };
 
+//----------------------------GET ALL COMMENTED BOOKS----------------------  
+  function commented(){
+     axios.get("http://localhost:8080/getAllCommentedBooks", {headers})
+       .then((result) =>{
+         console.log(result.data)
+         setAllLikedBooks(result.data);
+       })
+  }
+
 
   //----------------------------GET ALL RATED BOOKS---------------------------//
   function rated() {
@@ -47,7 +56,7 @@ function Dashboard() {
   }
 
   
-  //-----------------------------GET ALL RATED BOOKS-----------------------//
+  //-----------------------------GET ALL READ BOOKS-----------------------//
   function current() {
     axios
       .get("http://localhost:8080/getAllReadBooks", { headers })
@@ -97,9 +106,9 @@ function Dashboard() {
      
   }, [session]);
 
-  return (
-    <div className="dashboard" style={{ marginTop: "60px" }}>
-      <div className="dashboardCont">
+
+  return ( 
+      <div className="dashboardCont" style={{ marginTop: "60px" }}>
         {dashboardData.username ? (
           <div className="left">
             <h3>{name}</h3>
@@ -137,7 +146,7 @@ function Dashboard() {
                     : dashboardData.ratingBooks.length - 1}
                 </span>
               </p>
-              <p>
+              <p onClick={commented}>
                 My Reviews{" "}
                 <span>
                   {dashboardData.comentedBooks.length === 1
@@ -159,10 +168,19 @@ function Dashboard() {
               return (
                 <div className="liked-book">
                   <h4>{boks.title}</h4>
-                  <img src={boks.image} alt="liked book"></img>
-                  {(showLiked) ? <p><FavoriteIcon /></p> : ""}
+                  <img src={boks.image} alt="liked book"></img> 
 
-                  {(boks.rating) ? <p style={{fontSize:"24px", margin: "0"}}> {  [1, 2, 3, 4, 5].map((star) => (
+                 {/* checking liked request */} 
+                {(showLiked) ? <p><FavoriteIcon /></p> : ""}  
+
+
+                 {/* checking comment request */}
+                {(boks.comment)? <div className="review">
+                <h5>Reviews</h5>
+                <h4>{boks.comment}</h4>
+                </div> :" "}
+                  {/* checking rating request    */}
+                {(boks.rating) ? <p style={{fontSize:"24px", margin: "0"}}> {  [1, 2, 3, 4, 5].map((star) => (
                 <span
                   style={{textAlign: "center"}}
                   key={star}
@@ -178,8 +196,7 @@ function Dashboard() {
 
           </div>
         </div>
-      </div>
-    </div>
+      </div> 
   );
 }
 

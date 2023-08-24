@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import "./Register.css"
 import axios from 'axios'
+import registerImg from "../images/register.jpg"
 import { useNavigate } from 'react-router-dom'
  
 
@@ -32,7 +33,7 @@ function Register() {
     <div className='register'>
     
     <div className='container'> 
-    <div className='left'></div>
+    <div className='left'><img src={registerImg} alt="register -img"></img></div>
     <div className='right'> 
       <h2>Register</h2>
       <form method='post' onSubmit={handleRegister}>

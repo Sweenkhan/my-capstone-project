@@ -1,14 +1,14 @@
 .header {
-  display: flex;
-  align-items: center;
-  width: 100vw;
+  display: flex; 
   height: 70px;
   padding: 0 2rem;
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   top: 0;
+  right: 0;
+  left: 0;
   backface-visibility: hidden;
   color: black;
   background-color: #697bed;
@@ -16,14 +16,12 @@
 
 .logo {
   font-size: 1.9rem;
-  font-family: Arial, Helvetica, sans-serif;
-  text-decoration: dotted;
-  text-decoration-color: black;
+  font-family: Arial, Helvetica, sans-serif; 
   margin-bottom: 0 !important;
 }
 
-.logo h2{
-  margin-bottom: 0 !important;
+.logo h2{ 
+  margin-bottom: 0 !important; 
 }
 
 .logo a {
@@ -79,22 +77,21 @@
   transition: 1s;
 }
 
-/* .header ul li a:hover {
-  font-weight: 700;
-  border: 1px solid black;
-} */
+ 
 
 .header li.active a {
-  color: #ff5733;
-  /* Change to the color you want for the active item */
+  color: #ff5733; 
   font-weight: bold;
 }
 
 ul #login {
+  display: block;
   background-color: #fff;
   padding: 0.5rem 1rem;
   border-radius: 15px;
   transition: all 0.35s;
+  color: #000;
+  font-weight: 900;
 }
 
 ul #login:hover {
@@ -105,31 +102,54 @@ ul #login:hover {
 
 .header form {
   position: relative;
+  width: 26%;
+  margin-left: 5px;
 }
 
 .header form input {
-  width: 300px;
+  width: 100%;
   padding: 0.5rem 30px 0.5rem 0.5rem;
   border-radius: 0.5rem;
   border: 2px solid #e3e3e3;
   outline: none;
+  font-size: 1rem;
 }
 
-.header label {
+.header button {
   position: absolute;
-  width: 30px;
+  width: 15%;
   right: 0;
   top: 0;
   background-color: #e3e3e3;
   height: 100%;
-  display: flex;
+  display: flex;  
   justify-content: center;
   align-items: center;
+  border: none;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
 }
 
 .header label svg {
-  font-size: 1rem;
+  font-size: 2rem;
   cursor: pointer;
+}
+
+
+@media only screen and (max-width: 950px) {
+  .header ul li {
+    margin: 0px 5px;
+  }
+}
+
+@media only screen and (max-width: 700px){
+  .header ul{
+    flex-direction: column;
+  }
+
+  .header ul li a{
+    color: black;
+  }
+
+   
 }

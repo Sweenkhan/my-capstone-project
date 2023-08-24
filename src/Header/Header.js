@@ -62,9 +62,9 @@ function Header() {
             setSearchBook(e.target.value);
           }}
         />
-        <label for="search">
-          <SearchIcon />
-        </label>
+        <button> 
+          <SearchIcon sx={{ fontSize: 32 }}/>
+          </button>
       </form>
       <ul>
         <li>
@@ -86,7 +86,7 @@ function Header() {
               }}
             >
               {" "}
-              <AccountCircleIcon sx={{ fontSize: 40 }} className="text-light" />
+              <AccountCircleIcon sx={{ fontSize: 40 }} className="text-light logo" />
             </span>
           ) : (
             <Link id="login" to="/login">

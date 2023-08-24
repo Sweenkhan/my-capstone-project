@@ -1,21 +1,21 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.footer{ 
+.footer {
     width: 100vw;
     height: 125px;
-    display: flex; 
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px; 
+    margin-top: 20px;
     /* background-color: rgba(112, 108, 108, 0.411); */
-    background-color: rgba(15, 14, 14, 0.192);
+    background-color: #000;
 }
 
-.footer .container{
+.footer .container {
     width: 40%;
     height: 150px;
     display: flex;
@@ -25,33 +25,36 @@
 }
 
 
-.footer .container ul{
+.footer .container ul {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.footer ul li{
+.footer ul li {
     list-style-type: none;
-    height: 50px;
-    width: 50px;
+    padding: 5px 5px;
+    margin: 0px 8px;
+    border: solid 1px #fff;
     border-radius: 50%;
     background-color: white;
     align-items: center;
-    margin: 10px;
-    padding-top: 5px;
-    padding-left: 5px; 
+    /* margin: 10px; */
+
 }
 
-.footer ul li:hover{  
-    background-color: black;
+.footer a {
+    color: black;
+    font-size: 15px;
 }
 
-.footer a{ 
-    color: black; 
+.footer li:hover {
+    background-color: #000;
+    transition: 1s;
+
+
 }
 
-.footer a:hover{ 
-    color: white; 
+.footer li:hover a {
+    color: #fff;
 }
-

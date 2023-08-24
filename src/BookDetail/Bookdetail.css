@@ -47,17 +47,28 @@
   height: 260px;
   box-shadow: 4px 4px grey;
 }
+
+.heartBtn.dashboard{
+  margin-top: 10px;
+  float: right;
+}
 .rating-section {
-  margin-top: 30px;
+  margin: 40px 0 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  border-bottom: 1px solid black;
+}
+
+.rating-section p{
+  margin: 0;
 }
 
 .stars {
   font-size: 24px;
   cursor: pointer;
+  padding: 0;
 }
 
 .star {
@@ -77,25 +88,30 @@
 }
 
 .comment-section textarea{
-  height: 50px;
+  height: 60px;
   width: 100%;
   padding:  5px;
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 5px;
   margin-top: 5px;
 }
 
-.saveBtn{
-  position: absolute;
-  right: 0;
-  bottom: 4px;
+.comment-section .saveBtn{ 
+  padding: 2px 10px;
+  float: right; 
+  border-bottom-right-radius: 5px;
+  border: 2px solid black;
+}
+
+.comment-section .saveBtn:hover{
+  background-color: black;
+  color: white;
 }
 
 
 /*-----------------------------------RIGHT SIDE------------------------------*/
 
-.detail-right{ 
-
+.detail-right{  
     display: flex; 
     align-items: center;
     flex-direction: column;
@@ -108,15 +124,78 @@
 .detail-right .paragraph{   
     text-align: justify;
     width: 70%;
-    height: 100%;
-    /* border: 1px solid grey; */
+    height: 100%; 
+    /* scroll-behavior: smooth; */
     overflow-x: hidden;
     overflow-y: scroll;
 }
 
+.detail-right .paragraph h4{
+  font-size: 1.5rem;
+  font-family: italic;
+}
+.detail-right .paragraph .current-read{
+  color: blue;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: 0.8s;
+}
+
+
+
+
+.paragraph .current-read:hover{
+  color: white;
+}
 
 .detail-right .paragraph p{
     line-height: 25px;
     padding: 0 10px;
     font-weight: bold;
+}
+
+.detail-right .paragraph .complete-book{
+  padding: 0.5rem 1rem;
+  border-radius: 7px;
+  border: 1px solid black;
+  font-weight: 600;
+  float: right;
+  margin-right: 5px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.paragraph .complete-book:hover{
+  color: white;
+}
+
+
+.paragraph .complete-book::after{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%; 
+  transition: 0.5s linear;
+}
+
+.paragraph .complete-book::before{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 100%; 
+  transition: 0.5s linear;
+}
+
+.paragraph .complete-book:hover::after, .paragraph .complete-book:hover::before{
+  width: 50%;
+  background-color: black;
+  color: white;
+
 }
