@@ -31,6 +31,9 @@ function Login() {
                
             }
             // toast.error("You have put wrong password and username!")
+         }).catch((err) =>{
+          toast.error("Request failed!")
+             console.log(err)
          })
   }
   

@@ -33,7 +33,7 @@ function currentRead(e){
   setRead(true);
 
   let currentReadBook = bookDetail._id
-       axios.patch("http://localhost:8080/currentRead", {currentReadBook, session})
+       axios.patch("https://bookshelf-server-1lpi.onrender.com/currentRead", {currentReadBook, session})
           .then((result) =>{  
               console.log(result.data)
           }).catch((err) =>{
@@ -48,7 +48,7 @@ function currentRead(e){
     setRead(false)
     let completedBook = bookDetail._id
              e.preventDefault();
-       axios.patch("http://localhost:8080/completed", {completedBook, session})
+       axios.patch("https://bookshelf-server-1lpi.onrender.com/completed", {completedBook, session})
           .then((result) =>{  
               console.log(result.data)
           }).catch((err) =>{
@@ -61,7 +61,7 @@ function currentRead(e){
   useEffect(() =>{
     let ratingBook = bookDetail._id; 
     if(clickRating){ 
-    axios.patch('http://localhost:8080/rating',{ratingBook, rating, session})
+    axios.patch('https://bookshelf-server-1lpi.onrender.com/rating',{ratingBook, rating, session})
     .then((result) =>{
         if(result.status === 200){
           console.log(result.data)
@@ -81,7 +81,7 @@ function commentBook(e){
   // console.log(comment)
   let commentedBook = bookDetail._id;
  
-  axios.patch('http://localhost:8080/comment',{commentedBook, comment, session})
+  axios.patch('https://bookshelf-server-1lpi.onrender.com/comment',{commentedBook, comment, session})
     .then((result) =>{
         if(result.status === 200){
           console.log(result.data)
@@ -99,7 +99,7 @@ function handlelikedBook(e, like) {
 
   if (session) {
     axios
-      .patch("http://localhost:8080/liked", { likedBook, session })
+      .patch("https://bookshelf-server-1lpi.onrender.com/liked", { likedBook, session })
       .then((result) => {
         console.log(result.data);
       })
