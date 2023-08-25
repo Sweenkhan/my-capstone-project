@@ -24,7 +24,7 @@ function Dashboard() {
 
 //----------------------------GET ALL COMMENTED BOOKS----------------------  
   function commented(){
-     axios.get("https://bookshelf-server-1lpi.onrender.com/getAllCommentedBooks", {headers})
+     axios.get("https://bookshelf-server-1lpi.onrender.com/getAllCommentedBooks", { }, {headers})
        .then((result) =>{
          console.log(result.data.collectData)
          setAllLikedBooks(result.data.collectData);
@@ -35,7 +35,7 @@ function Dashboard() {
   //----------------------------GET ALL RATED BOOKS---------------------------//
   function rated() {
     axios
-      .get("https://bookshelf-server-1lpi.onrender.com/getAllRatedBooks", { headers })
+      .get("https://bookshelf-server-1lpi.onrender.com/getAllRatedBooks",{ }, { headers })
       .then((result) => {
         console.log("Success check");
         console.log(result.data.collectData);
@@ -47,7 +47,7 @@ function Dashboard() {
   //-----------------------------GET ALL COMPLETE READ BOOKS-------------------//
   function completed() {
     axios
-      .get("https://bookshelf-server-1lpi.onrender.com/getAllCompletedBooks", { headers })
+      .get("https://bookshelf-server-1lpi.onrender.com/getAllCompletedBooks",{ }, { headers })
       .then((result) => { 
         setShowLiked(false);
         console.log(result.data.collectData);
@@ -59,7 +59,7 @@ function Dashboard() {
   //-----------------------------GET ALL READ BOOKS-----------------------//
   function current() {
     axios
-      .get("https://bookshelf-server-1lpi.onrender.com/getAllReadBooks", { headers })
+      .get("https://bookshelf-server-1lpi.onrender.com/getAllReadBooks",{ }, { headers })
       .then((result) => { 
         console.log(result.data.collectData);
         setShowLiked(false)
@@ -71,7 +71,7 @@ function Dashboard() {
   //------------------------------GET ALL LIKED BOOKS----------------------//
   function likedBooks() {
     axios
-      .get("https://bookshelf-server-1lpi.onrender.com/getAllLikedBooks", { headers })
+      .get("https://bookshelf-server-1lpi.onrender.com/getAllLikedBooks", { }, { headers })
       .then((result) => {
         console.log("Success check");
         console.log(result.data.collectData);
@@ -85,7 +85,7 @@ function Dashboard() {
   useEffect(() => {
     if(session){
       axios
-      .get("https://bookshelf-server-1lpi.onrender.com/dashboard", { headers })
+      .get("https://bookshelf-server-1lpi.onrender.com/dashboard",{ }, { headers })
       .then((result) => {
         if (result.data.status === 200) {
           setDashboardData(result.data.collectData);
