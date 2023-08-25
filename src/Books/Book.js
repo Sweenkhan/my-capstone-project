@@ -7,6 +7,7 @@ import { searchedContext } from "../App/App";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 function Book() {
   const { setBookDetail } = useContext(searchedContext);
   const [books, setBooks] = useState([]);
@@ -16,10 +17,11 @@ function Book() {
 
   useEffect(() => {
     axios.get("https://bookshelf-server-1lpi.onrender.com/book").then((result) => {
-      setBooks(result.data);
+      setBooks(result.data.results);
     });
   }, []);
 
+//----------------------------------------------START READING---------------------------------  
   function handleReadMore(e, book) {
     e.preventDefault();
     if (session) {
@@ -30,6 +32,8 @@ function Book() {
     }
   }
 
+
+ //--------------------------------------------LIKED BOOKS------------------------------------- 
   function handlelikedBook(e, like) {
     e.preventDefault();
     let likedBook = like;
@@ -38,15 +42,17 @@ function Book() {
       axios
         .patch("https://bookshelf-server-1lpi.onrender.com/liked", { likedBook, session })
         .then((result) => {
-          console.log(result.data);
+          console.log(result.data.message)
         })
         .catch((err) => {
           console.log(err);
         });
     } else {
-      alert("You can't like this book,Firs you have to logged in");
+      alert("You can't like this book,First you have to logged in");
     }
+    
   }
+
 
   return (
     <div className="book">

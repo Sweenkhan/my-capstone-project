@@ -20,9 +20,10 @@ function Register() {
     e.preventDefault()
          axios.post('https://bookshelf-server-1lpi.onrender.com/register', {name, email, phone, username, password})
          .then((result) =>{ 
-          if(result.status === 200){ 
+          if(result.data.status === 200){ 
                 navigate('/login')
              } else {
+             console.log(result.data.message)
               navigate('/register')
              }
          })

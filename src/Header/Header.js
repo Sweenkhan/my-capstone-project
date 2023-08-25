@@ -26,7 +26,7 @@ function Header() {
       .post("https://bookshelf-server-1lpi.onrender.com/search", { searchBook })
       .then((result) => {
         console.log("data to aa gya");
-        console.log(result.data);
+        console.log(result.data.message);
 
         setSearchedBooks(result.data);
         setSearchBook("");

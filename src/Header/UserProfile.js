@@ -34,23 +34,23 @@ function UserProfile(props) {
     console.log(session);
     axios.get("https://bookshelf-server-1lpi.onrender.com/allusers", { headers })
     .then((result) => {
-      setAllUsers(result.data);
-      console.log(result.data);
+      setAllUsers(result.data.getAllUsers);
+      console.log(result.data.getAllUsers);
       setHasFriend(true);
     });
   }
 
 
   //--------------------SENDING FRIEND REQUEST------------------------------------// 
-  function sendRequest(e, friendUsername) {
-    e.preventDefault();
-    axios
-      .patch("https://bookshelf-server-1lpi.onrender.com/friendRequest", { session, friendUsername })
-      .then((result) => {
-        console.log(result.data);
-        console.log("request send from frontEnd")
-      });
-  }
+  // function sendRequest(e, friendUsername) {
+  //   e.preventDefault();
+  //   axios
+  //     .patch("https://bookshelf-server-1lpi.onrender.com/friendRequest", { session, friendUsername })
+  //     .then((result) => {
+  //       console.log(result.data);
+  //       console.log("request send from frontEnd")
+  //     });
+  // }
 
 
   //------------------------------GET ORIGINAL USER--------------------------------//
@@ -58,10 +58,11 @@ function UserProfile(props) {
       console.log(session)
       axios.get("https://bookshelf-server-1lpi.onrender.com/originalUser", {headers})
       .then((result) =>{
-           console.log(result.data)
-           setUserProfile(result.data)
+           console.log(result.data.userData)
+           setUserProfile(result.data.userData)
       })
     },[session])
+
 
  console.log(userProfile)
   return (

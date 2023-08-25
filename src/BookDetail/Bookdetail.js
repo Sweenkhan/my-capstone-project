@@ -35,7 +35,7 @@ function currentRead(e){
   let currentReadBook = bookDetail._id
        axios.patch("https://bookshelf-server-1lpi.onrender.com/currentRead", {currentReadBook, session})
           .then((result) =>{  
-              console.log(result.data)
+              console.log(result.data.message)
           }).catch((err) =>{
             console.log(err)
          })
@@ -50,7 +50,7 @@ function currentRead(e){
              e.preventDefault();
        axios.patch("https://bookshelf-server-1lpi.onrender.com/completed", {completedBook, session})
           .then((result) =>{  
-              console.log(result.data)
+              console.log(result.data.message)
           }).catch((err) =>{
             console.log(err)
          })
@@ -63,8 +63,10 @@ function currentRead(e){
     if(clickRating){ 
     axios.patch('https://bookshelf-server-1lpi.onrender.com/rating',{ratingBook, rating, session})
     .then((result) =>{
-        if(result.status === 200){
-          console.log(result.data)
+        if(result.data.status === 200){
+          console.log(result.data.massage)
+        }else {
+          console.log(result.data.massage)
         }
     }).catch((err) =>{
        console.log(err)
@@ -83,14 +85,17 @@ function commentBook(e){
  
   axios.patch('https://bookshelf-server-1lpi.onrender.com/comment',{commentedBook, comment, session})
     .then((result) =>{
-        if(result.status === 200){
-          console.log(result.data)
+        if(result.data.status === 200){
+          console.log(result.data.message)
+        } else {
+          console.log(result.data.message)
         }
     }).catch((err) =>{
        console.log(err)
     })
     setComment("")
   }
+
 
 //----------------------------------LIKED ON BOOKS--------------------------------
 function handlelikedBook(e, like) {
@@ -101,7 +106,7 @@ function handlelikedBook(e, like) {
     axios
       .patch("https://bookshelf-server-1lpi.onrender.com/liked", { likedBook, session })
       .then((result) => {
-        console.log(result.data);
+        console.log(result.data.message);
       })
       .catch((err) => {
         console.log(err);
