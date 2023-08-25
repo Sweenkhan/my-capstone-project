@@ -24,7 +24,7 @@ function Login() {
 
               toast.success("You have succesfully logged in")
               setTimeout(() =>{
-                navigate("/book")
+                navigate("/dashboard")
               }, 3000)
                 
             } else {
