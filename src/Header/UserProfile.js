@@ -32,7 +32,7 @@ function UserProfile(props) {
   function getUsers(e) {
     e.preventDefault();
     console.log(session);
-    axios.get("https://bookshelf-server-1lpi.onrender.com/allusers", { headers })
+    axios.get("https://bookshelf-server-1lpi.onrender.com/allusers",{ }, { headers })
     .then((result) => {
       setAllUsers(result.data.getAllUsers);
       console.log(result.data.getAllUsers);
@@ -56,7 +56,7 @@ function UserProfile(props) {
   //------------------------------GET ORIGINAL USER--------------------------------//
     useEffect(() => {
       console.log(session)
-      axios.get("https://bookshelf-server-1lpi.onrender.com/originalUser", {headers})
+      axios.get("https://bookshelf-server-1lpi.onrender.com/originalUser",{ }, {headers})
       .then((result) =>{
            console.log(result.data.userData)
            setUserProfile(result.data.userData)
