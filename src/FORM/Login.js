@@ -20,18 +20,17 @@ function Login() {
          .then((result) => {
           console.log(result)
             if(result.data.status === 200){ 
-              localStorage.setItem("session", result.data); 
+              localStorage.setItem("session", result.data.savedToken); 
 
               toast.success("You have succesfully logged in")
               setTimeout(() =>{
-                navigate("/dashboard")
+                navigate("/book")
               }, 3000)
                 
             } else {
-              toast.error("You have put wrong password and username!")
-               
+              toast.error("You have put wrong password and username!") 
             }
-            toast.error("You have put wrong password and username!")
+            // toast.error("You have put wrong password and username!")
          }).catch((err) =>{
           toast.error("Request failed!")
              console.log(err)
