@@ -18,7 +18,7 @@ function Register() {
 
   function handleRegister(e){
     e.preventDefault()
-         axios.post('http://localhost:8080/register', {name, email, phone, username, password})
+         axios.post('https://bookshelf-server-1lpi.onrender.com/register', {name, email, phone, username, password})
          .then((result) =>{ 
           if(result.status === 200){ 
                 navigate('/login')

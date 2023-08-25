@@ -24,7 +24,7 @@ function Dashboard() {
 
 //----------------------------GET ALL COMMENTED BOOKS----------------------  
   function commented(){
-     axios.get("http://localhost:8080/getAllCommentedBooks", {headers})
+     axios.get("https://bookshelf-server-1lpi.onrender.com/getAllCommentedBooks", {headers})
        .then((result) =>{
          console.log(result.data)
          setAllLikedBooks(result.data);
@@ -35,7 +35,7 @@ function Dashboard() {
   //----------------------------GET ALL RATED BOOKS---------------------------//
   function rated() {
     axios
-      .get("http://localhost:8080/getAllRatedBooks", { headers })
+      .get("https://bookshelf-server-1lpi.onrender.com/getAllRatedBooks", { headers })
       .then((result) => {
         console.log("Success check");
         console.log(result.data);
@@ -47,7 +47,7 @@ function Dashboard() {
   //-----------------------------GET ALL COMPLETE READ BOOKS-------------------//
   function completed() {
     axios
-      .get("http://localhost:8080/getAllCompletedBooks", { headers })
+      .get("https://bookshelf-server-1lpi.onrender.com/getAllCompletedBooks", { headers })
       .then((result) => { 
         setShowLiked(false);
         console.log(result.data);
@@ -59,7 +59,7 @@ function Dashboard() {
   //-----------------------------GET ALL READ BOOKS-----------------------//
   function current() {
     axios
-      .get("http://localhost:8080/getAllReadBooks", { headers })
+      .get("https://bookshelf-server-1lpi.onrender.com/getAllReadBooks", { headers })
       .then((result) => { 
         console.log(result.data);
         setShowLiked(false)
@@ -71,7 +71,7 @@ function Dashboard() {
   //------------------------------GET ALL LIKED BOOKS----------------------//
   function likedBooks() {
     axios
-      .get("http://localhost:8080/getAllLikedBooks", { headers })
+      .get("https://bookshelf-server-1lpi.onrender.com/getAllLikedBooks", { headers })
       .then((result) => {
         console.log("Success check");
         console.log(result.data);
@@ -85,7 +85,7 @@ function Dashboard() {
   useEffect(() => {
     if(session){
       axios
-      .get("http://localhost:8080/dashboard", { headers })
+      .get("https://bookshelf-server-1lpi.onrender.com/dashboard", { headers })
       .then((result) => {
         if (result.status === 200) {
           setDashboardData(result.data);

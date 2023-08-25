@@ -32,7 +32,7 @@ function UserProfile(props) {
   function getUsers(e) {
     e.preventDefault();
     console.log(session);
-    axios.get("http://localhost:8080/allusers", { headers })
+    axios.get("https://bookshelf-server-1lpi.onrender.com/allusers", { headers })
     .then((result) => {
       setAllUsers(result.data);
       console.log(result.data);
@@ -45,7 +45,7 @@ function UserProfile(props) {
   function sendRequest(e, friendUsername) {
     e.preventDefault();
     axios
-      .patch("http://localhost:8080/friendRequest", { session, friendUsername })
+      .patch("https://bookshelf-server-1lpi.onrender.com/friendRequest", { session, friendUsername })
       .then((result) => {
         console.log(result.data);
         console.log("request send from frontEnd")
@@ -56,7 +56,7 @@ function UserProfile(props) {
   //------------------------------GET ORIGINAL USER--------------------------------//
     useEffect(() => {
       console.log(session)
-      axios.get("http://localhost:8080/originalUser", {headers})
+      axios.get("https://bookshelf-server-1lpi.onrender.com/originalUser", {headers})
       .then((result) =>{
            console.log(result.data)
            setUserProfile(result.data)

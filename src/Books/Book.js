@@ -15,7 +15,7 @@ function Book() {
   const session = localStorage.getItem("session");
 
   useEffect(() => {
-    axios.get("http://localhost:8080/book").then((result) => {
+    axios.get("https://bookshelf-server-1lpi.onrender.com/book").then((result) => {
       setBooks(result.data);
     });
   }, []);
@@ -36,7 +36,7 @@ function Book() {
 
     if (session) {
       axios
-        .patch("http://localhost:8080/liked", { likedBook, session })
+        .patch("https://bookshelf-server-1lpi.onrender.com/liked", { likedBook, session })
         .then((result) => {
           console.log(result.data);
         })

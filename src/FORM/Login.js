@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import axios from "axios"
 import "./Login.css"
 import {useNavigate} from "react-router-dom"; 
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 
 function Login() {
@@ -14,14 +16,21 @@ function Login() {
   function handleSubmit(e) {
 
     e.preventDefault() 
-         axios.post("http://localhost:8080/login", {username, password})
+         axios.post("https://bookshelf-server-1lpi.onrender.com/login", {username, password})
          .then((result) => {
             if(result.status === 200){ 
               localStorage.setItem("session", result.data); 
-               navigate("/dashboard")
+
+              toast.success("You have succesfully logged in")
+              setTimeout(() =>{
+                navigate("/dashboard")
+              }, 3000)
+                
             } else {
-              alert("wrong credential")
+              toast.error("You have put wrong password and username!")
+               
             }
+            // toast.error("You have put wrong password and username!")
          })
   }
   
@@ -33,6 +42,7 @@ function Login() {
     <h2>Login</h2>
         <form method='post' onSubmit={handleSubmit}>
         <input 
+        required
         type='text' 
         name='username' 
         placeholder='Username'
@@ -40,6 +50,7 @@ function Login() {
         onChange={(e) => {setUsername(e.target.value)}}
          />  <br />
         <input 
+        required
         type='password'
         name='password'
         placeholder='Password'
@@ -50,9 +61,10 @@ function Login() {
         <button type="submit" name='login'>Submit</button>
         <p>Don't have an account? <Link to="/register">Create</Link></p>
         </div>
+        <ToastContainer position='top-center' autoClose={3000} theme='dark'/>
     </form>
     </div> 
-     
+      
     </div>
     </div>
   )

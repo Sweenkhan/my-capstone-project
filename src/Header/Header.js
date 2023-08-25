@@ -23,7 +23,7 @@ function Header() {
   function handleGsearch(e) {
     e.preventDefault();
     axios
-      .post("http://localhost:8080/search", { searchBook })
+      .post("https://bookshelf-server-1lpi.onrender.com/search", { searchBook })
       .then((result) => {
         console.log("data to aa gya");
         console.log(result.data);
@@ -49,7 +49,7 @@ function Header() {
       </div>
       <form
         method="post"
-        action="http://localhost:8080/search"
+        action="https://bookshelf-server-1lpi.onrender.com/search"
         onSubmit={handleGsearch}
       >
         <input
