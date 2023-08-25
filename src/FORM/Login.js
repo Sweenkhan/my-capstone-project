@@ -19,19 +19,19 @@ function Login() {
          axios.post("https://bookshelf-server-1lpi.onrender.com/login", {username, password})
          .then((result) => {
           console.log(result)
-            // if(result.status === 200){ 
-            //   localStorage.setItem("session", result.data); 
+            if(result.data.status === 200){ 
+              localStorage.setItem("session", result.data); 
 
-            //   toast.success("You have succesfully logged in")
-            //   setTimeout(() =>{
-            //     navigate("/dashboard")
-            //   }, 3000)
+              toast.success("You have succesfully logged in")
+              setTimeout(() =>{
+                navigate("/dashboard")
+              }, 3000)
                 
-            // } else {
-            //   toast.error("You have put wrong password and username!")
+            } else {
+              toast.error("You have put wrong password and username!")
                
-            // }
-            // toast.error("You have put wrong password and username!")
+            }
+            toast.error("You have put wrong password and username!")
          }).catch((err) =>{
           toast.error("Request failed!")
              console.log(err)
