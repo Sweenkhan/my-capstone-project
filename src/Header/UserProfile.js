@@ -83,7 +83,7 @@ function UserProfile(props) {
                   {usr.username}
                   <span
                     style={{ backgroundColor: "red", fontSize: "8px" }}
-                    onClick={(e) => sendRequest(e, usr.username)}
+                    // onClick={(e) => sendRequest(e, usr.username)}
                   >
                     {" "}
                     sending
