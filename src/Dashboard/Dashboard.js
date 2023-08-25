@@ -26,8 +26,8 @@ function Dashboard() {
   function commented(){
      axios.get("https://bookshelf-server-1lpi.onrender.com/getAllCommentedBooks", {headers})
        .then((result) =>{
-         console.log(result.data)
-         setAllLikedBooks(result.data);
+         console.log(result.data.collectData)
+         setAllLikedBooks(result.data.collectData);
        })
   }
 
@@ -38,9 +38,9 @@ function Dashboard() {
       .get("https://bookshelf-server-1lpi.onrender.com/getAllRatedBooks", { headers })
       .then((result) => {
         console.log("Success check");
-        console.log(result.data);
+        console.log(result.data.collectData);
         setShowLiked(false)
-        setAllLikedBooks(result.data);
+        setAllLikedBooks(result.data.collectData);
       });
   }
 
@@ -50,8 +50,8 @@ function Dashboard() {
       .get("https://bookshelf-server-1lpi.onrender.com/getAllCompletedBooks", { headers })
       .then((result) => { 
         setShowLiked(false);
-        console.log(result.data);
-        setAllLikedBooks(result.data);
+        console.log(result.data.collectData);
+        setAllLikedBooks(result.data.collectData);
       });
   }
 
@@ -61,9 +61,9 @@ function Dashboard() {
     axios
       .get("https://bookshelf-server-1lpi.onrender.com/getAllReadBooks", { headers })
       .then((result) => { 
-        console.log(result.data);
+        console.log(result.data.collectData);
         setShowLiked(false)
-        setAllLikedBooks(result.data);
+        setAllLikedBooks(result.data.collectData);
       });
   }
 
@@ -74,8 +74,8 @@ function Dashboard() {
       .get("https://bookshelf-server-1lpi.onrender.com/getAllLikedBooks", { headers })
       .then((result) => {
         console.log("Success check");
-        console.log(result.data);
-        setAllLikedBooks(result.data);
+        console.log(result.data.collectData);
+        setAllLikedBooks(result.data.collectData);
         setShowLiked(true)
       });
   }
@@ -87,8 +87,8 @@ function Dashboard() {
       axios
       .get("https://bookshelf-server-1lpi.onrender.com/dashboard", { headers })
       .then((result) => {
-        if (result.status === 200) {
-          setDashboardData(result.data);
+        if (result.data.status === 200) {
+          setDashboardData(result.data.collectData);
            
           console.log("Success check");
         } else {
