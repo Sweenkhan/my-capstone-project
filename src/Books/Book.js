@@ -6,8 +6,8 @@ import ShareIcon from "@mui/icons-material/Share";
 import { searchedContext } from "../App/App";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
-
+import { porturl } from "../url/porturl"; 
+import { toast } from "react-toastify";
 function Book() {
   const { setBookDetail } = useContext(searchedContext);
   const [books, setBooks] = useState([]);
@@ -16,7 +16,7 @@ function Book() {
   const session = localStorage.getItem("session");
 
   useEffect(() => {
-    axios.get("https://bookshelf-server-1lpi.onrender.com/book").then((result) => {
+    axios.get(porturl + "/book").then((result) => {
       setBooks(result.data.results);
     });
   }, []);
@@ -28,7 +28,7 @@ function Book() {
       setBookDetail(book);
       navigate("/bookdetail");
     } else {
-      alert("You can't read this book, Because you are not logged in");
+      toast.info("You can't read this book, Because you are not logged in");
     }
   }
 
@@ -40,15 +40,17 @@ function Book() {
 
     if (session) {
       axios
-        .patch("https://bookshelf-server-1lpi.onrender.com/liked", { likedBook, session })
+        .patch(porturl + "/liked", { likedBook, session })
         .then((result) => {
-          console.log(result.data.message)
+          // console.log(result.data.message)
+          toast.success(result.data.message)
         })
         .catch((err) => {
           console.log(err);
         });
     } else {
-      alert("You can't like this book,First you have to logged in");
+      // alert("You can't like this book,First you have to logged in");
+      toast.info("You can't like this book,First you have to logged in")
     }
     
   }
@@ -125,7 +127,7 @@ function Book() {
             </div>
           );
         })}
-      </div>
+      </div> 
     </div>
   );
 }

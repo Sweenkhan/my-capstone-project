@@ -4,7 +4,8 @@ import "./Register.css"
 import axios from 'axios'
 import registerImg from "../images/register.jpg"
 import { useNavigate } from 'react-router-dom'
- 
+import { porturl } from '../url/porturl' 
+
 
 function Register() {
 
@@ -16,9 +17,10 @@ function Register() {
   const [password, setPassword] = useState("")
 
 
+
   function handleRegister(e){
     e.preventDefault()
-         axios.post('https://bookshelf-server-1lpi.onrender.com/register', {name, email, phone, username, password})
+         axios.post(porturl + '/register', {name, email, phone, username, password})
          .then((result) =>{ 
           if(result.data.status === 200){ 
                 navigate('/login')

@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./UserProfile.css";
+import "./UserProfile.css"; 
+import { porturl } from "../url/porturl";
+import { toast, ToastContainer } from "react-toastify";
 
+ 
 function UserProfile(props) {
   const [hasfriend, setHasFriend] = useState(false);
   const [allUsers, setAllUsers] = useState([]);
@@ -17,14 +20,21 @@ function UserProfile(props) {
   };
 
   let name;
-  if(userProfile.name){name = userProfile.name.toUpperCase()}
+  if(userProfile.name){
+    name = userProfile.name.toUpperCase()
+  }
 
   //----------------------------HANDLE LOGOUT REQUEST------------------------------//
   function handlLogout(e) {
     e.preventDefault();
-    props.show(false)
-    localStorage.setItem("session", "");
-    navigate("/");
+    toast.info("Succesfully Logged Out")
+
+    setTimeout(( ) => {
+      props.show(false)
+      localStorage.setItem("session", "");
+      navigate("/");
+    },2000);
+    
     console.log("user has logged out");
   }
 
@@ -32,7 +42,7 @@ function UserProfile(props) {
   function getUsers(e) {
     e.preventDefault();
     console.log(session);
-    axios.get("https://bookshelf-server-1lpi.onrender.com/allusers",{ }, { headers })
+    axios.get(porturl + "/allusers", { headers })
     .then((result) => {
       setAllUsers(result.data.getAllUsers);
       console.log(result.data.getAllUsers);
@@ -56,7 +66,7 @@ function UserProfile(props) {
   //------------------------------GET ORIGINAL USER--------------------------------//
     useEffect(() => {
       console.log(session)
-      axios.get("https://bookshelf-server-1lpi.onrender.com/originalUser",{ }, {headers})
+      axios.get(porturl + "/originalUser", {headers})
       .then((result) =>{
            console.log(result.data.userData)
            setUserProfile(result.data.userData)
@@ -66,6 +76,7 @@ function UserProfile(props) {
 
  console.log(userProfile)
   return (
+    <>
     <div className="userProfile">
       <div className="userCnt">
         <p className="user-name">{name}</p>
@@ -73,7 +84,7 @@ function UserProfile(props) {
         <p onClick={getUsers} >
           FRIENDS
         </p>
-
+        
         {hasfriend && session ? (
           <ul className="drop-down-friendlist">
             <li onClick={(e) => setHasFriend(false)}>X</li>
@@ -98,8 +109,9 @@ function UserProfile(props) {
         <div className="userProfile-btn"> 
         <button onClick={handlLogout}>Logout</button>   
         </div>
+      </div> 
       </div>
-    </div>
+    </>
   );
 }
 

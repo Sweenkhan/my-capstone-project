@@ -4,10 +4,15 @@ import { searchedContext } from "../App/App";
 import bookContent from "./BookContent";
 import "./Bookdetail.css";
 import axios from "axios"; 
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"; 
+import { porturl } from "../url/porturl";
+import {ToastContainer,  toast } from "react-toastify";
+
 // import book from '../../../back/models/book'
 
+ 
 function Bookdetail() {
+
 
   const { bookDetail } = useContext(searchedContext);
   const { paraOne, paraTwo, paraThree, paraFour, paraFive } = bookContent;
@@ -33,8 +38,11 @@ function currentRead(e){
   setRead(true);
 
   let currentReadBook = bookDetail._id
-       axios.patch("https://bookshelf-server-1lpi.onrender.com/currentRead", {currentReadBook, session})
+       axios.patch( porturl + "/currentRead", {currentReadBook, session})
           .then((result) =>{  
+            if(result.data.status === 200){
+              console.log(result.data.message)
+            }
               console.log(result.data.message)
           }).catch((err) =>{
             console.log(err)
@@ -48,9 +56,13 @@ function currentRead(e){
     setRead(false)
     let completedBook = bookDetail._id
              e.preventDefault();
-       axios.patch("https://bookshelf-server-1lpi.onrender.com/completed", {completedBook, session})
+       axios.patch(porturl + "/completed", {completedBook, session})
           .then((result) =>{  
-              console.log(result.data.message)
+            if(result.data.status === 200){
+              toast.success(result.data.message)
+            }else{
+              toast.success(result.data.message)
+            }
           }).catch((err) =>{
             console.log(err)
          })
@@ -61,13 +73,13 @@ function currentRead(e){
   useEffect(() =>{
     let ratingBook = bookDetail._id; 
     if(clickRating){ 
-    axios.patch('https://bookshelf-server-1lpi.onrender.com/rating',{ratingBook, rating, session})
+    axios.patch(porturl + '/rating',{ratingBook, rating, session})
     .then((result) =>{
-        if(result.data.status === 200){
-          console.log(result.data.massage)
-        }else {
-          console.log(result.data.massage)
-        }
+      if(result.data.status === 200){
+        toast.success(result.data.message)
+      }else{
+        toast.success(result.data.message)
+      }
     }).catch((err) =>{
        console.log(err)
     })
@@ -83,13 +95,13 @@ function commentBook(e){
   // console.log(comment)
   let commentedBook = bookDetail._id;
  
-  axios.patch('https://bookshelf-server-1lpi.onrender.com/comment',{commentedBook, comment, session})
+  axios.patch(porturl + '/comment',{commentedBook, comment, session})
     .then((result) =>{
-        if(result.data.status === 200){
-          console.log(result.data.message)
-        } else {
-          console.log(result.data.message)
-        }
+      if(result.data.status === 200){
+        toast.success(result.data.message)
+      }else{
+        toast.success(result.data.message)
+      }
     }).catch((err) =>{
        console.log(err)
     })
@@ -104,9 +116,14 @@ function handlelikedBook(e, like) {
 
   if (session) {
     axios
-      .patch("https://bookshelf-server-1lpi.onrender.com/liked", { likedBook, session })
+      .patch(porturl + "/liked", { likedBook, session })
       .then((result) => {
-        console.log(result.data.message);
+        // console.log(result.data.message);
+        if(result.data.status === 200){
+          toast.success(result.data.message)
+        }else{
+          toast.success(result.data.message)
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -119,6 +136,11 @@ function handlelikedBook(e, like) {
 
 
   return (
+    <> <ToastContainer
+    position="top-center"
+    autoClose={3000}  
+    theme="dark"
+    />
     <div className="bookdetail"> 
       <div className="bookdetailCont">
         <div className="detail-left">
@@ -183,6 +205,7 @@ function handlelikedBook(e, like) {
 
       </div>
     </div>
+    </>
   );
 }
 

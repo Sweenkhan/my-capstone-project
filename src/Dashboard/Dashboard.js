@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import "./Dashboard.css";
+import "./Dashboard.css"; 
+import { porturl } from "../url/porturl";
 
+ 
 function Dashboard() {
   let session = localStorage.getItem("session");
 
@@ -24,7 +26,7 @@ function Dashboard() {
 
 //----------------------------GET ALL COMMENTED BOOKS----------------------  
   function commented(){
-     axios.get("https://bookshelf-server-1lpi.onrender.com/getAllCommentedBooks", { }, {headers})
+     axios.get(porturl + "/getAllCommentedBooks", {headers})
        .then((result) =>{
          console.log(result.data.collectData)
          setAllLikedBooks(result.data.collectData);
@@ -35,7 +37,7 @@ function Dashboard() {
   //----------------------------GET ALL RATED BOOKS---------------------------//
   function rated() {
     axios
-      .get("https://bookshelf-server-1lpi.onrender.com/getAllRatedBooks",{ }, { headers })
+      .get(porturl + "/getAllRatedBooks", { headers })
       .then((result) => {
         console.log("Success check");
         console.log(result.data.collectData);
@@ -47,7 +49,7 @@ function Dashboard() {
   //-----------------------------GET ALL COMPLETE READ BOOKS-------------------//
   function completed() {
     axios
-      .get("https://bookshelf-server-1lpi.onrender.com/getAllCompletedBooks",{ }, { headers })
+      .get(porturl + "/getAllCompletedBooks", { headers })
       .then((result) => { 
         setShowLiked(false);
         console.log(result.data.collectData);
@@ -59,7 +61,7 @@ function Dashboard() {
   //-----------------------------GET ALL READ BOOKS-----------------------//
   function current() {
     axios
-      .get("https://bookshelf-server-1lpi.onrender.com/getAllReadBooks",{ }, { headers })
+      .get(porturl + "/getAllReadBooks", { headers })
       .then((result) => { 
         console.log(result.data.collectData);
         setShowLiked(false)
@@ -71,7 +73,7 @@ function Dashboard() {
   //------------------------------GET ALL LIKED BOOKS----------------------//
   function likedBooks() {
     axios
-      .get("https://bookshelf-server-1lpi.onrender.com/getAllLikedBooks", { }, { headers })
+      .get(porturl + "/getAllLikedBooks", { headers })
       .then((result) => {
         console.log("Success check");
         console.log(result.data.collectData);
@@ -85,10 +87,11 @@ function Dashboard() {
   useEffect(() => {
     if(session){
       axios
-      .get("https://bookshelf-server-1lpi.onrender.com/dashboard",{ }, { headers })
+      .get(porturl + "/dashboard", { headers })
       .then((result) => {
-        if (result.data.status === 200) {
-          setDashboardData(result.data.collectData);
+        console.log(result)
+        if (result.data.status === 200) { 
+          setDashboardData(result.data.userdata);
            
           console.log("Success check");
         } else {
@@ -100,7 +103,8 @@ function Dashboard() {
         // alert("Authentication failed. Please login Again");
         console.log(err);
       });
-    } else {
+    } 
+    else {
       navigate("/login");
     }
      

@@ -97,8 +97,25 @@
    padding: 5px 30px;
    background-color: black;
    color: white;
-   text-align: center;
+   text-align: center; 
+   height: 45px;
+   opacity: 1;
+   /* animation: mybooks 1.3s 0.2 linear; */
+
 }
+
+/* @keyframes mybooks{
+   0%{
+      height: 0px;
+      opacity: 0;
+   }50%{
+      height: 25px;
+      opacity: 0.2;
+   }100%{
+      height: 45px;
+      opacity: 1;
+   }
+} */
 
 .right .liked-books {
    display: flex;

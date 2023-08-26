@@ -43,6 +43,7 @@
   justify-content: space-evenly;
   list-style-type: none;
   margin-bottom: 0px !important;
+  padding: 0px !important;
 }
 
 .header ul li {
@@ -134,6 +135,11 @@ ul #login:hover {
   font-size: 2rem;
   cursor: pointer;
 }
+
+
+/* .header .main-user{
+  cursor: pointer; 
+} */
 
 
 @media only screen and (max-width: 950px) {

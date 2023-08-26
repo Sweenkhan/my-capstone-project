@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../Footer/Footer";
 import image1 from "../images/bookself2.jpg";
 import image2 from "../images/bookself3.png";
 import image3 from "../images/bookself4.jpeg";
@@ -8,6 +9,7 @@ import "./AboutPage.css";
 
 function Aboutpage() {
   return (
+    <> 
     <div className="about">
       <div className="aboutBanner" id="about-banner">
         <div className="aboutBannerContent" >
@@ -29,7 +31,7 @@ function Aboutpage() {
           <img src={image1} alt=" "></img>
         </div>
         <div className="content" id="first">
-          <h1>Good heading</h1>
+          <h1>Our Mission</h1>
           <p>
             A bookshelf is more than a mere piece of furniture; it's a gateway
             to exploration, a repository of knowledge, and a reflection of one's
@@ -40,7 +42,7 @@ function Aboutpage() {
       </div>
       <div className="con">
         <div className="content">
-          <h1>Good heading</h1>
+          <h1>Our Story</h1>
           <p>
             The journey through a bookshelf is an adventure in itself. Each
             shelf holds the promise of new worlds, fresh perspectives, and
@@ -58,7 +60,7 @@ function Aboutpage() {
           <img src={image4} alt=" "></img>
         </div>
         <div className="content">
-          <h1>Good heading</h1>
+          <h1>Services</h1>
           <p>
             Bookshelves also provide an insight into the mind of their owner.
             The choice of books displayed can reveal intellectual pursuits,
@@ -69,7 +71,7 @@ function Aboutpage() {
       </div>
       <div className="con con-last">
         <div className="content">
-          <h1>Good heading</h1>
+          <h1>Future Goal</h1>
           <p>
             bookshelf is a testament to the human pursuit of knowledge and
             creativity. It's a stage for ideas to flourish, dreams to be
@@ -83,7 +85,9 @@ function Aboutpage() {
           <img src={image3} alt=" "></img>
         </div>
       </div>
+    <Footer />
     </div>
+    </>
   );
 }
 

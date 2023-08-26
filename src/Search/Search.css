@@ -28,7 +28,7 @@
     width: 360px;
     height: 250px; 
 }
-
+ 
  
 .searced-img img{
  margin-top: -140px;
@@ -36,6 +36,7 @@
   transition: all 0.45s linear;
   height: 180px;
   width: 130px;
+  margin-bottom: 30px; 
 
 }
 
@@ -51,7 +52,6 @@
   align-items:center;
   justify-content: flex-start;
   margin-left: 20px;
- 
   height: 100%;
 }
 
@@ -59,11 +59,10 @@
   margin: 10px 0;
 }
  
-.searchedCnt .read-more{
-   cursor: pointer;
-    right: 10px;
-    bottom: 10px;
+.row-img .read-more{
+   cursor: pointer; 
     border: none;
+    background-color: none;
 }
 
 .searchedCnt .description{

@@ -10,6 +10,11 @@ function Footer() {
   return (
     <div className='footer'>
     <div className='container'>
+    <div className='contact'>
+        <h4>touch-us</h4>
+        <p>khansween@gmail.com</p>
+    </div>
+    <p ><span>© BOOKSHELF</span> All rights reserved. Created by Sween Khan</p>
     <ul>
         <li>
             <Link to="https://www.instagram.com/sweenkhan97/"><InstagramIcon sx={{ fontSize: 40 }} /></Link>
@@ -21,6 +26,7 @@ function Footer() {
             <Link to="https://www.linkedin.com/in/sween-khan-834024182/"><LinkedInIcon sx={{ fontSize: 40 }} /></Link>
         </li>
     </ul>
+
      </div>
      </div>
   )

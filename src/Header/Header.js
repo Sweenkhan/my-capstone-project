@@ -8,9 +8,12 @@ import { searchedContext } from "../App/App";
 import { useNavigate } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import UserProfile from "./UserProfile";
+import { porturl } from "../url/porturl"; 
+import { ToastContainer, toast } from "react-toastify";
+
 
 function Header() {
-  const { setSearchedBooks } = useContext(searchedContext);
+  const { setSearchedBooks, searchedBook } = useContext(searchedContext);
 
   // const [hasfriend, setHasFriend] = useState(false)
   // const [allUsers, setAllUsers] = useState([])
@@ -23,21 +26,28 @@ function Header() {
   function handleGsearch(e) {
     e.preventDefault();
     axios
-      .post("https://bookshelf-server-1lpi.onrender.com/search", { searchBook })
+      .post(porturl + "/search", { searchBook })
       .then((result) => {
         console.log("data to aa gya");
-        console.log(result.data.message);
+        console.log(result.data);
 
-        setSearchedBooks(result.data);
+        setSearchedBooks(result.data); 
+        if(result.data.length === 0){
+          toast.error("Sorry didn't match with any title.  Try Again ")
+        } else {
+          navigate("/search");
+        }
         setSearchBook("");
-        navigate("/search");
       })
       .catch((err) => {
         console.log("error to bta do", err);
       });
   }
 
+
+
   return (
+    <>
     <div className="header">
       <div className="logo">
         <Link to="/">
@@ -46,10 +56,8 @@ function Header() {
             BOOK<span style={{ color: "black" }}>SHELF </span>
           </h2>{" "}
         </Link>
-      </div>
-      <form
-        method="post"
-        action="https://bookshelf-server-1lpi.onrender.com/search"
+      </div> 
+      <form 
         onSubmit={handleGsearch}
       >
         <input
@@ -79,8 +87,9 @@ function Header() {
         <li>
           {session ? (
             <span
+            className="main-user"
               onClick={(e) => {
-                showUserProfile
+                (showUserProfile)
                   ? setShowUserProfile(false)
                   : setShowUserProfile(true);
               }}
@@ -104,7 +113,13 @@ function Header() {
           )}
         </li>
       </ul>
+       
     </div>
+    <ToastContainer
+position="top-center"
+autoClose={3000}  
+theme="dark"
+/></>
   );
 }
 

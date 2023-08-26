@@ -2,7 +2,7 @@ import React from 'react'
 import "./Search.css"
 import { searchedContext } from '../App/App'
 import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
  
 
@@ -40,14 +40,13 @@ function Search() {
       
             return <div className='row-img' key={index} style={{background: `linear-gradient(${generate}, rgba(0, 0, 0, 0))`}}>
               <div className='searced-img'>
-              <img src={book.image} alt="searchBooks" />
+              <img src={book.image} alt="searchBooks" />  
               </div>
               <div className='searchedCnt'>
               <h2>{book.title}</h2>
                 <p>{book.author}</p>
-                <p className='description'>{book.description.slice(0, 100)}</p>
-                <button className="thumbBtn"><ThumbUpIcon sx={{ fontSize: 28 }} className="thumb-Icon"/></button>
-                <button className='read-more' onClick={(e) => {handleReadMore(e, book)}}>Read More..</button>
+                <p className='description'>{book.description.slice(0, 100)}<span onClick={(e) => {handleReadMore(e, book)}}><Link to="/">Read More...</Link></span> </p>
+                 
               </div> 
             </div>
            })

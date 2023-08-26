@@ -4,7 +4,8 @@ import axios from "axios"
 import "./Login.css"
 import {useNavigate} from "react-router-dom"; 
 import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { porturl } from '../url/porturl'; 
 
 
 function Login() {
@@ -16,7 +17,7 @@ function Login() {
   function handleSubmit(e) {
 
     e.preventDefault() 
-         axios.post("https://bookshelf-server-1lpi.onrender.com/login", {username, password})
+         axios.post(porturl + "/login", {username, password})
          .then((result) => {
           console.log(result)
             if(result.data.status === 200){ 
@@ -24,11 +25,13 @@ function Login() {
 
               toast.success("You have succesfully logged in")
               setTimeout(() =>{
-                navigate("/dashboard")
+                navigate("/")
               }, 3000)
                 
             } else {
               toast.error("You have put wrong password and username!") 
+              setUsername("")
+              setPassword("")
             }
             // toast.error("You have put wrong password and username!")
          }).catch((err) =>{
