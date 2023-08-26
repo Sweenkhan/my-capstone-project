@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./UserProfile.css"; 
 import { porturl } from "../url/porturl";
-import { toast, ToastContainer } from "react-toastify";
+import { toast} from "react-toastify";
 
  
 function UserProfile(props) {

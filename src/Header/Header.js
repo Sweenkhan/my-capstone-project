@@ -13,7 +13,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 
 function Header() {
-  const { setSearchedBooks, searchedBook } = useContext(searchedContext);
+  const { setSearchedBooks} = useContext(searchedContext);
 
   // const [hasfriend, setHasFriend] = useState(false)
   // const [allUsers, setAllUsers] = useState([])
