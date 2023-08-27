@@ -1,7 +1,7 @@
 .header {
   display: flex; 
-  height: 70px;
-  padding: 0 2rem;
+  /* height: 70px; */
+  padding: 1rem 2rem;
   justify-content: space-between;
   align-items: center;
   position: fixed;
@@ -15,26 +15,25 @@
 }
 
 .logo {
-  font-size: 1.9rem;
+  /* width: 20%;  */
   font-family: Arial, Helvetica, sans-serif; 
-  margin-bottom: 0 !important;
-}
-
-.logo h2{ 
   margin-bottom: 0 !important; 
 }
 
-.logo a {
+.main-logo h2{ 
+  margin-bottom: 0 !important; 
+}
+
+.main-logo a {
   font-weight: bold;
   color: black;
   text-decoration: none;
 }
 
-.logo a span {
+.main-logo a span {
   opacity: 0.6;
   font-weight: 600;
 }
-
 
 
 .header ul {
@@ -44,6 +43,7 @@
   list-style-type: none;
   margin-bottom: 0px !important;
   padding: 0px !important;
+  width: 27%;
 }
 
 .header ul li {
@@ -118,7 +118,7 @@ ul #login:hover {
 
 .header button {
   position: absolute;
-  width: 15%;
+  /* width: 15%; */
   right: 0;
   top: 0;
   background-color: #e3e3e3;
@@ -137,10 +137,14 @@ ul #login:hover {
 }
 
 
-/* .header .main-user{
+.header .main-user{
   cursor: pointer; 
-} */
+  margin-right: 30px;
+}
 
+.header #login{
+  margin-right: 20px;
+}
 
 @media only screen and (max-width: 950px) {
   .header ul li {
@@ -151,6 +155,10 @@ ul #login:hover {
 @media only screen and (max-width: 700px){
   .header ul{
     flex-direction: column;
+  }
+
+  .main-logo h2{
+    font-size: 24px;
   }
 
   .header ul li a{

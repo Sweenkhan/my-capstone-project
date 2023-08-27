@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import UserProfile from "./UserProfile";
 import { porturl } from "../url/porturl"; 
-import { ToastContainer, toast } from "react-toastify";
+import {toast } from "react-toastify";
 
 
 function Header() {
@@ -47,16 +47,17 @@ function Header() {
 
 
   return (
-    <>
+    <> 
     <div className="header">
-      <div className="logo">
+      <div className="main-logo">
         <Link to="/">
           {" "}
           <h2 className="text-light">
             BOOK<span style={{ color: "black" }}>SHELF </span>
           </h2>{" "}
         </Link>
-      </div> 
+      </div>
+       
       <form 
         onSubmit={handleGsearch}
       >
@@ -112,14 +113,10 @@ function Header() {
             ""
           )}
         </li>
-      </ul>
-       
+      </ul> 
     </div>
-    <ToastContainer
-position="top-center"
-autoClose={3000}  
-theme="dark"
-/></>
+     
+</>
   );
 }
 

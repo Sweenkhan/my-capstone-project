@@ -40,9 +40,8 @@ function Book() {
 
     if (session) {
       axios
-        .patch(porturl + "/liked", { likedBook, session })
-        .then((result) => {
-          // console.log(result.data.message)
+        .patch(`${porturl}/liked/${session}`, { likedBook})
+        .then((result) => { 
           toast.success(result.data.message)
         })
         .catch((err) => {

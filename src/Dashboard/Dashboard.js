@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import "./Dashboard.css"; 
 import { porturl } from "../url/porturl";
+import { toast } from "react-toastify";
 
  
 function Dashboard() {
@@ -16,17 +17,11 @@ function Dashboard() {
 
   let name;
   if (dashboardData.username) name = dashboardData.username.toUpperCase();
-
-
-  // Set up the headers with the session ID
-  const headers = {
-    "Content-Type": "application/json",
-    authorization: session,
-  };
+ 
 
 //----------------------------GET ALL COMMENTED BOOKS----------------------  
   function commented(){
-     axios.get(porturl + "/getAllCommentedBooks", {headers})
+     axios.get(`${porturl}/getAllCommentedBooks/${session}`)
        .then((result) =>{
          console.log(result.data.collectData)
          setAllLikedBooks(result.data.collectData);
@@ -37,7 +32,7 @@ function Dashboard() {
   //----------------------------GET ALL RATED BOOKS---------------------------//
   function rated() {
     axios
-      .get(porturl + "/getAllRatedBooks", { headers })
+      .get(`${porturl}/getAllRatedBooks/${session}`)
       .then((result) => {
         console.log("Success check");
         console.log(result.data.collectData);
@@ -46,10 +41,11 @@ function Dashboard() {
       });
   }
 
+
   //-----------------------------GET ALL COMPLETE READ BOOKS-------------------//
   function completed() {
     axios
-      .get(porturl + "/getAllCompletedBooks", { headers })
+      .get(`${porturl}/getAllCompletedBooks/${session}`)
       .then((result) => { 
         setShowLiked(false);
         console.log(result.data.collectData);
@@ -61,7 +57,7 @@ function Dashboard() {
   //-----------------------------GET ALL READ BOOKS-----------------------//
   function current() {
     axios
-      .get(porturl + "/getAllReadBooks", { headers })
+      .get(`${porturl}/getAllReadBooks/${session}`)
       .then((result) => { 
         console.log(result.data.collectData);
         setShowLiked(false)
@@ -73,7 +69,7 @@ function Dashboard() {
   //------------------------------GET ALL LIKED BOOKS----------------------//
   function likedBooks() {
     axios
-      .get(porturl + "/getAllLikedBooks", { headers })
+      .get(`${porturl}/getAllLikedBooks/${session}`)
       .then((result) => {
         console.log("Success check");
         console.log(result.data.collectData);
@@ -87,7 +83,7 @@ function Dashboard() {
   useEffect(() => {
     if(session){
       axios
-      .get(porturl + "/dashboard", { headers })
+      .get(`${porturl}/dashboard/${session}` )
       .then((result) => {
         console.log(result)
         if (result.data.status === 200) { 
@@ -99,13 +95,15 @@ function Dashboard() {
         }
       })
       .catch((err) => {
-        navigate("/login");
-        // alert("Authentication failed. Please login Again");
+        navigate("/login"); 
         console.log(err);
       });
     } 
     else {
-      navigate("/login");
+      toast.info("You are not logged in.")
+      setTimeout(() =>{ 
+        navigate("/login");
+      }, 3000)
     }
      
   }, [session]);

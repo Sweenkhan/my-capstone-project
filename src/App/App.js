@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-// import About from "../About/About";
+import React, { useState } from "react"; 
 import AboutPage from "../About/AboutPage"
 import Home from "../Home/Home";
 import Book from "../Books/Book";
@@ -12,7 +11,7 @@ import Bookdetail from "../BookDetail/Bookdetail";
 import "./App.css"
 import "../Books/Book.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { createContext } from "react";
+import { createContext } from "react"; 
 
 export const searchedContext = createContext({})
 export const userContext = createContext({})
@@ -31,9 +30,7 @@ function App() {
         <Route path="/" element={<Home />}>
         </Route>
         <Route path="/dashboard" element={<Dashboard />}>
-        </Route>
-        {/* <Route path="/about" element={<About />}>
-        </Route> */}
+        </Route> 
         <Route path="/about" element={<AboutPage />}>
         </Route>
         <Route path="/book" element={<Book />}>
@@ -46,8 +43,7 @@ function App() {
         </Route>
         <Route path="/bookdetail" element={<Bookdetail />}>
         </Route>
-      </Routes>
-       
+      </Routes> 
     </BrowserRouter> 
     </searchedContext.Provider>
     </div>

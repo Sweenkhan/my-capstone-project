@@ -2,8 +2,7 @@ import React from 'react'
 import "./Search.css"
 import { searchedContext } from '../App/App'
 import { useContext } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import { Link, useNavigate } from 'react-router-dom' 
  
 
 

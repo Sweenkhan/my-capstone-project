@@ -5,22 +5,18 @@
 }
 
 .register {
-    margin-top: 50px;
-    width: 100vw;
-    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2rem;
 }
 
 .register .container {
+    margin-top: 100px; 
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 70%;
-    height: 60%
+    justify-content: center; 
 }
-
 .register .container .left { 
     filter: hue-rotate(303deg) !important;
     width: 40%;

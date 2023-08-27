@@ -4,8 +4,8 @@
     box-sizing: border-box;
 }
 
-.footer {
-    width: 100%;
+.footer { 
+    width: 100vw;
     height: 104px;
     display: flex;
     justify-content: center;
@@ -69,14 +69,10 @@
 .footer li:hover {
     background-color: #000;
     transition: 1s;
-
-
 }
 
 .footer li:hover a {
     color: #fff;
 }
 
-.footer{
-
-}
+ 

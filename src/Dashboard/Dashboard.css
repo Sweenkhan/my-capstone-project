@@ -8,9 +8,7 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   position: relative; 
-   right: -200px;
-   width: 85%;
+   position: relative;   
    /* background-color: orange; */
    padding: 0 2rem;
 }
@@ -64,11 +62,12 @@
 
 
 /*----------------------------RIGHT POTION---------------------*/
-.dashboardCont .right {
+.dashboardCont .right { 
    box-sizing: border-box;
    position: relative; 
+   right: -15%;
    padding: 15px;
-   width: 100%;
+   width: 85%;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -162,5 +161,36 @@
    
    .dashboardCont .left p {
       text-align: center;
+   }
+}
+
+@media only screen and (max-width: 750px) {
+   
+   .dashboardCont{
+      padding: 0;
+   }
+   .dashboardCont .left {
+      width: 35%;
+      padding: 0;
+   }
+
+   .dashboardCont .left .log, .dashboardCont .left h3, .dashboardCont .left p{
+      padding: 0 5%;
+   }
+
+   .dashboardCont .right {
+      width: 65%;
+   }
+
+   .liked-books .liked-book img {
+      height: 180px;
+      width: 150px;
+   }
+
+   .right .liked-books .liked-book {
+      color: black;
+      /* height: 280px; */
+      /* width: 200px; */
+      margin: 5px 5px 10px;
    }
 }

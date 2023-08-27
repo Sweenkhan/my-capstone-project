@@ -1,12 +1,11 @@
 .userProfile { 
-    width: 250px;
+    /* width: 250px; */
     padding: 0 5px;
     position: absolute;
     right: 10px;
     top: 70px; 
     border-radius: 8px; 
-    border-radius: 8px;
-    /* background-color: rgba(15, 14, 14, 0.292); */
+    border-radius: 8px; 
     color: white;
     background-color: black;
     display: flex;
@@ -24,7 +23,7 @@
 
 .userCnt .user-name{
     font-weight: 700;
-    font-size: 34px;
+    font-size: 2rem;
     background-color: white;
     width: 100%;
     color: black;
@@ -40,7 +39,7 @@
     text-align: center;
     border-bottom: 2px solid white;
     padding-bottom: 12PX;
-    margin-bottom: 10px;
+    margin-bottom: 10px; 
 }
   
 .userCnt .drop-down-friendlist {
@@ -62,6 +61,7 @@
     width: 100%;
     text-align: center;
     margin-bottom: 5px; 
+    border-bottom: 2px solid white;
 }
 
 .drop-down-friendlist li:hover {
@@ -70,9 +70,9 @@
 
 .userProfile-btn{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%; 
-    margin-bottom: 10px;
+    margin: 10px;
 }
 
 .userProfile-btn button {
@@ -81,13 +81,12 @@
     bottom: 0;
     width: 40%;
     font-weight: 600;
-    font-size: 20PX;
-    padding: 3px 10px; 
-    border: 1px solid black;
-    border-radius: 20px;
+    font-size: 1rem;
+    padding: 3px 10px;  
+    border: none;
+    border-radius: 5px;
     color: black;
-    background-color: white;
-    border: 1px solid white;
+    background-color: white; 
     cursor: pointer; 
     overflow: hidden;
     transition: 1s;
@@ -99,14 +98,22 @@
     bottom: 0;
     z-index: -1;
     height: 0;
-    width: 100%;
-    background-color: red;
+    width: 100%; 
     color: white;
     transition: all 0.6s linear;
 }
 
+.userProfile-btn .logout-btn::before{
+   background-color: red;
+}
+
+.userProfile-btn .close-btn::before{
+    background-color: blue;
+ }
+
 .userProfile-btn button:hover{
     color: white;
+    border: none;
 }
 .userProfile-btn button:hover::before{
     height: 100%; 

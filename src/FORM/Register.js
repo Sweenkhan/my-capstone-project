@@ -5,6 +5,7 @@ import axios from 'axios'
 import registerImg from "../images/register.jpg"
 import { useNavigate } from 'react-router-dom'
 import { porturl } from '../url/porturl' 
+import { toast } from 'react-toastify'
 
 
 function Register() {
@@ -23,8 +24,13 @@ function Register() {
          axios.post(porturl + '/register', {name, email, phone, username, password})
          .then((result) =>{ 
           if(result.data.status === 200){ 
-                navigate('/login')
+            toast.success("Successfully create account ")
+            setTimeout(() => { 
+              navigate('/login')
+            }, 3000);
              } else {
+              let message = result.data.message
+              toast.error(`${message}! choose another username`)
              console.log(result.data.message)
               navigate('/register')
              }

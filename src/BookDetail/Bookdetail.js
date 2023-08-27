@@ -7,9 +7,7 @@ import axios from "axios";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"; 
 import { porturl } from "../url/porturl";
 import {ToastContainer,  toast } from "react-toastify";
-
-// import book from '../../../back/models/book'
-
+ 
  
 function Bookdetail() {
 
@@ -21,11 +19,10 @@ function Bookdetail() {
   const [clickRating, setClickRating] = useState(false);
   const [read, setRead] = useState(false);
   const [comment, setComment] = useState("")
+  
   const session = localStorage.getItem("session");
  
-
-
-
+ 
   function handleRate(stars) {
     setRating(stars);
     setClickRating(true) 
@@ -38,7 +35,7 @@ function currentRead(e){
   setRead(true);
 
   let currentReadBook = bookDetail._id
-       axios.patch( porturl + "/currentRead", {currentReadBook, session})
+       axios.patch(`${porturl}/currentRead/${session}`, {currentReadBook})
           .then((result) =>{  
             if(result.data.status === 200){
               console.log(result.data.message)
@@ -56,7 +53,7 @@ function currentRead(e){
     setRead(false)
     let completedBook = bookDetail._id
              e.preventDefault();
-       axios.patch(porturl + "/completed", {completedBook, session})
+       axios.patch(`${porturl}/completed/${session}`, {completedBook})
           .then((result) =>{  
             if(result.data.status === 200){
               toast.success(result.data.message)
@@ -73,7 +70,7 @@ function currentRead(e){
   useEffect(() =>{
     let ratingBook = bookDetail._id; 
     if(clickRating){ 
-    axios.patch(porturl + '/rating',{ratingBook, rating, session})
+    axios.patch(`${porturl}/ratind/${session}`, {ratingBook, rating})
     .then((result) =>{
       if(result.data.status === 200){
         toast.success(result.data.message)
@@ -91,11 +88,10 @@ function currentRead(e){
 
 //------------------------------------COMMENTS ON BOOKS-------------------------- 
 function commentBook(e){
-  e.preventDefault()
-  // console.log(comment)
+  e.preventDefault() 
   let commentedBook = bookDetail._id;
  
-  axios.patch(porturl + '/comment',{commentedBook, comment, session})
+  axios.patch(`${porturl}/comment/${session}`, {commentedBook, comment})
     .then((result) =>{
       if(result.data.status === 200){
         toast.success(result.data.message)
@@ -116,9 +112,8 @@ function handlelikedBook(e, like) {
 
   if (session) {
     axios
-      .patch(porturl + "/liked", { likedBook, session })
-      .then((result) => {
-        // console.log(result.data.message);
+      .patch(`${porturl}/liked/${session}`, { likedBook})
+      .then((result) => { 
         if(result.data.status === 200){
           toast.success(result.data.message)
         }else{

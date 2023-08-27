@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./UserProfile.css"; 
 import { porturl } from "../url/porturl";
 import { toast} from "react-toastify";
+// import CancelIcon from '@mui/icons-material/Cancel';
 
  
 function UserProfile(props) {
@@ -13,12 +14,7 @@ function UserProfile(props) {
   
   const navigate = useNavigate();
   const session = localStorage.getItem("session");
-
-  const headers = {
-    "Content-Type": "application/json",
-    authorization: session,
-  };
-
+ 
   let name;
   if(userProfile.name){
     name = userProfile.name.toUpperCase()
@@ -27,25 +23,30 @@ function UserProfile(props) {
   //----------------------------HANDLE LOGOUT REQUEST------------------------------//
   function handlLogout(e) {
     e.preventDefault();
-    toast.info("Succesfully Logged Out")
+    toast.success("Succesfully Logged Out")
 
     setTimeout(( ) => {
       props.show(false)
       localStorage.setItem("session", "");
       navigate("/");
-    },2000);
+    },3000);
     
     console.log("user has logged out");
   }
 
+
   //-------------------------GET ALL USERS-----------------------------------------//
+   
   function getUsers(e) {
-    e.preventDefault();
-    console.log(session);
-    axios.get(porturl + "/allusers", { headers })
+    e.preventDefault(); 
+    axios.get(`${porturl}/allusers/${session}`)
     .then((result) => {
-      setAllUsers(result.data.getAllUsers);
-      console.log(result.data.getAllUsers);
+
+      let allusers = result.data.getAllUsers
+      const filter =  allusers.filter((usr) =>{
+        return usr.name !== userProfile.name
+      })  
+        setAllUsers(filter);
       setHasFriend(true);
     });
   }
@@ -55,7 +56,7 @@ function UserProfile(props) {
   // function sendRequest(e, friendUsername) {
   //   e.preventDefault();
   //   axios
-  //     .patch("https://bookshelf-server-1lpi.onrender.com/friendRequest", { session, friendUsername })
+  //     .patch(`${porturl}/friendRequest/${session}`, {friendUsername })
   //     .then((result) => {
   //       console.log(result.data);
   //       console.log("request send from frontEnd")
@@ -66,15 +67,14 @@ function UserProfile(props) {
   //------------------------------GET ORIGINAL USER--------------------------------//
     useEffect(() => {
       console.log(session)
-      axios.get(porturl + "/originalUser", {headers})
+      axios.get(`${porturl}/originalUser/${session}` )
       .then((result) =>{
            console.log(result.data.userData)
            setUserProfile(result.data.userData)
       })
     },[session])
 
-
- console.log(userProfile)
+ 
   return (
     <>
     <div className="userProfile">
@@ -82,12 +82,12 @@ function UserProfile(props) {
         <p className="user-name">{name}</p>
         <p>PROFILE</p>
         <p onClick={getUsers} >
-          FRIENDS
+          FRIENDS 
         </p>
         
         {hasfriend && session ? (
           <ul className="drop-down-friendlist">
-            <li onClick={(e) => setHasFriend(false)}>X</li>
+            <span onClick={(e) => setHasFriend(false)}> </span>
             {allUsers.map((usr, index) => {
               return (
                 <li key={index}>
@@ -107,7 +107,8 @@ function UserProfile(props) {
           ""
         )}
         <div className="userProfile-btn"> 
-        <button onClick={handlLogout}>Logout</button>   
+        <button className="logout-btn" onClick={handlLogout}>Logout</button>  
+        <button className="close-btn" onClick={e =>{props.show(false)}}>Close</button>
         </div>
       </div> 
       </div>
