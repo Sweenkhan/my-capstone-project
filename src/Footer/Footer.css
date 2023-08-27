@@ -4,20 +4,20 @@
     box-sizing: border-box;
 }
 
-.footer { 
-    width: 100vw;
-    height: 104px;
+.footer {   
+    
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 60px; 
+    margin-top: 80px; 
     position: block;
     background-color: #000; 
 }
 
  
 .footer .container { 
-    height: 100px;
+    margin: 20px auto;
+    /* height: 100px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,6 +38,7 @@
 
 .footer .container p{
     font-size: 0.9rem;
+    text-align: center;
 }
  
 
@@ -75,4 +76,10 @@
     color: #fff;
 }
 
+
+@media only screen and (max-width: 600px) {
+    .footer .container{
+         flex-direction: column;
+    }
+}
  

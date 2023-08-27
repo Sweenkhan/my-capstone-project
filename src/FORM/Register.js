@@ -5,7 +5,7 @@ import axios from 'axios'
 import registerImg from "../images/register.jpg"
 import { useNavigate } from 'react-router-dom'
 import { porturl } from '../url/porturl' 
-import { toast } from 'react-toastify'
+import {ToastContainer, toast } from 'react-toastify'
 
 
 function Register() {
@@ -57,6 +57,11 @@ function Register() {
       </form>
       </div>
     </div>
+    <ToastContainer
+    position="top-center"
+    autoClose={3000}  
+    theme="light"
+    />
     </div>
   )
 }

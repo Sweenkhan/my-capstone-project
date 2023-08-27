@@ -70,7 +70,7 @@ function currentRead(e){
   useEffect(() =>{
     let ratingBook = bookDetail._id; 
     if(clickRating){ 
-    axios.patch(`${porturl}/ratind/${session}`, {ratingBook, rating})
+    axios.patch(`${porturl}/rating/${session}`, {ratingBook, rating})
     .then((result) =>{
       if(result.data.status === 200){
         toast.success(result.data.message)
@@ -131,11 +131,7 @@ function handlelikedBook(e, like) {
 
 
   return (
-    <> <ToastContainer
-    position="top-center"
-    autoClose={3000}  
-    theme="dark"
-    />
+    <>  
     <div className="bookdetail"> 
       <div className="bookdetailCont">
         <div className="detail-left">
@@ -176,13 +172,20 @@ function handlelikedBook(e, like) {
               <button type="submit" className="saveBtn">save</button>
             </form>
            </div>
-
+           <ToastContainer
+    position="top-center"
+    autoClose={3000}  
+    theme="dark"
+    />
 
 
         </div> 
         <div className="detail-right">
-          <h4>Book Title: {bookDetail.title}</h4>
+         <div className="title-detail">
+           <h4>Book Title: {bookDetail.title}</h4>
           <p>Author Name : {bookDetail.author}</p>
+        </div>
+           
           <div className="paragraph">
             <h4 style={{ marginLeft: "10px" }}>DESCRIPTION:</h4>
             <p className="description"> <span>A. </span> {bookDetail.description}{" "}<span onClick={currentRead} className="current-read">{(!read) ? "Read More..." : ""} </span> </p> <hr />

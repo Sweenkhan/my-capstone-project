@@ -7,7 +7,7 @@ import { searchedContext } from "../App/App";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { porturl } from "../url/porturl"; 
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 function Book() {
   const { setBookDetail } = useContext(searchedContext);
   const [books, setBooks] = useState([]);
@@ -127,6 +127,11 @@ function Book() {
           );
         })}
       </div> 
+      <ToastContainer
+    position="top-center"
+    autoClose={3000}  
+    theme="dark"
+    />
     </div>
   );
 }

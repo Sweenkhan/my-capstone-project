@@ -47,8 +47,9 @@ function Header() {
 
 
   return (
-    <> 
+ 
     <div className="header">
+    <div className="combine"> 
       <div className="main-logo">
         <Link to="/">
           {" "}
@@ -75,6 +76,7 @@ function Header() {
           <SearchIcon sx={{ fontSize: 32 }}/>
           </button>
       </form>
+      </div>
       <ul>
         <li>
           <Link to="/about">About</Link>
@@ -115,8 +117,7 @@ function Header() {
         </li>
       </ul> 
     </div>
-     
-</>
+    
   );
 }
 

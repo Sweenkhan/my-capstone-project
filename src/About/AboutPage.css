@@ -141,20 +141,27 @@
         bottom: 0;
     }
 }
-/* .aboutBanner .aboutBannerContent a::before {
-    text-decoration: none;
-    content: "";
-    position: absolute;
-    top: -60px;
-    left: -60px;
-    width: 50px;
-    transition: all 0.5s linear;
-    border-radius: 50%;
-    height: 50px;
-    background-color: gray;
-    z-index: -1;  
+ 
+
+@media only screen and (max-width: 700px) {
+
+    .about {
+        padding-top: 180px;
+    }
+    .con {
+        flex-direction: column;
+        margin: 1rem;
+    }
+
+    .con .content {
+        width: 100%; 
+        padding: 1rem;
+    }
 }
 
-.aboutBanner .aboutBannerContent a:hover::before {
-    transform: scale(9); 
-} */
+
+@media only screen and (max-width: 600px) {
+    .about {
+        padding-top: 220px;
+    }
+}

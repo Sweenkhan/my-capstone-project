@@ -85,8 +85,8 @@ function Aboutpage() {
           <img src={image3} alt=" "></img>
         </div>
       </div>
-    <Footer />
     </div>
+    <Footer />
     </>
   );
 }

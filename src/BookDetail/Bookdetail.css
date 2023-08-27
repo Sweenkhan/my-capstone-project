@@ -6,11 +6,10 @@
 }
 
 .bookdetail{
+    padding: 70px;
     display: flex;
     align-items: center;
-    justify-content: center; 
-    width: 100vw;
-    height: 100vh;
+    justify-content: center;  
     background-color: rgba(15, 14, 14, 0.192);
 }
 
@@ -19,8 +18,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100vw;
-    height: 90%;
+     
 }
 
 
@@ -87,20 +85,30 @@
   position: relative;
 }
 
+.comment-section form{
+  position: relative;
+}
+
 .comment-section textarea{
-  height: 60px;
+  height: 100px;
   width: 100%;
   padding:  5px;
   border: 2px solid black;
   border-radius: 5px;
   margin-top: 5px;
+  position: relative;
 }
 
 .comment-section .saveBtn{ 
+  position: absolute;
+  width: 99%;
+  right: 0;
+  bottom: 6px;
+  border: none;
   padding: 2px 10px;
   float: right; 
   border-bottom-right-radius: 5px;
-  border: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
 .comment-section .saveBtn:hover{
@@ -113,17 +121,20 @@
 
 .detail-right{  
     display: flex; 
-    align-items: center;
+    /* align-items: center; */
     flex-direction: column;
-    margin: 20px 10px 0 20px;
-    padding: 15px 10px;
-    height: 100%;
-    width: 75%;
+    margin: 20px 10px 0 20px; 
+    height: 100%; 
+    padding: 1rem 2rem;
+}
+
+.detail-right .title-detail{
+  border-bottom: 2px solid black;
+  margin-bottom: 40px;
 }
 
 .detail-right .paragraph{   
-    text-align: justify;
-    width: 70%;
+    text-align: justify; 
     height: 100%; 
     /* scroll-behavior: smooth; */
     overflow-x: hidden;
@@ -199,3 +210,24 @@
   color: white;
 
 }
+
+
+@media only screen and (max-width: 750px) {
+  .bookdetail .bookdetailCont{
+    flex-direction: column; 
+      padding-top: 130px;
+  } 
+
+  .bookdetail .detail-right{
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .bookdetail .detail-right{
+    padding: 0;
+  } 
+}
+
+
+

@@ -15,6 +15,7 @@ function Home() {
   }
 
   return (
+    <>
     <div className="home">
       <div className="main-bg">
         <div className="left">
@@ -26,8 +27,9 @@ function Home() {
           <img src={MainIng} alt="main-img" />
         </div>
       </div> 
-      <Footer />
     </div>
+      <Footer />
+      </>
   );
 }
 

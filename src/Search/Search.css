@@ -7,7 +7,7 @@
 }
 
 .searchInside {
-  margin-top: 100px;
+  margin-top: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,4 +77,12 @@
 .searchedCnt .thumb-icon{
   background: transparent;
   color: black;
+}
+
+
+
+@media only screen and (max-width: 700px) {
+  .searchInside{
+    margin-top: 260px;
+  }
 }

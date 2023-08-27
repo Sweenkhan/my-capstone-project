@@ -14,8 +14,15 @@
   background-color: #697bed;
 }
 
-.logo {
-  /* width: 20%;  */
+.combine{
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-logo {
+   width: 80%;  
   font-family: Arial, Helvetica, sans-serif; 
   margin-bottom: 0 !important; 
 }
@@ -36,6 +43,38 @@
 }
 
 
+
+.header form {
+  position: relative;
+  width: 80%;
+  margin-left: 5px;
+}
+
+.header form input {
+  width: 100%;
+  padding: 0.5rem 30px 0.5rem 0.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid #e3e3e3;
+  outline: none;
+  font-size: 1rem;
+}
+
+.header button {
+  position: absolute;
+  /* width: 15%; */
+  right: 0;
+  top: 0;
+  background-color: #e3e3e3;
+  height: 100%;
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+
 .header ul {
   display: flex;
   align-items: center;
@@ -43,7 +82,7 @@
   list-style-type: none;
   margin-bottom: 0px !important;
   padding: 0px !important;
-  width: 27%;
+  width: 30%;
 }
 
 .header ul li {
@@ -100,65 +139,45 @@ ul #login:hover {
   color: #fff;
 }
 
+ 
 
-.header form {
-  position: relative;
-  width: 26%;
-  margin-left: 5px;
-}
-
-.header form input {
-  width: 100%;
-  padding: 0.5rem 30px 0.5rem 0.5rem;
-  border-radius: 0.5rem;
-  border: 2px solid #e3e3e3;
-  outline: none;
-  font-size: 1rem;
-}
-
-.header button {
-  position: absolute;
-  /* width: 15%; */
-  right: 0;
-  top: 0;
-  background-color: #e3e3e3;
-  height: 100%;
-  display: flex;  
-  justify-content: center;
-  align-items: center;
-  border: none;
-  border-top-right-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-}
-
-.header label svg {
+/* .header label svg {
   font-size: 2rem;
   cursor: pointer;
-}
+} */
 
 
-.header .main-user{
+/* .header .main-user{
   cursor: pointer; 
   margin-right: 30px;
 }
 
 .header #login{
   margin-right: 20px;
-}
+} */
+
 
 @media only screen and (max-width: 950px) {
+
   .header ul li {
     margin: 0px 5px;
   }
 }
 
 @media only screen and (max-width: 700px){
+  .header .combine{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .header ul{
     flex-direction: column;
   }
 
   .main-logo h2{
-    font-size: 24px;
+    font-size: 2.5rem;
+    margin-bottom: 15px
   }
 
   .header ul li a{
@@ -166,4 +185,11 @@ ul #login:hover {
   }
 
    
+}
+
+
+@media only screen and (max-width: 500px){
+  .main-logo h2{
+    font-size: 1.5rem;
+  }
 }

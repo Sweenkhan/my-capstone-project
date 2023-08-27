@@ -7,7 +7,7 @@
 .products {
     padding: 40px 30px 0 30px;
     box-sizing: border-box;
-    width: 100%;
+    /* width: 100%; */
     margin-top: 40px;
     display: flex;
     justify-content: space-evenly;
@@ -122,4 +122,11 @@
 
 .book-gap {
     padding: 10px 20px;
+}
+
+
+@media only screen and (max-width: 700px) {
+    .products{
+        margin-top: 150px;
+    }
 }
