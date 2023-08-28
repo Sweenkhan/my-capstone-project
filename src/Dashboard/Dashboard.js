@@ -14,9 +14,10 @@ function Dashboard() {
   const [showLiked, setShowLiked] = useState(false)
   const navigate = useNavigate();
 
-  let name;
-  if (dashboardData.username) name = dashboardData.username.toUpperCase();
- 
+  let name = "USER"
+  if (dashboardData.username) {
+  name = dashboardData.username.toUpperCase();
+  }
 
 //----------------------------GET ALL COMMENTED BOOKS----------------------  
   function commented(){

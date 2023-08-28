@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./UserProfile.css"; 
 import { porturl } from "../url/porturl";
-import { toast} from "react-toastify";
+import {ToastContainer, toast} from "react-toastify";
 // import CancelIcon from '@mui/icons-material/Cancel';
 
  
@@ -29,7 +29,7 @@ function UserProfile(props) {
       props.show(false)
       localStorage.setItem("session", "");
       navigate("/");
-    },3000);
+    },2000);
     
     console.log("user has logged out");
   }
@@ -111,6 +111,7 @@ function UserProfile(props) {
         <button className="close-btn" onClick={e =>{props.show(false)}}>Close</button>
         </div>
       </div> 
+      <ToastContainer position='top-center' autoClose={2000} theme='light'/>
       </div>
     </>
   );
