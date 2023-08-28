@@ -72,24 +72,24 @@ function Dashboard() {
       .get(`${porturl}/getAllLikedBooks/${session}`)
       .then((result) => {
         console.log("Success check");
-        console.log(result.data.collectData);
+        // console.log(result.data.collectData);
         setAllLikedBooks(result.data.collectData);
         setShowLiked(true)
       });
   }
 
 
-  //-----------------------VERIFYING IS USER AUTHORISED OR NOT-------------------
+  //-----------------------VERIFYING IS USER AUTHORISED OR NOT--------------------------------------
   useEffect(() => {
     if(session){
       axios
       .get(`${porturl}/dashboard/${session}` )
-      .then((result) => {
-        console.log(result)
+      .then((result) => { 
         if (result.data.status === 200) { 
+          // console.log(result.data.userdata)
+          console.log("Success check");
           setDashboardData(result.data.userdata);
            
-          console.log("Success check");
         } else {
           navigate("/login");
         }
@@ -107,58 +107,49 @@ function Dashboard() {
   }, [session]);
 
 
+ 
   return ( 
       <div className="dashboardCont" style={{ marginTop: "60px" }}>
-        {dashboardData.username ? (
+         {(dashboardData.username) ? (
           <div className="left">
-            <h3>{name}</h3>
-            <div className="log">
+            <h3>{name}</h3> 
+             <div className="log">
               <h4>READING LOG </h4>
               <p onClick={current}>
                 Currently Reading{" "}
                 <span>
-                  {dashboardData.currentRead.length === 1
-                    ? 0
-                    : dashboardData.currentRead.length - 1}
+                   {dashboardData.currentRead.length - 1}
                 </span>{" "}
               </p>
               <p onClick={likedBooks}>
                 Liked Books{" "}
                 <span>
-                  {dashboardData.likedBooks.length === 1
-                    ? 0
-                    : dashboardData.likedBooks.length - 1}
+                  {dashboardData.likedBooks.length - 1}
                 </span>
               </p>
               <p onClick={completed}>
                 Already Read{" "}
                 <span>
-                  {dashboardData.completedReadBooks.length === 1
-                    ? 0
-                    : dashboardData.completedReadBooks.length - 1}
+                  {dashboardData.completedReadBooks.length - 1}
                 </span>
               </p>
               <p onClick={rated}>
                 Rated Books{" "}
                 <span>
-                  {dashboardData.ratingBooks.length === 1
-                    ? 0
-                    : dashboardData.ratingBooks.length - 1}
+                  {dashboardData.ratingBooks.length - 1}
                 </span>
               </p>
               <p onClick={commented}>
                 My Reviews{" "}
                 <span>
-                  {dashboardData.comentedBooks.length === 1
-                    ? 0
-                    : dashboardData.comentedBooks.length - 1}
+                  {dashboardData.comentedBooks.length - 1}
                 </span>
               </p>
             </div>
           </div>
         ) : (
           ""
-        )}
+        )} 
 
         <div className="right">
           <h3>My Books</h3>

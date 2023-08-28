@@ -215,7 +215,7 @@
 @media only screen and (max-width: 750px) {
   .bookdetail .bookdetailCont{
     flex-direction: column; 
-      padding-top: 130px;
+      padding: 130px 0 0 0;
   } 
 
   .bookdetail .detail-right{
@@ -224,6 +224,10 @@
 }
 
 @media only screen and (max-width: 550px) {
+  .bookdetail{
+    padding: 70px 0 0 0;
+  }
+
   .bookdetail .detail-right{
     padding: 0;
   } 
