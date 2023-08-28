@@ -3,8 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import "./Dashboard.css"; 
-import { porturl } from "../url/porturl";
-import { toast } from "react-toastify";
+import { porturl } from "../url/porturl"; 
 
  
 function Dashboard() {
@@ -99,11 +98,9 @@ function Dashboard() {
         console.log(err);
       });
     } 
-    else {
-      toast.info("You are not logged in.")
-      setTimeout(() =>{ 
-        navigate("/login");
-      }, 3000)
+    else { 
+      // alert("You are not logged in.")
+        navigate("/login"); 
     }
      
   }, [session]);
