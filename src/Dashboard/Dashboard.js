@@ -151,10 +151,12 @@ function Dashboard() {
           ""
         )} 
 
-        <div className="right">
-          <h3>My Books</h3>
+        <div className="right"> 
+        <h3>My Books </h3>
+          <h2 data-text="Welcome to Bookshelf">Welcome to Bookshelf</h2>
+     
+           
           <div className="liked-books">
-
             {allLikedBooks.map((boks) => {
               return (
                 <div className="liked-book">
