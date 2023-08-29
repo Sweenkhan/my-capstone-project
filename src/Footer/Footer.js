@@ -17,7 +17,7 @@ function Footer() {
     <p ><span>© BOOKSHELF</span> All rights reserved. Created by Sween Khan</p>
     <ul>
         <li>
-            <Link to="https://www.instagram.com/sweenkhan97/"><InstagramIcon sx={{ fontSize: 40 }} /></Link>
+            <Link to="https://www.instagram.com"><InstagramIcon sx={{ fontSize: 40 }} /></Link>
         </li>
         <li>
             <Link to="https://github.com/Sweenkhan"><GitHubIcon sx={{ fontSize: 40 }} /></Link>
