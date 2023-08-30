@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
@@ -8,32 +8,32 @@ import { searchedContext } from "../App/App";
 import { useNavigate } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import UserProfile from "./UserProfile";
-import { porturl } from "../url/porturl"; 
-import {toast } from "react-toastify";
+import { porturl } from "../url/porturl";  
 
 
 function Header() {
   const { setSearchedBooks} = useContext(searchedContext);
-
+ 
   // const [hasfriend, setHasFriend] = useState(false)
   // const [allUsers, setAllUsers] = useState([])
   const [showUserProfile, setShowUserProfile] = useState(false);
   const [searchBook, setSearchBook] = useState("");
+  const [bookType, setBookType] = useState("")
+
   const navigate = useNavigate();
   const session = localStorage.getItem("session");
+
 
   //----------------------------GET SEARCH BOOKS----------------------------//
   function handleGsearch(e) {
     e.preventDefault();
     axios
       .post(porturl + "/search", { searchBook })
-      .then((result) => {
-        console.log("data to aa gya");
-        console.log(result.data);
+      .then((result) => {  
 
-        setSearchedBooks(result.data); 
-        if(result.data.length === 0){
-          toast.error("Sorry didn't match with any title.  Try Again ")
+        setSearchedBooks(result.data.results); 
+        if(result.data.results.length === 0){
+          alert("Sorry didn't match with any title.  Try Again ")
         } else {
           navigate("/search");
         }
@@ -45,6 +45,28 @@ function Header() {
   }
 
 
+  //------------------------------GET SEARCH BY BOOKTYPE------------------------------------//
+
+  useEffect(() =>{
+    console.log(bookType)
+    axios.post(porturl + "/searchBookByType", {bookType })
+    .then((result) => {  
+
+      setSearchedBooks(result.data.results); 
+      if(result.data.results.length === 0){ 
+        console.log("not found")
+      } else {
+        navigate("/search");
+      }
+      setSearchBook("");
+    })
+    .catch((err) => {
+      console.log("error to bta do", err);
+    });
+
+  },[bookType])
+  
+ 
 
   return (
  
@@ -58,10 +80,19 @@ function Header() {
           </h2>{" "}
         </Link>
       </div>
-       
+        
       <form 
-        onSubmit={handleGsearch}
-      >
+        onSubmit={handleGsearch} >
+        <select className="searchByType" onChange={e => setBookType(e.target.value)} defaultValue="placeholder"> 
+        <option disabled value="placeholder"></option>
+        <option disabled>Type</option>
+        <option value="poetry">Poetry</option>
+        <option value="flower">Flower</option>
+        <option value="romance">Romance</option>
+        <option value="fantasy">Fantasy</option>
+        <option value="mostpopular">Popular</option>
+        </select>
+
         <input
           type="search"
           id="search"

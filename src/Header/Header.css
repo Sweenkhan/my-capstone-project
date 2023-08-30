@@ -41,18 +41,29 @@
   opacity: 0.6;
   font-weight: 600;
 }
-
-
-
+ 
 .header form {
   position: relative;
   width: 80%;
   margin-left: 5px;
 }
 
+.header .searchByType{
+  position: absolute; 
+  bottom: 0;
+  left: 0;
+  max-width: 1.5vw;
+  height: 99%;
+  background-color: #e3e3e3;
+  border-top-left-radius: 0.7rem;
+  border-bottom-left-radius: 0.7rem; 
+  border: none;
+  outline: none;
+}
+
 .header form input {
   width: 100%;
-  padding: 0.5rem 30px 0.5rem 0.5rem;
+  padding: 0.5rem 30px 0.5rem 1.5rem;
   border-radius: 0.5rem;
   border: 2px solid #e3e3e3;
   outline: none;
@@ -70,8 +81,8 @@
   justify-content: center;
   align-items: center;
   border: none;
-  border-top-right-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+  border-top-right-radius: 0.7rem;
+  border-bottom-right-radius: 0.7rem;
 }
 
 
