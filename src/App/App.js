@@ -18,7 +18,7 @@ export const userContext = createContext({})
 
 function App() { 
   const [searchedBooks, setSearchedBooks] = useState([]);
-  const [bookDetail, setBookDetail] = useState({}) 
+  const [bookDetail, setBookDetail] = useState({})  
 
   return (
     <> 
