@@ -5,6 +5,7 @@ import bookContent from "./BookContent";
 import "./Bookdetail.css";
 import axios from "axios"; 
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"; 
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { porturl } from "../url/porturl";
 import {ToastContainer,  toast } from "react-toastify";
  
@@ -17,6 +18,7 @@ function Bookdetail() {
 
   const [rating, setRating] = useState(0);
   const [clickRating, setClickRating] = useState(false);
+  const [liked, setLiked] = useState(false)
   const [read, setRead] = useState(false);
   const [comment, setComment] = useState("")
   
@@ -116,7 +118,9 @@ function handlelikedBook(e, like) {
       .then((result) => { 
         if(result.data.status === 200){
           toast.success(result.data.message)
+          setLiked(true) 
         }else{
+          setLiked(true) 
           toast.success(result.data.message)
         }
       })
@@ -138,15 +142,9 @@ function handlelikedBook(e, like) {
 
           <div className="detail-left-img">
             <img src={bookDetail.image} alt="searchBooks" />
-            <button
-                  className="heartBtn dashboard"
-                  onClick={(e) => handlelikedBook(e, bookDetail._id)}
-                >
-                  <FavoriteBorderIcon
-                    sx={{ fontSize: 28 }}
-                    className="heartIcon"
-                  />
-                </button>
+            <button className="heartBtn dashboard" onClick={(e) => handlelikedBook(e, bookDetail._id)}>
+             {(liked) ?<FavoriteIcon sx={{ fontSize: 28 }}  className="heartIcon" /> : <FavoriteBorderIcon sx={{ fontSize: 28 }}  className="heartIcon" />}      
+            </button>
           </div>
 {/* RATING SECTION */}
           <div className="rating-section">
