@@ -11,9 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    height: 100vh;
-    width: 100vw;
+    flex-wrap: wrap; 
 }
 
 .row-img {
@@ -56,19 +54,24 @@
 }
 
 .searchedCnt h2, p {
-  margin: 10px 0;
+  margin: 5px 0 ;
 }
  
 .row-img .read-more{
    cursor: pointer; 
     border: none;
     background-color: none;
+    margin-left: 15px;
 }
 
 .searchedCnt .description{
-  font-size: 10px;
+  font-size: 12px;
 }
 
+.searchedCnt a{
+  padding-left: 5px;
+  text-decoration: none;
+}
 .searchedCnt .thumbBtn {
   border: none;
   cursor: pointer;

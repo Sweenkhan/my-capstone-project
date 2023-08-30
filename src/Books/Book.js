@@ -8,6 +8,9 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { porturl } from "../url/porturl"; 
 import { toast, ToastContainer } from "react-toastify";
+// import FavoriteIcon from '@mui/icons-material/Favorite';
+
+
 function Book() {
   const { setBookDetail } = useContext(searchedContext);
   const [books, setBooks] = useState([]);
@@ -112,12 +115,8 @@ function Book() {
               >
                 <button
                   className="heartBtn"
-                  onClick={(e) => handlelikedBook(e, book._id)}
-                >
-                  <FavoriteBorderIcon
-                    sx={{ fontSize: 28 }}
-                    className="heartIcon"
-                  />
+                  onClick={(e) => handlelikedBook(e, book._id)} >
+                  <FavoriteBorderIcon sx={{ fontSize: 28 }} className="heartIcon" />
                 </button>
                 <button className="shareBtn">
                   <ShareIcon sx={{ fontSize: 28 }} className="shareIcon" />

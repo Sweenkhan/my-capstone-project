@@ -8,8 +8,7 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   position: relative;   
-   /* background-color: orange; */
+   position: relative;    
    padding: 0 2rem;
 }
 
@@ -67,7 +66,7 @@
    position: relative; 
    right: -15%;
    padding: 15px;
-   width: 85%;
+   width: 83%;
    display: flex;
    align-items: center;
    justify-content: center;
