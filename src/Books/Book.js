@@ -86,7 +86,7 @@ function Book() {
             generate += letter[Math.floor(Math.random() * letter.length)];
           }
 
-          generate += 80;
+          generate += 70;
           return (
             <div
               key={index}
