@@ -52,18 +52,19 @@
   position: absolute; 
   bottom: 0;
   left: 0;
-  max-width: 1.5vw;
+  text-align: center;
+  max-width: 6%;
   height: 99%;
   background-color: #e3e3e3;
   border-top-left-radius: 0.7rem;
   border-bottom-left-radius: 0.7rem; 
   border: none;
-  outline: none;
+  outline: none; 
 }
 
 .header form input {
   width: 100%;
-  padding: 0.5rem 30px 0.5rem 1.5rem;
+  padding: 0.5rem 30px 0.5rem 2.5rem;
   border-radius: 0.5rem;
   border: 2px solid #e3e3e3;
   outline: none;
@@ -173,6 +174,10 @@ ul #login:hover {
   .header ul li {
     margin: 0px 5px;
   }
+
+  .header .searchByType{
+    max-width: 8%;
+  }
 }
 
 @media only screen and (max-width: 700px){
@@ -194,13 +199,19 @@ ul #login:hover {
   .header ul li a{
     color: black;
   }
+  .header .searchByType{
+    max-width: 9%;
+  }
 
-   
 }
 
 
 @media only screen and (max-width: 500px){
   .main-logo h2{
     font-size: 1.5rem;
+  }
+
+  .header .searchByType{
+    max-width: 15%;
   }
 }

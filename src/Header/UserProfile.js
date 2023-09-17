@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./UserProfile.css"; 
 import { porturl } from "../url/porturl";
 import {ToastContainer, toast} from "react-toastify";
+import { searchedContext } from "../App/App";
 // import CancelIcon from '@mui/icons-material/Cancel';
 
  
 function UserProfile(props) {
+
+  const {setUserLikedBooks} = useContext(searchedContext)
+
   const [hasfriend, setHasFriend] = useState(false);
   const [allUsers, setAllUsers] = useState([]);
   const [userProfile, setUserProfile] = useState({})
@@ -30,7 +34,7 @@ function UserProfile(props) {
       localStorage.setItem("session", "");
       navigate("/");
     },2000);
-    
+    setUserLikedBooks("")
     console.log("user has logged out");
   }
 

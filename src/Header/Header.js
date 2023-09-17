@@ -48,7 +48,7 @@ function Header() {
   //------------------------------GET SEARCH BY BOOKTYPE------------------------------------//
 
   useEffect(() =>{
-    console.log(bookType)
+    console.log(bookType) 
     axios.post(porturl + "/searchBookByType", {bookType })
     .then((result) => {  
 
@@ -56,7 +56,7 @@ function Header() {
       if(result.data.results.length === 0){ 
         console.log("not found")
       } else {
-        navigate("/search");
+        navigate("/search"); 
       }
       setSearchBook("");
     })
@@ -65,7 +65,7 @@ function Header() {
     });
 
   },[bookType])
-  
+   
  
 
   return (
@@ -84,7 +84,7 @@ function Header() {
       <form 
         onSubmit={handleGsearch} >
         <select className="searchByType" onChange={e => setBookType(e.target.value)} defaultValue="placeholder"> 
-        <option disabled value="placeholder"></option>
+        <option value="placeholder"  disabled ></option>
         <option disabled>Type</option>
         <option value="poetry">Poetry</option>
         <option value="flower">Flower</option>
@@ -102,6 +102,7 @@ function Header() {
           onChange={(e) => {
             setSearchBook(e.target.value);
           }}
+          
         />
         <button> 
           <SearchIcon sx={{ fontSize: 32 }}/>
