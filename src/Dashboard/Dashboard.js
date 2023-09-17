@@ -4,10 +4,13 @@ import { useNavigate } from "react-router-dom";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import "./Dashboard.css"; 
 import { porturl } from "../url/porturl"; 
-
+ 
  
 function Dashboard() {
   let session = localStorage.getItem("session");
+
+
+   
 
   const [dashboardData, setDashboardData] = useState({});
   const [allLikedBooks, setAllLikedBooks] = useState([]);
@@ -18,7 +21,7 @@ function Dashboard() {
   if (dashboardData.username) {
   name = dashboardData.username.toUpperCase();
   }
-
+ 
 //----------------------------GET ALL COMMENTED BOOKS----------------------  
   function commented(){
      axios.get(`${porturl}/getAllCommentedBooks/${session}`)
@@ -85,11 +88,11 @@ function Dashboard() {
       axios
       .get(`${porturl}/dashboard/${session}` )
       .then((result) => { 
-        if (result.data.status === 200) { 
-          // console.log(result.data.userdata)
+        if (result.data.status === 200) {  
+
           console.log("Success check");
           setDashboardData(result.data.userdata);
-           
+            
         } else {
           navigate("/login");
         }
@@ -157,9 +160,9 @@ function Dashboard() {
      
            
           <div className="liked-books">
-            {allLikedBooks.map((boks) => {
+            {allLikedBooks.map((boks, index) => {
               return (
-                <div className="liked-book">
+                <div className="liked-book" key={index}>
                   <h4>{boks.title}</h4>
                   <img src={boks.image} alt="liked book"></img> 
 

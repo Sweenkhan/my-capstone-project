@@ -14,16 +14,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createContext } from "react"; 
 
 export const searchedContext = createContext({})
-export const userContext = createContext({})
+// export const userContext = createContext({})
 
 function App() { 
   const [searchedBooks, setSearchedBooks] = useState([]);
   const [bookDetail, setBookDetail] = useState({})  
+  const [userLikedBooks, setUserLikedBooks] = useState([])
 
   return (
     <> 
     <div className="app"> 
-    <searchedContext.Provider value={{searchedBooks, setSearchedBooks, bookDetail, setBookDetail}}> 
+    <searchedContext.Provider value={{searchedBooks, setSearchedBooks, bookDetail, setBookDetail, userLikedBooks, setUserLikedBooks}}> 
     <BrowserRouter>
       <Header />
       <Routes>
