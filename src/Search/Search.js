@@ -39,7 +39,7 @@ function Search() {
       
             return <div className='row-img' key={index} style={{background: `linear-gradient(${generate}, rgba(0, 0, 0, 0))`}}>
               <div className='searced-img'>
-              <img src={book.image} alt="searchBooks" />  
+             <img onClick={(e) => {handleReadMore(e, book)}} src={book.image} alt="searchBooks" />   
               </div>
               <div className='searchedCnt'>
               <h2>{book.title}</h2>
