@@ -6,25 +6,32 @@ import ShareIcon from "@mui/icons-material/Share";
 import { searchedContext } from "../App/App";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { porturl } from "../url/porturl"; 
+import { porturl } from "../url/porturl";
 import { toast, ToastContainer } from "react-toastify";
-// import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 
 function Book() {
-  const { setBookDetail } = useContext(searchedContext);
+  const { setBookDetail, userLikedBooks, setUserLikedBooks } = useContext(searchedContext);
   const [books, setBooks] = useState([]);
+  const [likeBook, setLikeBook] = useState("")
   const navigate = useNavigate();
 
   const session = localStorage.getItem("session");
+  console.log(userLikedBooks)
 
+
+  //---------------------------------GET ALL BOOKS------------------------------------
   useEffect(() => {
     axios.get(porturl + "/book").then((result) => {
       setBooks(result.data.results);
     });
   }, []);
 
-//----------------------------------------------START READING---------------------------------  
+
+
+
+  //----------------------------------------------START READING---------------------------------  
   function handleReadMore(e, book) {
     e.preventDefault();
     if (session) {
@@ -36,16 +43,19 @@ function Book() {
   }
 
 
- //--------------------------------------------LIKED BOOKS------------------------------------- 
+  //--------------------------------------------LIKED BOOKS------------------------------------- 
   function handlelikedBook(e, like) {
     e.preventDefault();
-    let likedBook = like;
+    setLikeBook(like)
 
+    let likedBook = like
     if (session) {
       axios
-        .patch(`${porturl}/liked/${session}`, { likedBook})
-        .then((result) => { 
-          toast.success(result.data.message)
+        .patch(`${porturl}/liked/${session}`, { likedBook })
+        .then((result) => {
+          // toast.success(result.data.message)
+          console.log(result.data.message)
+          setLikeBook("")
         })
         .catch((err) => {
           console.log(err);
@@ -54,8 +64,32 @@ function Book() {
       // alert("You can't like this book,First you have to logged in");
       toast.info("You can't like this book,First you have to logged in")
     }
-    
+
   }
+
+
+  //-----------------------------------GETTING ALL LIKED BOOKS------------------------- 
+  useEffect(() => {
+
+
+    if (session) {
+      axios
+        .get(`${porturl}/dashboard/${session}`)
+        .then((result) => {
+          if (result.data.status === 200) {
+            if (result.data.userdata.likedBooks.length > 1) {
+              setUserLikedBooks(result.data.userdata.likedBooks.slice(1))
+            } else {
+              console.log("dont have any liked book now")
+            }
+
+          } 
+        })
+    }
+
+    console.log("user is'not logged in")
+  }, [likeBook])
+
 
 
   return (
@@ -116,7 +150,7 @@ function Book() {
                 <button
                   className="heartBtn"
                   onClick={(e) => handlelikedBook(e, book._id)} >
-                  <FavoriteBorderIcon sx={{ fontSize: 28 }} className="heartIcon" />
+                  {(userLikedBooks.includes(book._id)) ? <FavoriteIcon sx={{ fontSize: 28 }} className="redHeartIcon" /> : <FavoriteBorderIcon sx={{ fontSize: 28 }} className="heartIcon" />}
                 </button>
                 <button className="shareBtn">
                   <ShareIcon sx={{ fontSize: 28 }} className="shareIcon" />
@@ -125,12 +159,12 @@ function Book() {
             </div>
           );
         })}
-      </div> 
+      </div>
       <ToastContainer
-    position="top-center"
-    autoClose={3000}  
-    theme="dark"
-    />
+        position="top-center"
+        autoClose={3000}
+        theme="dark"
+      />
     </div>
   );
 }

@@ -115,7 +115,12 @@
     transition: all 1s linear;
 }
 
-.heartBtn .heartIcon:hover {
+.redHeartIcon{
+    color: red;
+    transition: all 1s linear; 
+}
+
+.heartBtn .heartIcon:hover, .heartBtn .redHeartIcon:hover {
     /* color:white; */
     transform: scale(1.2);
 }
