@@ -11,7 +11,7 @@ function Dashboard() {
 
 
    
-
+  const [dropDown, setDropDown] = useState(true)
   const [dashboardData, setDashboardData] = useState({});
   const [allLikedBooks, setAllLikedBooks] = useState([]);
   const [showLiked, setShowLiked] = useState(false)
@@ -26,8 +26,11 @@ function Dashboard() {
   function commented(){
      axios.get(`${porturl}/getAllCommentedBooks/${session}`)
        .then((result) =>{
-         console.log(result.data.collectData)
+        //  console.log(result.data.collectData)
          setAllLikedBooks(result.data.collectData);
+         if(window.screen.width < 400){ 
+           setDropDown(false)
+         }
        })
   }
 
@@ -38,9 +41,13 @@ function Dashboard() {
       .get(`${porturl}/getAllRatedBooks/${session}`)
       .then((result) => {
         console.log("Success check");
-        console.log(result.data.collectData);
+        // console.log(result.data.collectData);
         setShowLiked(false)
         setAllLikedBooks(result.data.collectData);
+
+        if(window.screen.width < 400){ 
+          setDropDown(false)
+        }
       });
   }
 
@@ -51,8 +58,12 @@ function Dashboard() {
       .get(`${porturl}/getAllCompletedBooks/${session}`)
       .then((result) => { 
         setShowLiked(false);
-        console.log(result.data.collectData);
+        // console.log(result.data.collectData);
         setAllLikedBooks(result.data.collectData);
+
+        if(window.screen.width < 400){ 
+          setDropDown(false)
+        }
       });
   }
 
@@ -62,9 +73,13 @@ function Dashboard() {
     axios
       .get(`${porturl}/getAllReadBooks/${session}`)
       .then((result) => { 
-        console.log(result.data.collectData);
+        // console.log(result.data.collectData);
         setShowLiked(false)
         setAllLikedBooks(result.data.collectData);
+
+        if(window.screen.width < 400){ 
+          setDropDown(false)
+        }
       });
   }
 
@@ -78,6 +93,9 @@ function Dashboard() {
         // console.log(result.data.collectData);
         setAllLikedBooks(result.data.collectData);
         setShowLiked(true)
+        if(window.screen.width < 400){ 
+          setDropDown(false)
+        }
       });
   }
 
@@ -110,12 +128,13 @@ function Dashboard() {
   }, [session]);
 
 
- 
+
+ console.log(window.screen.width < 400)
   return ( 
       <div className="dashboardCont" style={{ marginTop: "60px" }}>
          {(dashboardData.username) ? (
-          <div className="left">
-            <h3>{name}</h3> 
+          <div className="left" style={{top: (dropDown) ? "25px" : "-262px"}} >
+            <h3 style={{opacity: 0}}>{name}</h3> 
              <div className="log">
               <h4>READING LOG </h4>
               <p onClick={current}>
@@ -149,12 +168,13 @@ function Dashboard() {
                 </span>
               </p>
             </div>
+            <button onClick={e=> {setDropDown((dropDown) ? false : true)}}>My Books</button>
           </div>
         ) : (
           ""
         )} 
 
-        <div className="right"> 
+        <div className="right" style={{top: (dropDown ) ? "0px" : "-250px"}}> 
         <h3>My Books </h3>
           <h2 data-text="Welcome to Bookshelf">Welcome to Bookshelf</h2>
      
