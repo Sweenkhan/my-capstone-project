@@ -5,6 +5,7 @@ import "./UserProfile.css";
 import { porturl } from "../url/porturl";
 import {ToastContainer, toast} from "react-toastify";
 import { searchedContext } from "../App/App";
+import ProfileUpdate from "./ProfileUpdate";
 // import CancelIcon from '@mui/icons-material/Cancel';
 
  
@@ -15,7 +16,8 @@ function UserProfile(props) {
   const [hasfriend, setHasFriend] = useState(false);
   const [allUsers, setAllUsers] = useState([]);
   const [userProfile, setUserProfile] = useState({})
-  
+  const [showProfile, setShowProfile] = useState(false)
+
   const navigate = useNavigate();
   const session = localStorage.getItem("session");
  
@@ -84,7 +86,10 @@ function UserProfile(props) {
     <div className="userProfile">
       <div className="userCnt">
         <p className="user-name">{name}</p>
-        <p>PROFILE</p>
+        <p onClick={() => {setShowProfile((showProfile) ? false : true)}}>PROFILE</p>
+        { (showProfile) && <ProfileUpdate name={userProfile.name} username={userProfile.username} 
+          phone={userProfile.phone} password={userProfile.password} email={userProfile.email} closing={() => {setShowProfile()}}
+        />}
         <p onClick={getUsers} >
           FRIENDS 
         </p>

@@ -10,8 +10,11 @@
   right: 0;
   left: 0;
   backface-visibility: hidden;
-  color: black;
-  background-color: #697bed;
+  /* color: black; */
+  /* background-color: #697bed; */
+  background-color: #5d68ad;
+
+  /* background-color: #0000006e; */
 }
 
 .combine{
@@ -71,7 +74,7 @@
   font-size: 1rem;
 }
 
-.header button {
+.header .searchIcon {
   position: absolute;
   /* width: 15%; */
   right: 0;
@@ -196,9 +199,10 @@ ul #login:hover {
     margin-bottom: 15px
   }
 
-  .header ul li a{
+  /* .header ul li a{
     color: black;
-  }
+  } */
+
   .header .searchByType{
     max-width: 9%;
   }

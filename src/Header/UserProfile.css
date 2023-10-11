@@ -21,6 +21,47 @@
     flex-direction: column; 
 }
 
+/* -----------------------------------update comoponent */
+.updateProfile{
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 82%;
+   height: 100%;
+   z-index: 1000;
+   background-color: rgba(255, 255, 255);
+   color: black;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+}
+
+.updateProfile form{
+    border-bottom: 1px solid gray;
+    margin-bottom: 20px;
+}
+
+.updateProfile button{
+    padding: 0.2rem 1.4rem;
+    margin: 20px 0;
+    border-radius: 3px;
+    border: none;
+    background-color: black;
+    color: white;
+}
+
+.updateProfile .buttons{
+   display: flex;
+   justify-content: space-evenly;
+   width: 80%;
+}
+
+.updateProfile .buttons button{
+    width: 40%;
+}
+
+
+/* ------------------------------------------------------ */
 .userCnt .user-name{
     font-weight: 700;
     font-size: 2rem;
@@ -82,7 +123,7 @@
     width: 40%;
     font-weight: 600;
     font-size: 1rem;
-    padding: 3px 10px;  
+    padding: 3px 5px;  
     border: none;
     border-radius: 5px;
     color: black;
@@ -96,6 +137,7 @@
     content: "";
     position: absolute; 
     bottom: 0;
+    right: 0;
     z-index: -1;
     height: 0;
     width: 100%; 
@@ -105,6 +147,7 @@
 
 .userProfile-btn .logout-btn::before{
    background-color: red;
+   width: 100%;
 }
 
 .userProfile-btn .close-btn::before{

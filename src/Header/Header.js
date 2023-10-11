@@ -104,7 +104,7 @@ function Header() {
           }}
           
         />
-        <button> 
+        <button className="searchIcon"> 
           <SearchIcon sx={{ fontSize: 32 }}/>
           </button>
       </form>
