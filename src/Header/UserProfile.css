@@ -41,6 +41,23 @@
     margin-bottom: 20px;
 }
 
+.updateProfile form input{
+    margin-bottom: 10px;
+}
+.updateProfile form .password{
+    /* position: relative; */
+    width : 100%;
+}
+
+.updateProfile form .showPassword{
+    float: right;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
 .updateProfile button{
     padding: 0.2rem 1.4rem;
     margin: 20px 0;

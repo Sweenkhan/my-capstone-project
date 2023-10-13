@@ -71,8 +71,7 @@ function UserProfile(props) {
 
 
   //------------------------------GET ORIGINAL USER--------------------------------//
-    useEffect(() => {
-      console.log(session)
+    useEffect(() => { 
       axios.get(`${porturl}/originalUser/${session}` )
       .then((result) =>{
            console.log(result.data.userData)
@@ -87,8 +86,10 @@ function UserProfile(props) {
       <div className="userCnt">
         <p className="user-name">{name}</p>
         <p onClick={() => {setShowProfile((showProfile) ? false : true)}}>PROFILE</p>
-        { (showProfile) && <ProfileUpdate name={userProfile.name} username={userProfile.username} 
+        {/* { (showProfile) && <ProfileUpdate name={userProfile.name} username={userProfile.username} 
           phone={userProfile.phone} password={userProfile.password} email={userProfile.email} closing={() => {setShowProfile()}}
+        />} */}
+        { (showProfile) && <ProfileUpdate userProfile={userProfile} closing={() => {setShowProfile()}}
         />}
         <p onClick={getUsers} >
           FRIENDS 
