@@ -125,7 +125,7 @@ function Dashboard() {
         navigate("/login"); 
     }
      
-  }, [session]);
+  }, []);
 
 
  console.log(window.screen.width < 450)
