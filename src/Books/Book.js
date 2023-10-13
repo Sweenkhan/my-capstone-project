@@ -18,7 +18,7 @@ function Book() {
   const navigate = useNavigate();
 
   const session = localStorage.getItem("session");
-  console.log(userLikedBooks)
+  // console.log(userLikedBooks)
 
 
   //---------------------------------GET ALL BOOKS------------------------------------
@@ -27,7 +27,6 @@ function Book() {
       setBooks(result.data.results);
     });
   }, []);
-
 
 
 
@@ -85,9 +84,10 @@ function Book() {
 
           } 
         })
+    } else {
+      console.log("user is'not logged in")
     }
 
-    console.log("user is'not logged in")
   }, [likeBook])
 
 
