@@ -17,13 +17,6 @@ function ProfileUpdate(props) {
     const [email, setEmail] = useState(prop.email)
     const [phone, setPhone] = useState(prop.phone)
     const [password, setPassword] = useState(prop.originalPassword)
-
- 
-//   const [name, setName] = useState("")
-//   const [email, setEmail] = useState("")
-//   const [phone, setPhone] = useState("")
-//   const [username, setUsername] = useState("")
-//   const [password, setPassword] = useState("")
     
     console.log(edit)
     function handleSubmit(e){ 
