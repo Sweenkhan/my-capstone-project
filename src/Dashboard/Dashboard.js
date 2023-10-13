@@ -28,7 +28,7 @@ function Dashboard() {
        .then((result) =>{
         //  console.log(result.data.collectData)
          setAllLikedBooks(result.data.collectData);
-         if(window.screen.width < 400){ 
+         if(window.screen.width < 450){ 
            setDropDown(false)
          }
        })
@@ -45,7 +45,7 @@ function Dashboard() {
         setShowLiked(false)
         setAllLikedBooks(result.data.collectData);
 
-        if(window.screen.width < 400){ 
+        if(window.screen.width < 450){ 
           setDropDown(false)
         }
       });
@@ -61,7 +61,7 @@ function Dashboard() {
         // console.log(result.data.collectData);
         setAllLikedBooks(result.data.collectData);
 
-        if(window.screen.width < 400){ 
+        if(window.screen.width < 450){ 
           setDropDown(false)
         }
       });
@@ -77,7 +77,7 @@ function Dashboard() {
         setShowLiked(false)
         setAllLikedBooks(result.data.collectData);
 
-        if(window.screen.width < 400){ 
+        if(window.screen.width < 450){ 
           setDropDown(false)
         }
       });
@@ -93,7 +93,7 @@ function Dashboard() {
         // console.log(result.data.collectData);
         setAllLikedBooks(result.data.collectData);
         setShowLiked(true)
-        if(window.screen.width < 400){ 
+        if(window.screen.width < 450){ 
           setDropDown(false)
         }
       });
@@ -128,8 +128,8 @@ function Dashboard() {
   }, [session]);
 
 
-
- console.log(window.screen.width < 400)
+ console.log(window.screen.width < 450)
+ console.log(dropDown)
   return ( 
       <div className="dashboardCont" style={{ marginTop: "60px" }}>
          {(dashboardData.username) ? (
