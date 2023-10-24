@@ -2,10 +2,9 @@
     /* width: 250px; */
     padding: 0 5px;
     position: absolute;
-    right: 10px;
-    top: 70px; 
-    border-radius: 8px; 
-    border-radius: 8px; 
+    right: 0;
+    top: 75px; 
+    border-radius: 3px;  
     color: white;
     background-color: black;
     display: flex;
@@ -81,7 +80,7 @@
 /* ------------------------------------------------------ */
 .userCnt .user-name{
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.5rem;
     background-color: white;
     width: 100%;
     color: black;
@@ -136,18 +135,17 @@
 .userProfile-btn button {
     position: relative;
     z-index: 1;
-    bottom: 0;
-    width: 40%;
+    bottom: 0; 
     font-weight: 600;
     font-size: 1rem;
-    padding: 3px 5px;  
+    padding: 3px 8px;  
     border: none;
-    border-radius: 5px;
+    border-radius: 2px;
     color: black;
     background-color: white; 
     cursor: pointer; 
     overflow: hidden;
-    transition: 1s;
+    transition: 0.3s;
 }
 
 .userProfile-btn button::before{
@@ -159,16 +157,16 @@
     height: 0;
     width: 100%; 
     color: white;
-    transition: all 0.6s linear;
+    transition: all 0.3s linear;
 }
 
 .userProfile-btn .logout-btn::before{
-   background-color: red;
+   background-color: rgb(216, 87, 87);
    width: 100%;
 }
 
 .userProfile-btn .close-btn::before{
-    background-color: blue;
+    background-color: #5d68ad; 
  }
 
 .userProfile-btn button:hover{
@@ -177,4 +175,29 @@
 }
 .userProfile-btn button:hover::before{
     height: 100%; 
+}
+
+
+
+@media only screen and (max-width: 500px){
+
+
+    
+    .updateProfile{
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+
+    .userProfile {  
+        border-radius: 0;
+        right: 0;
+        top: 0; 
+    }
+
+    .userCnt .user-name{ 
+        font-size: 1rem;
+    }
+ 
+
 }

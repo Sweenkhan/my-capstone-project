@@ -10,9 +10,7 @@
   left: 0;
   backface-visibility: hidden; 
   /* background-color: #697bed; */
-  background-color: #5d68ad;
-
-  /* background-color: #0000006e; */
+  background-color: #5d68ad; 
 }
 
 .combine{
@@ -212,26 +210,38 @@ ul #login:hover {
   }
 
 
+  .header .combine > form{
+   margin-top: 15px;
+   margin-left: 100px;
+  }
+
   .header .searchByType{
     max-width: 15%;
   }
 
-  .header form input {
+  .header .combine form input {
     width: 100%;
-    padding: 0 0 0 30px;
+    padding: 0 0 0 30px; 
   }
 
   .header ul{
-    position: absolute;
-    opacity: 0;
+    position: absolute; 
     right: 0;
-    top: -150px;
-    display: flex;
-    background-color: white;
-    color: #000;
+    /* z-index: -50;  */
+    background-color: #7885d8;
+    color: #000; 
+  }
+  
+ ul #login{
+    padding: 5px 20px;
+    border-radius: 4px;
+    margin-bottom: 4px;
   }
 
-  .header .menuIcon:hover ul{
-   top: 0;
+  .menuIcon{
+    margin-bottom: -30px;
+    position: relative;
+    /* z-index: 10; */
   }
+ 
 }

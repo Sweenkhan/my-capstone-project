@@ -13,8 +13,8 @@ function UserProfile(props) {
 
   const {setUserLikedBooks} = useContext(searchedContext)
 
-  const [hasfriend, setHasFriend] = useState(false);
-  const [allUsers, setAllUsers] = useState([]);
+  // const [hasfriend, setHasFriend] = useState(false);
+  // const [allUsers, setAllUsers] = useState([]);
   const [userProfile, setUserProfile] = useState({})
   const [showProfile, setShowProfile] = useState(false)
 
@@ -43,19 +43,19 @@ function UserProfile(props) {
 
   //-------------------------GET ALL USERS-----------------------------------------//
    
-  function getUsers(e) {
-    e.preventDefault(); 
-    axios.get(`${porturl}/allusers/${session}`)
-    .then((result) => {
+  // function getUsers(e) {
+  //   e.preventDefault(); 
+  //   axios.get(`${porturl}/allusers/${session}`)
+  //   .then((result) => {
 
-      let allusers = result.data.getAllUsers
-      const filter =  allusers.filter((usr) =>{
-        return usr.name !== userProfile.name
-      })  
-        setAllUsers(filter);
-      setHasFriend(true);
-    });
-  }
+  //     let allusers = result.data.getAllUsers
+  //     const filter =  allusers.filter((usr) =>{
+  //       return usr.name !== userProfile.name
+  //     })  
+  //       setAllUsers(filter);
+  //     setHasFriend(true);
+  //   });
+  // }
 
 
   //--------------------SENDING FRIEND REQUEST------------------------------------// 
@@ -91,11 +91,11 @@ function UserProfile(props) {
         />} */}
         { (showProfile) && <ProfileUpdate userProfile={userProfile} closing={() => {setShowProfile()}}
         />}
-        <p onClick={getUsers} >
+        {/* <p onClick={getUsers} >
           FRIENDS 
-        </p>
+        </p> */}
         
-        {hasfriend && session ? (
+        {/* {hasfriend && session ? (
           <ul className="drop-down-friendlist">
             <span onClick={(e) => setHasFriend(false)}> </span>
             {allUsers.map((usr, index) => {
@@ -115,7 +115,7 @@ function UserProfile(props) {
           </ul>
         ) : (
           ""
-        )}
+        )} */}
         <div className="userProfile-btn"> 
         <button className="logout-btn" onClick={handlLogout}>Logout</button>  
         <button className="close-btn" onClick={e =>{props.show(false)}}>Close</button>

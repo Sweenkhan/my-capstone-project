@@ -12,8 +12,7 @@ h1,h2,h3,h4,h5,h6{
 .home{ 
     display: flex; 
     justify-content: center;
-    align-items: center; 
-    /* width: 100%; */
+    align-items: center;  
     padding-top: 70px;
     flex-direction: column;
 }
@@ -77,3 +76,18 @@ h1,h2,h3,h4,h5,h6{
         width: 100%;
     }
  }
+
+
+ @media only screen and (max-width:750px) {
+
+    .home {
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-width:500px) {
+
+    .home {
+  padding-top: 70px;
+    }
+}

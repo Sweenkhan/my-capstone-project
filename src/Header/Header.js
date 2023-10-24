@@ -19,10 +19,11 @@ function Header() {
   const [showUserProfile, setShowUserProfile] = useState(false);
   const [searchBook, setSearchBook] = useState("");
   const [bookType, setBookType] = useState("")
+  const [showMenuIcon, setShowMenuIcon] = useState(false)
   
-  let menuIcon  = window.screen.width < 500
+  const menuIcon  = window.screen.width < 500 
   // console.log(menuIcon)
-
+   
   const navigate = useNavigate();
   const session = localStorage.getItem("session");
 
@@ -68,9 +69,9 @@ function Header() {
     });
 
   },[bookType])
-   
- 
+    
 
+  console.log(showMenuIcon)
   return (
  
     <div className="header">
@@ -112,16 +113,16 @@ function Header() {
           </button>
       </form>
       </div>
-{( menuIcon) && <span><MenuIcon sx={{ fontSize: 44 }} className="menuIcon"/></span>}
-      <ul>
+{( menuIcon) && <span><MenuIcon sx={{ fontSize: 44 }} className="menuIcon" onClick={() => {(!showMenuIcon) ? setShowMenuIcon(true) : setShowMenuIcon(false) }} /></span>}
+      <ul style={{top: (showMenuIcon) ? "94px" : "-150px" }}>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/about" onClick={() =>{menuIcon && setShowMenuIcon(false)}} > About </Link>
         </li>
         <li>
-          <Link to="/dashboard">Dashboard</Link>
+          <Link to="/dashboard" onClick={() =>{menuIcon && setShowMenuIcon(false)}}>Dashboard</Link>
         </li>
         <li>
-          <Link to="/book">Books</Link>
+          <Link to="/book" onClick={() =>{menuIcon && setShowMenuIcon(false)}}>Books</Link>
         </li>
         <li>
           {session ? (
@@ -137,7 +138,7 @@ function Header() {
               <AccountCircleIcon sx={{ fontSize: 40 }} className="text-light logo" />
             </span>
           ) : (
-            <Link id="login" to="/login">
+            <Link id="login" to="/login" onClick={() =>{menuIcon && setShowMenuIcon(false)}} >
               Login
             </Link>
           )}

@@ -131,9 +131,9 @@ function Dashboard() {
  console.log(window.screen.width < 450)
  console.log(dropDown)
   return ( 
-      <div className="dashboardCont" style={{ marginTop: "60px" }}>
+      <div className="dashboardCont" style={{ marginTop: "50px" }}>
          {(dashboardData.username) ? (
-          <div className="left" style={{top: (dropDown) ? "25px" : "-262px"}} >
+          <div className="left" style={{top: (dropDown) ? "-10px" : "-350px"}} >
             <h3 style={{opacity: 0}}>{name}</h3> 
              <div className="log">
               <h4>READING LOG </h4>
@@ -174,7 +174,7 @@ function Dashboard() {
           ""
         )} 
 
-        <div className="right" style={{top: (dropDown ) ? "0px" : "-250px"}}> 
+        <div className="right" style={{top: (dropDown ) ? "0px" : "-330px"}}> 
         <h3>My Books </h3>
           <h2 data-text="Welcome to Bookshelf">Welcome to Bookshelf</h2>
      
