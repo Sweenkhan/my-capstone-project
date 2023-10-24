@@ -9,16 +9,19 @@ import { useNavigate } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import UserProfile from "./UserProfile";
 import { porturl } from "../url/porturl";  
+import MenuIcon from '@mui/icons-material/Menu';
 
 
 function Header() {
   const { setSearchedBooks} = useContext(searchedContext);
  
-  // const [hasfriend, setHasFriend] = useState(false)
-  // const [allUsers, setAllUsers] = useState([])
+    // const [allUsers, setAllUsers] = useState([])
   const [showUserProfile, setShowUserProfile] = useState(false);
   const [searchBook, setSearchBook] = useState("");
   const [bookType, setBookType] = useState("")
+  
+  let menuIcon  = window.screen.width < 500
+  // console.log(menuIcon)
 
   const navigate = useNavigate();
   const session = localStorage.getItem("session");
@@ -109,6 +112,7 @@ function Header() {
           </button>
       </form>
       </div>
+{( menuIcon) && <span><MenuIcon sx={{ fontSize: 44 }} className="menuIcon"/></span>}
       <ul>
         <li>
           <Link to="/about">About</Link>

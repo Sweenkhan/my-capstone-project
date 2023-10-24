@@ -1,16 +1,14 @@
 .header {
-  display: flex; 
-  /* height: 70px; */
+  display: flex;  
   padding: 1rem 2rem;
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  z-index: 3;
+  z-index: 30;
   top: 0;
   right: 0;
   left: 0;
-  backface-visibility: hidden;
-  /* color: black; */
+  backface-visibility: hidden; 
   /* background-color: #697bed; */
   background-color: #5d68ad;
 
@@ -197,11 +195,7 @@ ul #login:hover {
   .main-logo h2{
     font-size: 2.5rem;
     margin-bottom: 15px
-  }
-
-  /* .header ul li a{
-    color: black;
-  } */
+  } 
 
   .header .searchByType{
     max-width: 9%;
@@ -215,7 +209,22 @@ ul #login:hover {
     font-size: 1.5rem;
   }
 
+
   .header .searchByType{
     max-width: 15%;
+  }
+
+  .header ul{
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: -150px;
+    display: flex;
+    background-color: white;
+    color: #000;
+  }
+
+  .header .menuIcon:hover ul{
+   top: 0;
   }
 }
