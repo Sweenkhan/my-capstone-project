@@ -207,11 +207,18 @@ ul #login:hover {
 @media only screen and (max-width: 500px){
   .main-logo h2{
     font-size: 1.5rem;
+    margin-top: -10px;
+    margin-left: -40px;
   }
 
 
   .header .searchByType{
     max-width: 15%;
+  }
+
+  .header form input {
+    width: 100%;
+    padding: 0 0 0 30px;
   }
 
   .header ul{
