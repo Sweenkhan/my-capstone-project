@@ -127,9 +127,7 @@ function Dashboard() {
      
   }, []);
 
-
- console.log(window.screen.width < 450)
- console.log(dropDown)
+ 
   return ( 
       <div className="dashboardCont" style={{ marginTop: "50px" }}>
          {(dashboardData.username) ? (
