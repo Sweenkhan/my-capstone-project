@@ -18,6 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* background-color: black; */
 }
 
 .main-logo {
@@ -93,7 +94,7 @@
   list-style-type: none;
   margin-bottom: 0px !important;
   padding: 0px !important;
-  width: 30%;
+  /* width: 30%; */
 }
 
 .header ul li {
@@ -195,10 +196,47 @@ ul #login:hover {
     margin-bottom: 15px
   } 
 
+  .header > .combine form input {
+    width: 100%;
+    padding: 0;
+    border-radius: 0.5rem;
+    border: 2px solid #e3e3e3;
+    outline: none;
+    font-size: 1rem;
+  }
+ 
   .header .searchByType{
     max-width: 9%;
   }
 
+}
+
+
+@media only screen and (max-width: 700px)and (min-width: 500px){
+  .header{
+    padding-right: 0;
+    padding-left: 3px;
+  }
+ 
+  .header ul{
+    flex-direction: row;
+  }
+
+  .header ul li {
+    margin: 0px ;
+  }
+
+  .header .combine{
+    flex-direction: row; 
+    align-items: center;
+  }
+
+  .main-logo h2{
+    font-size: 1.5rem; 
+  } 
+  .header .searchByType{
+    padding-left: 5px;
+  }
 }
 
 
@@ -219,15 +257,14 @@ ul #login:hover {
     max-width: 15%;
   }
 
-  .header .combine form input {
+  .header > .combine form input {
     width: 100%;
     padding: 0 0 0 30px; 
   }
 
   .header ul{
     position: absolute; 
-    right: 0;
-    /* z-index: -50;  */
+    right: 0; 
     background-color: #7885d8;
     color: #000; 
   }
