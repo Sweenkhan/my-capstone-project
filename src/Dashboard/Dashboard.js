@@ -125,7 +125,7 @@ function Dashboard() {
         navigate("/login"); 
     }
      
-  }, []);
+  },[]);
 
  
   return ( 
