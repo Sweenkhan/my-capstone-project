@@ -68,6 +68,7 @@ function Header() {
 
  
 
+  
   //----------------------------function for check window innderwidth --------------------------
     function handleResize() {
       if (window.innerWidth < 500) {
@@ -78,6 +79,7 @@ function Header() {
       console.log("hiii")
     }
  
+    
     window.addEventListener("resize", handleResize);            //adding event listener to window
  
 

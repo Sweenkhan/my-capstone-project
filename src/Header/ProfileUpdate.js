@@ -35,6 +35,11 @@ function ProfileUpdate(props) {
       }
 
     }
+
+
+    function handlOnblur(){
+
+    }
     
 
   return (
@@ -56,6 +61,11 @@ function ProfileUpdate(props) {
             <label htmlFor="email">Email </label>
             <input value={email} onChange={(e) => setEmail(e.target.value)} type='email'
              id='email' disabled />
+            
+            <label htmlFor="password" className='password'>Password:  
+            <span className="showPassword" onClick={() => {setShowPassword((!showPassword) ? true : false)}}>Show</span></label>
+            <input value={password} onChange={(e) => setPassword(e.target.value)} type={(showPassword) ? "text" : "password" } 
+            id='password' disabled={(!edit) ? true : false} />
             
             <label htmlFor="password" className='password'>Password:  
             <span className="showPassword" onClick={() => {setShowPassword((!showPassword) ? true : false)}}>Show</span></label>
