@@ -16,7 +16,7 @@ function Footer() {
        // <p>khansween@gmail.com</p>
     </div>
     <p ><span>© BOOKSHELF</span> All rights reserved. </p>
-   // Created by Sween Khan </p>
+   //<p>Created by Sween Khan </p>
     <ul>
         <li>
             <Link to="https://www.instagram.com"><InstagramIcon sx={{ fontSize: 40 }} /></Link>
