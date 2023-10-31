@@ -12,9 +12,11 @@ function Footer() {
     <div className='container'>
     <div className='contact'>
         <h4>touch-us</h4>
-        <p>khansween@gmail.com</p>
+    <p> vikas.tomar@gmail.com </p>
+       // <p>khansween@gmail.com</p>
     </div>
-    <p ><span>© BOOKSHELF</span> All rights reserved. Created by Sween Khan</p>
+    <p ><span>© BOOKSHELF</span> All rights reserved. </p>
+   // Created by Sween Khan </p>
     <ul>
         <li>
             <Link to="https://www.instagram.com"><InstagramIcon sx={{ fontSize: 40 }} /></Link>
