@@ -16,9 +16,9 @@ function ProfileUpdate(props) {
     const [name, setName] = useState(prop.name)
     const [email, setEmail] = useState(prop.email)
     const [phone, setPhone] = useState(prop.phone)
-    const [password, setPassword] = useState(prop.originalPassword)
+    const [password, setPassword] = useState("")
+    const [matchPassword, setMatchPassword] = useState(false)
     
-    console.log(edit)
     function handleSubmit(e){ 
          e.preventDefault()
 
@@ -38,6 +38,16 @@ function ProfileUpdate(props) {
 
 
     function handlOnblur(){
+         axios.post(`${porturl}/checkOldPassword/${session}`, {password})
+         .then((result) => {
+          if(result.data.status === 200){
+            setMatchPassword(true)
+            setPassword(result.data.password)
+            console.log(result.data.password)
+          } else {
+            toast.error(result.data.message)
+          }
+         })
 
     }
     
@@ -45,7 +55,7 @@ function ProfileUpdate(props) {
   return (
     <div className='updateProfile'>
     <h2>USER PROFILE</h2>
-         <form onSubmit={handleSubmit}>
+         <form onSubmit={handleSubmit} style={{opacity: (matchPassword) ? "1" : "0.1" }}>
             <label htmlFor="username">Username: </label>
             <input value={username} onChange={(e) => setUserName(e.target.value)}
              type='text' id='username' disabled />
@@ -61,19 +71,22 @@ function ProfileUpdate(props) {
             <label htmlFor="email">Email </label>
             <input value={email} onChange={(e) => setEmail(e.target.value)} type='email'
              id='email' disabled />
-            
-            <label htmlFor="password" className='password'>Password:  
-            <span className="showPassword" onClick={() => {setShowPassword((!showPassword) ? true : false)}}>Show</span></label>
-            <input value={password} onChange={(e) => setPassword(e.target.value)} type={(showPassword) ? "text" : "password" } 
-            id='password' disabled={(!edit) ? true : false} />
-            
-            <label htmlFor="password" className='password'>Password:  
+              
+            <label htmlFor="password" className='password'>New Password:  
             <span className="showPassword" onClick={() => {setShowPassword((!showPassword) ? true : false)}}>Show</span></label>
             <input value={password} onChange={(e) => setPassword(e.target.value)} type={(showPassword) ? "text" : "password" } 
             id='password' disabled={(!edit) ? true : false} />
 
             <button type='submit'>Save</button>
         </form>
+
+          <div className='passwordCnt' style={{display : (matchPassword) ? "none" : "flex", flexDirection:"column"}} >
+            <label htmlFor="passwords" className='password'>Write Your Paaword:  
+           </label>
+            <input value={password} onChange={(e) => setPassword(e.target.value)} type="text"  
+            id='passwords'  onBlur={() => {handlOnblur()}}/>
+            <p>Save</p>
+           </div>
 
         <div className='buttons'> 
         <button onClick={()=> {setEdit((!edit) ? true : false)}}>Edit</button>

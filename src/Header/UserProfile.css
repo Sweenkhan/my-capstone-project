@@ -36,6 +36,7 @@
 }
 
 .updateProfile form{
+                                                         /*   updating */
     border-bottom: 1px solid gray;
     margin-bottom: 20px;
 }
@@ -55,6 +56,43 @@
     cursor: pointer;
     padding: 2px 5px;
     border-radius: 3px;
+}
+
+
+.updateProfile > .passwordCnt{
+    position: absolute;
+    top: 25%;
+    z-index:  4;
+    padding: 5rem;
+    background-color: rgba(0, 0, 0, 0.808);
+    color: white;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 1.2rem; 
+}
+
+.updateProfile > .passwordCnt > input{
+    margin-top: 7px;
+    margin-bottom: 20px;
+}
+
+.updateProfile > .passwordCnt > p{
+    background-color: white;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 5px 10px;
+    /* text-align: center; */
+    width: 40%;
+    border-radius: 20px;
+    float: right;
+    cursor: pointer;
+    box-shadow: inset 2px 3px 8px 4px rgb(65, 36, 36);
+}
+
+.updateProfile > .passwordCnt > p:hover{
+    box-shadow: inset 2px 3px 8px 1px black;
 }
 
 .updateProfile button{
