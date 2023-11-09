@@ -1,10 +1,10 @@
-.userProfile { 
+.userProfile {
     /* width: 250px; */
     padding: 0 5px;
     position: absolute;
     right: 0;
-    top: 75px; 
-    border-radius: 3px;  
+    top: 75px;
+    border-radius: 3px;
     color: white;
     background-color: black;
     display: flex;
@@ -12,44 +12,47 @@
     flex-direction: column;
 }
 
-.userCnt {  
+.userCnt {
     display: flex;
     align-items: center;
     flex-direction: column;
     padding: 0;
-    flex-direction: column; 
+    flex-direction: column;
 }
+
 
 /* -----------------------------------update comoponent */
-.updateProfile{
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 82%;
-   height: 100%;
-   z-index: 1000;
-   background-color: rgba(255, 255, 255);
-   color: black;
-   display: flex;
-   align-items: center;
-   flex-direction: column;
+
+.updateProfile {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 82%;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255);
+    color: black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-.updateProfile form{
-                                                         /*   updating */
+.updateProfile form {
+    /*   updating */
     border-bottom: 1px solid gray;
     margin-bottom: 20px;
 }
 
-.updateProfile form input{
+.updateProfile form input {
     margin-bottom: 10px;
 }
-.updateProfile form .password{
+
+.updateProfile form .password {
     /* position: relative; */
-    width : 100%;
+    width: 100%;
 }
 
-.updateProfile form .showPassword{
+.updateProfile form .showPassword {
     float: right;
     background-color: black;
     color: white;
@@ -58,27 +61,26 @@
     border-radius: 3px;
 }
 
-
-.updateProfile > .passwordCnt{
+.updateProfile>.passwordCnt {
     position: absolute;
     top: 25%;
-    z-index:  4;
-    padding: 5rem;
+    z-index: 4;
+    padding: 4rem 2rem;
     background-color: rgba(0, 0, 0, 0.808);
     color: white;
-    display: flex; 
+    display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
-    font-size: 1.2rem; 
+    font-size: 1.2rem;
 }
 
-.updateProfile > .passwordCnt > input{
+.updateProfile>.passwordCnt>input {
     margin-top: 7px;
     margin-bottom: 20px;
 }
 
-.updateProfile > .passwordCnt > p{
+.updateProfile>.passwordCnt>p {
     background-color: white;
     color: rgb(0, 0, 0);
     text-align: center;
@@ -91,11 +93,11 @@
     box-shadow: inset 2px 3px 8px 4px rgb(65, 36, 36);
 }
 
-.updateProfile > .passwordCnt > p:hover{
+.updateProfile>.passwordCnt>p:hover {
     box-shadow: inset 2px 3px 8px 1px black;
 }
 
-.updateProfile button{
+.updateProfile button {
     padding: 0.2rem 1.4rem;
     margin: 20px 0;
     border-radius: 3px;
@@ -104,19 +106,20 @@
     color: white;
 }
 
-.updateProfile .buttons{
-   display: flex;
-   justify-content: space-evenly;
-   width: 80%;
+.updateProfile .buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
 }
 
-.updateProfile .buttons button{
+.updateProfile .buttons button {
     width: 40%;
 }
 
 
 /* ------------------------------------------------------ */
-.userCnt .user-name{
+
+.userCnt .user-name {
     font-weight: 700;
     font-size: 1.5rem;
     background-color: white;
@@ -134,18 +137,16 @@
     text-align: center;
     border-bottom: 2px solid white;
     padding-bottom: 12PX;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 }
-  
+
 .userCnt .drop-down-friendlist {
-    display: flex; 
+    display: flex;
     flex-direction: column;
     transition: all 0.4s linear;
-    padding-bottom: 10px; 
-    width: 100%; 
+    padding-bottom: 10px;
+    width: 100%;
 }
-
-
 
 .drop-down-friendlist li {
     padding: 3px 5px;
@@ -155,87 +156,79 @@
     font-weight: 600;
     width: 100%;
     text-align: center;
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
     border-bottom: 2px solid white;
 }
 
 .drop-down-friendlist li:hover {
-    background-color: rgb(102, 95, 95) 
+    background-color: rgb(102, 95, 95)
 }
 
-.userProfile-btn{
+.userProfile-btn {
     display: flex;
     justify-content: space-between;
-    width: 100%; 
+    width: 100%;
     margin: 10px;
 }
 
 .userProfile-btn button {
     position: relative;
     z-index: 1;
-    bottom: 0; 
+    bottom: 0;
     font-weight: 600;
     font-size: 1rem;
-    padding: 3px 8px;  
+    padding: 3px 8px;
     border: none;
     border-radius: 2px;
     color: black;
-    background-color: white; 
-    cursor: pointer; 
+    background-color: white;
+    cursor: pointer;
     overflow: hidden;
     transition: 0.3s;
 }
 
-.userProfile-btn button::before{
+.userProfile-btn button::before {
     content: "";
-    position: absolute; 
+    position: absolute;
     bottom: 0;
     right: 0;
     z-index: -1;
     height: 0;
-    width: 100%; 
+    width: 100%;
     color: white;
     transition: all 0.3s linear;
 }
 
-.userProfile-btn .logout-btn::before{
-   background-color: rgb(216, 87, 87);
-   width: 100%;
+.userProfile-btn .logout-btn::before {
+    background-color: rgb(216, 87, 87);
+    width: 100%;
 }
 
-.userProfile-btn .close-btn::before{
-    background-color: #5d68ad; 
- }
+.userProfile-btn .close-btn::before {
+    background-color: #5d68ad;
+}
 
-.userProfile-btn button:hover{
+.userProfile-btn button:hover {
     color: white;
     border: none;
 }
-.userProfile-btn button:hover::before{
-    height: 100%; 
+
+.userProfile-btn button:hover::before {
+    height: 100%;
 }
 
-
-
-@media only screen and (max-width: 500px){
-
-
-    
-    .updateProfile{
+@media only screen and (max-width: 500px) {
+    .updateProfile {
         justify-content: center;
         align-items: center;
         padding: 0;
     }
-
-    .userProfile {  
+    .userProfile {
         border-radius: 0;
         right: 0;
-        top: 0; 
+        top: 0;
     }
-
-    .userCnt .user-name{ 
+    .userCnt .user-name {
         font-size: 1rem;
     }
- 
-
 }
