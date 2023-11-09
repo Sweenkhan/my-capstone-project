@@ -63,7 +63,7 @@
     position: absolute;
     top: 25%;
     z-index:  4;
-    padding: 5rem 2rem;
+    padding: 4rem 2rem; 
     background-color: rgba(0, 0, 0, 0.808);
     color: white;
     display: flex; 
