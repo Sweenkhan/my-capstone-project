@@ -65,7 +65,7 @@
     position: absolute;
     top: 25%;
     z-index: 4;
-    padding: 4rem 2rem;
+    padding: 5rem;
     background-color: rgba(0, 0, 0, 0.808);
     color: white;
     display: flex;
@@ -85,7 +85,6 @@
     color: rgb(0, 0, 0);
     text-align: center;
     padding: 5px 10px;
-    /* text-align: center; */
     width: 40%;
     border-radius: 20px;
     float: right;
