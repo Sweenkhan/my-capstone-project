@@ -54,8 +54,8 @@ function ProfileUpdate(props) {
 
   return (
     <div className='updateProfile'>
-    <h2>USER PROFILE</h2>
-         <form onSubmit={handleSubmit} style={{opacity: (matchPassword) ? "1" : "0.1" }}>
+    <h2 style={{opacity: (matchPassword) ? "1" : "0" }} >USER PROFILE</h2>
+         <form onSubmit={handleSubmit} style={{opacity: (matchPassword) ? "1" : "0" }}>
             <label htmlFor="username">Username: </label>
             <input value={username} onChange={(e) => setUserName(e.target.value)}
              type='text' id='username' disabled />
@@ -81,10 +81,10 @@ function ProfileUpdate(props) {
         </form>
 
           <div className='passwordCnt' style={{display : (matchPassword) ? "none" : "flex", flexDirection:"column"}} >
-            <label htmlFor="passwords" className='password'>Write Your Paaword:  
+            <label htmlFor="passwords" className='password'>Unlock Your Profile:  
            </label>
             <input value={password} onChange={(e) => setPassword(e.target.value)} type="text"  
-            id='passwords'  onBlur={() => {handlOnblur()}}/>
+            id='passwords'  onBlur={() => {handlOnblur()}} placeholder='Write your password'/>
             <p>Save</p>
            </div>
 

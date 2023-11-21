@@ -148,7 +148,7 @@ function handlelikedBook(e, like) {
           </div>
 {/* RATING SECTION */}
           <div className="rating-section">
-            <p>Rate this book:</p>
+            {/* <p>Rate this book:</p> */}
             <div className="stars">
               {[1, 2, 3, 4, 5].map((star) => (
                 <span
@@ -163,13 +163,7 @@ function handlelikedBook(e, like) {
           </div>
 
 {/* COMMENT SECTION */}
-           <div className="comment-section">
-           <h4>Reviews</h4>
-            <form onSubmit={commentBook}>
-              <textarea placeholder="write...." value={comment} onChange={e => {setComment(e.target.value)}} required minlength="10" maxlength="80"></textarea>
-              <button type="submit" className="saveBtn">save</button>
-            </form>
-           </div>
+            
            <ToastContainer
     position="top-center"
     autoClose={3000}  
@@ -189,14 +183,21 @@ function handlelikedBook(e, like) {
             <p className="description"> <span>A. </span> {bookDetail.description}{" "}<span onClick={currentRead} className="current-read">{(!read) ? "Read More..." : ""} </span> </p> <hr />
             {(read) ? <div>
             <p> <span>1. </span>  {paraOne}  </p> <hr />
-            <p style={{ backgroundColor: "white" }}> <span>2. </span> {paraTwo}  </p>  <hr />
+            <p style={{ backgroundColor: "rgba(240, 240, 240, 0.5)",  }}> <span>2. </span> {paraTwo}  </p>  <hr />
             <p> <span>3. </span> {paraThree} </p> <hr />
-            <p style={{ backgroundColor: "white" }}><span>4. </span> {paraFour}</p> <hr />
+            <p style={{ backgroundColor: "rgba(240, 240, 240, 0.5)" }}><span>4. </span> {paraFour}</p> <hr />
             <p> <span>5. </span> {paraFive} </p> <hr />
             <button onClick={(e) => {completeBook(e)}} className="complete-book">COMPLETE </button>
             </div> : ""}
             
           </div>
+          <div className="comment-section">
+           <h4>Reviews</h4>
+            <form onSubmit={commentBook}>
+              <textarea placeholder="write...." value={comment} onChange={e => {setComment(e.target.value)}} required minlength="10" maxlength="80"></textarea>
+              <button type="submit" className="saveBtn">save</button>
+            </form>
+           </div>
         </div>
 
       </div>

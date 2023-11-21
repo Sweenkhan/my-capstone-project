@@ -32,7 +32,7 @@ function Header() {
       .then((result) => {
         setSearchedBooks(result.data.results);
         if (result.data.results.length === 0) {
-          alert("Sorry didn't match with any title.  Try Again ");
+          alert("Sorry didn't match with any title. Try Again ");
         } else {
           navigate("/search");
         }
@@ -75,12 +75,12 @@ function Header() {
         setMenuIcon(true);
       } else {
         setMenuIcon(false);
-      }
-      console.log("hiii")
+      } 
     }
  
-    
+  
     window.addEventListener("resize", handleResize);            //adding event listener to window
+  
  
 
   return (

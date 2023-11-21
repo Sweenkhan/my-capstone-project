@@ -26,10 +26,10 @@
     position: fixed;
     left: 0;
     bottom: 0;
-    width: 82%;
+    width: 77%;
     height: 100%;
     z-index: 1000;
-    background-color: rgba(255, 255, 255);
+    background-color:white;
     color: black;
     display: flex;
     align-items: center;
@@ -64,19 +64,24 @@
     position: absolute;
     top: 25%;
     z-index: 4;
-    padding: 5rem;
+    padding: 4rem;
     background-color: rgba(0, 0, 0, 0.808);
     color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
     border-radius: 10px;
     font-size: 1.2rem;
+    
 }
+
+ 
 
 .updateProfile>.passwordCnt>input {
     margin-top: 7px;
     margin-bottom: 20px;
+    padding-left: 5px;
+    border-radius: 2px;
 }
 
 .updateProfile>.passwordCnt>p {
@@ -84,7 +89,7 @@
     color: rgb(0, 0, 0);
     text-align: center;
     padding: 5px 10px;
-    width: 40%;
+    width: 60%;
     border-radius: 20px;
     float: right;
     cursor: pointer;
@@ -94,7 +99,7 @@
 .updateProfile>.passwordCnt>p:hover {
     box-shadow: inset 2px 3px 8px 1px black;
 }
-
+ 
 .updateProfile button {
     padding: 0.2rem 1.4rem;
     margin: 20px 0;
@@ -102,7 +107,7 @@
     border: none;
     background-color: black;
     color: white;
-}
+} 
 
 .updateProfile .buttons {
     display: flex;
@@ -215,6 +220,8 @@
     height: 100%;
 }
 
+
+
 @media only screen and (max-width: 500px) {
     .updateProfile {
         justify-content: center;
@@ -229,4 +236,18 @@
     .userCnt .user-name {
         font-size: 1rem;
     }
-}
+
+    .updateProfile>.passwordCnt{
+        width: 100%;
+        background-color: #5d68ad; 
+    }
+
+    .updateProfile>.passwordCnt>input{
+          border-radius: 2px;
+    }
+    .updateProfile>.passwordCnt>label {
+        width: 220px; 
+        text-transform: uppercase;
+     }
+
+    }
