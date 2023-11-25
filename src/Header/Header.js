@@ -78,8 +78,16 @@ function Header() {
       } 
     }
  
+    window.addEventListener("resize", handleResize); //adding event listener to window
   
-    window.addEventListener("resize", handleResize);            //adding event listener to window
+    useEffect(() => { 
+      if (window.innerWidth < 500) {
+        setMenuIcon(true);
+      } else {
+        setMenuIcon(false);
+      }
+
+    },[])
   
  
 
