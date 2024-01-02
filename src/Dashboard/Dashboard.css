@@ -265,7 +265,7 @@
       width: 100%;
       font-weight: bold;
       font-size: 1.8rem;
-      border: none;
+      text-shadow: #000;
    }
 
    .dashboardCont .right h3,.dashboardCont .right h2{
@@ -275,5 +275,6 @@
       right: 0; 
 
    }
+   
 
 }

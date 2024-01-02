@@ -173,8 +173,8 @@ function Dashboard() {
         )} 
 
         <div className="right" style={{top: (dropDown ) ? "0px" : "-330px"}}> 
-        <h3>My Books </h3>
-          <h2 data-text="Welcome to Bookshelf">Welcome to Bookshelf</h2>
+        <h3 className="myBooks">My Books </h3>
+          <h2 data-text="Welcome to Bookshelf" >Welcome to Bookshelf</h2>
      
            
           <div className="liked-books">
