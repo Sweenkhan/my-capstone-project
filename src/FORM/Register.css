@@ -69,6 +69,12 @@
     outline: none;
 }
 
+#mobile::-webkit-outer-spin-button,
+#mobile::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /* 
 .right input:hover{ 
     background-color: rgba(196, 41, 196, 0.5);

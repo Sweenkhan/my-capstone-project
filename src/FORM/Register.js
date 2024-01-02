@@ -48,7 +48,7 @@ function Register() {
       <form method='post' onSubmit={handleRegister}>
         <input type='text' name='name' placeholder='Name' value={name} onChange={e => setName(e.target.value)} required/><br />
         <input type='email' name='email' placeholder='Email' value={email} onChange={e => setEmail(e.target.value)} required/><br />
-        <input type='number' name='phone' placeholder='Phone' value={phone} onChange={e => setPhone(e.target.value)} required/><br />
+        <input type='number' id='mobile' name='phone' placeholder='Phone' value={phone} onChange={e => setPhone(e.target.value)} required/><br />
         <input type='text' name='username' placeholder='Username' value={username} onChange={e => setUsername(e.target.value)} required/><br />
         <input type='password' name='password' placeholder='Password'value={password} onChange={e => setPassword(e.target.value)} required/><br />
         <div className='btns'> <button type='submit' name='register'>Submit</button>
