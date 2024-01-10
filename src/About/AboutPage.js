@@ -15,6 +15,7 @@ function Aboutpage() {
         <div className="aboutBannerContent" >
           <h1>About Us</h1>
           <p>
+    
             {" "}
             A bookshelf is more than a mere piece of furniture; it's a gateway
             to exploration, a repository of knowledge, and a reflection of one's
