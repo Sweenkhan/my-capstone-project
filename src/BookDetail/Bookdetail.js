@@ -168,6 +168,7 @@ function handlelikedBook(e, like) {
     position="top-center"
     autoClose={3000}  
     theme="dark"
+    className="tosty"
     />
 
 

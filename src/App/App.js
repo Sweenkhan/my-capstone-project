@@ -7,7 +7,7 @@ import Login from "../FORM/Login";
 import Register from "../FORM/Register";
 import Dashboard from "../Dashboard/Dashboard.js";
 import Search from "../Search/Search";
-import Bookdetail from "../BookDetail/Bookdetail";
+import Bookdetail from "../BookDetail/Bookdetail"; 
 import "./App.css"
 import "../Books/Book.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -44,7 +44,7 @@ function App() {
         </Route>
         <Route path="/bookdetail" element={<Bookdetail />}>
         </Route>
-      </Routes> 
+      </Routes>  
     </BrowserRouter> 
     </searchedContext.Provider>
     </div>

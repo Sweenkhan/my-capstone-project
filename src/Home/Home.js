@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import Footer from "../Footer/Footer";
+import React from "react"; 
 import MainIng from "../images/home.svg";
 import { useNavigate } from "react-router-dom"; 
 import "./Home.css";
+import Footer from "../Footer/Footer";
 
 function Home() {
 
@@ -28,7 +28,7 @@ function Home() {
         </div>
       </div> 
     </div>
-      <Footer />
+     <Footer />
       </>
   );
 }

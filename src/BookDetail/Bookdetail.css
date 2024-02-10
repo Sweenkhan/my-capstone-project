@@ -30,8 +30,18 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: sticky;
+  top: 130px;
+  align-self: flex-start;
+  bottom: 0; 
 }
 
+.tosty{
+  position: absolute;
+  top: -50px;
+  z-index: 50;
+  right: 0;
+}
 .detail-left-img{
   width: 250px;
   height: 280px;

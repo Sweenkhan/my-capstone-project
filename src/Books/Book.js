@@ -52,7 +52,7 @@ function Book() {
       axios
         .patch(`${porturl}/liked/${session}`, { likedBook })
         .then((result) => {
-          // toast.success(result.data.message)
+          toast.success(result.data.message)
           console.log(result.data.message)
           setLikeBook("")
         })
