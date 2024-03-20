@@ -229,7 +229,11 @@
     flex-direction: column; 
       padding: 130px 0 0 0;
   } 
-
+  .detail-left { 
+    top: 0;
+    align-self: center;
+    position: relative;
+}
   .bookdetail .detail-right{
     padding: 0;
   }
