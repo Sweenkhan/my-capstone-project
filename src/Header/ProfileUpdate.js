@@ -3,7 +3,6 @@ import axios from 'axios';
 import { porturl } from '../url/porturl';
 import { toast } from 'react-toastify';
 
-
 function ProfileUpdate(props) {
 
     const prop = props.userProfile;
